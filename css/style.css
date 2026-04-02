@@ -102,6 +102,233 @@ section{
 .header{
     background-color: var(--secundariooscuro);
 }
+/* ============================================
+   CARRITO - ÍCONO EN HEADER
+   ============================================ */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.carrito-icono {
+    font-size: 2.5rem;
+    cursor: pointer;
+    position: relative;
+    padding: 1rem;
+}
+
+.carrito-icono:hover {
+    transform: scale(1.1);
+}
+
+#carrito-contador {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+/* ============================================
+   CARRITO - PANEL LATERAL
+   ============================================ */
+#carrito-panel {
+    position: fixed;
+    top: 0;
+    right: -40rem;
+    width: 38rem;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    z-index: 2000;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+#carrito-panel.abierto {
+    right: 0;
+}
+
+#carrito-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1999;
+}
+
+#carrito-panel.abierto ~ #carrito-overlay {
+    display: block;
+}
+
+.carrito-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    background-color: var(--secundariooscuro);
+}
+
+.carrito-header h2 {
+    margin: 0;
+    color: var(--negro);
+}
+
+.carrito-header button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#carrito-lista {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+.carrito-vacio {
+    text-align: center;
+    color: gray;
+    margin-top: 5rem;
+}
+
+.carrito-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.carrito-item img {
+    width: 7rem;
+    height: 7rem;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.carrito-item-info {
+    flex: 1;
+}
+
+.carrito-item-nombre {
+    font-family: var(--fuentePrincipal);
+    font-size: 1.6rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.carrito-item-precio {
+    font-size: 1.4rem;
+    color: var(--secundario);
+    margin: 0;
+}
+
+.carrito-item-cantidad {
+    font-size: 1.3rem;
+    color: gray;
+    margin: 0;
+}
+
+.carrito-item-eliminar {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: gray;
+}
+
+.carrito-item-eliminar:hover {
+    color: red;
+}
+
+.carrito-footer {
+    padding: 2rem;
+    border-top: 2px solid #eee;
+    background-color: white;
+}
+
+.carrito-footer p {
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    text-align: right;
+    margin-bottom: 1.5rem;
+}
+
+#carrito-total {
+    color: var(--secundario);
+    font-weight: bold;
+}
+
+.carrito-btn-comprar {
+    width: 100%;
+    padding: 1.5rem;
+    background-color: var(--secundariooscuro);
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.8rem;
+    font-family: var(--fuentePrincipal);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carrito-btn-limpiar{
+    width: 100%;
+    padding: 1.5rem;
+    background-color: var(--secundariooscuro);
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.8rem;
+    font-family: var(--fuentePrincipal);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1.5rem;
+    
+}
+
+.carrito-btn-comprar:hover {
+    background-color: var(--secundario);
+}
+
+.carrito-btn-eliminar:hover{
+    background-color: var(--secundario);
+}
+
+/* ============================================
+   BOTÓN AGREGAR AL CARRITO
+   ============================================ */
+.btn-agregar {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: var(--secundario);
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    font-family: var(--fuentePrincipal);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-agregar:hover {
+    background-color: var(--secundariooscuro);
+    color: var(--negro);
+}
 /*BARRA DE NAVEGACION*/
 .nav-pri{
    /* background-color: var(--secundariooscuro);*/

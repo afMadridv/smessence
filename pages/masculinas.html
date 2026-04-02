@@ -13,15 +13,16 @@
 </head>
 <body>
     <header class="header">
-        <a href="../index.html"><h1 class="header__titulo"><i>Smessence</i></h1></a>
+    <a href="../index.html"><h1 class="header__titulo"><i>Smessence</i></h1></a>
     </header>
     <div class="nav-pri">
         <nav class="navegacion-principal contenedor">
-            <a href="masculinas.html">Masculinas</a>
-            <a href="femeninas.html">Femeninas</a>
-            <a href="combos.html">Combos</a>
-        </nav>
+        <a href="masculinas.html">Masculinas</a>
+        <a href="femeninas.html">Femeninas</a>
+        <a href="combos.html">Combos</a>
+</nav>
     </div>
+
     <main class="contenedor">
         <h1>Perfumes Masculinos</h1>
         <div class="grid">
@@ -33,6 +34,9 @@
                         <p class="producto__precio">$120.000,00 COP</p>
                     </div>
                 </a>
+                 <button class="btn-agregar" onclick="agregarAlCarrito('212 VIP', 120000, 'imagenes/212.jpg')">
+                    Agregar al carrito
+                 </button>
             </div>
             <div class="producto">
                 <a href="Productos/asad.html">
@@ -42,6 +46,9 @@
                         <p class="producto__precio">$120.000,00 COP</p>
                     </div>
                 </a>
+                 <button class="btn-agregar" onclick="agregarAlCarrito('Asad', 120000, 'imagenes/asad.jpg')">
+                    Agregar al carrito
+                 </button>
             </div>
             <div class="producto">
                 <a href="Productos/clubdenuit.html">
@@ -51,6 +58,9 @@
                         <p class="producto__precio">$120.000,00 COP</p>
                     </div>
                 </a>
+                 <button class="btn-agregar" onclick="agregarAlCarrito('Club de Nuit Intense', 120000, 'imagenes/clubnuitintense.jpg')">
+                    Agregar al carrito
+                 </button>
             </div>
             <div class="producto">
                 <a href="Productos/incituselixir.html">
@@ -60,6 +70,9 @@
                         <p class="producto__precio">$120.000,00 COP</p>
                     </div>
                 </a>
+                 <button class="btn-agregar" onclick="agregarAlCarrito('Invictus Elixir', 120000, 'imagenes/invictuselixir.jpg')">
+                    Agregar al carrito
+                 </button>
             </div>
             <div class="producto">
                 <a href="Productos/onemillion.html">
@@ -69,6 +82,9 @@
                         <p class="producto__precio">$120.000,00 COP</p>
                     </div>
                 </a>
+                 <button class="btn-agregar" onclick="agregarAlCarrito('One Million', 120000, 'imagenes/onemillion.jpg')">
+                    Agregar al carrito
+                 </button>
             </div>
             <div class="producto">
                 <a href="Productos/amberoud.html">
@@ -78,6 +94,9 @@
                         <p class="producto__precio">$120.000,00 COP</p>
                     </div>
                 </a>
+                 <button class="btn-agregar" onclick="agregarAlCarrito('Amber Oud', 120000, 'imagenes/amberoud.jpg')">
+                    Agregar al carrito
+                 </button>
             </div>
             <div class="producto">
                 <a href="Productos/khamrah.html">
@@ -87,6 +106,9 @@
                         <p class="producto__precio">$120.000,00 COP</p>
                     </div>
                 </a>
+                 <button class="btn-agregar" onclick="agregarAlCarrito('Khamrah', 120000, 'imagenes/khamrah.jpg')">
+                    Agregar al carrito
+                 </button>
             </div>
             <div class="producto">
                 <a href="Productos/diorsauvage.html">
@@ -96,8 +118,11 @@
                         <p class="producto__precio">$120.000,00 COP</p>
                     </div>
                 </a>
+                 <button class="btn-agregar" onclick="agregarAlCarrito('Dior Sauvage', 120000, 'imagenes/diordsauvagetradicional.jpg')">
+                    Agregar al carrito
+                 </button>
             </div>
-            <div class="producto">
+            <div class="producto oculto">
                 <a href="Productos/creed.html">
                     <img class="producto__imagen" src="../imagenes/creedvirginislanwater.jpg" alt="Creed Virgin Island Water">
                     <div class="producto__informacion">
@@ -105,8 +130,11 @@
                         <p class="producto__precio">$120.000,00 COP</p>
                     </div>
                 </a>
+                 <button class="btn-agregar" onclick="agregarAlCarrito('Creed Virgin Island Water', 120000, 'imagenes/creedvirginislanwater.jpg')">
+                    Agregar al carrito
+                 </button>
             </div>
-            <div class="producto">
+            <div class="producto oculto">
                 <a href="Productos/ultramale.html">
                     <img class="producto__imagen" src="../imagenes/jeanpaulgaultierultramale.jpg" alt="Ultra Male">
                     <div class="producto__informacion">
@@ -114,8 +142,11 @@
                         <p class="producto__precio">$120.000,00 COP</p>
                     </div>
                 </a>
+                 <button class="btn-agregar" onclick="agregarAlCarrito('Ultra Male', 120000, 'imagenes/ultramale.jpg')">
+                    Agregar al carrito
+                 </button>
             </div>
-            <div class="producto">
+            <div class="producto oculto">
                 <a href="Productos/borninroma.html">
                     <img class="producto__imagen" src="../imagenes/romavaelntino.jpg" alt="Born in Roma Valentino">
                     <div class="producto__informacion">
@@ -123,12 +154,17 @@
                         <p class="producto__precio">$120.000,00 COP</p>
                     </div>
                 </a>
+                 <button class="btn-agregar" onclick="agregarAlCarrito('Born in Roma Vaalentino', 120000, 'imagenes/romavaelntino.jpg')">
+                    Agregar al carrito
+                 </button>
             </div>
         </div>
     </main>
+    <button id="ver-mas">Ver más</button>
     <footer class="footer">
         <p>Todos los derechos reservados &copy; Smessence | Andrés Madrid</p>
     </footer>
+    <script src="../js/carrito.js"></script>
     <script src="../js/script.js"></script>
 </body>
 </html>

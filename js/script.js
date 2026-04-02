@@ -1,4 +1,6 @@
+// ============================================
 // CARRUSEL
+// ============================================
 let index = 0;
 const images = document.querySelectorAll('.carrusel-imagenes img');
 
@@ -9,7 +11,6 @@ function mostrarImagen() {
             img.classList.add('activo');
         }
     });
-
     index = (index + 1) % images.length;
 }
 
@@ -17,13 +18,14 @@ if (images.length > 0) {
     setInterval(mostrarImagen, 5500);
 }
 
-// GRID OCULTO
-const verMasButton = document.getElementById('ver-mas');
-
-if (verMasButton) {
-    verMasButton.addEventListener('click', function () {
+// ============================================
+// GRID - VER MÁS
+// ============================================
+const verMasBtn = document.getElementById('ver-mas');
+if (verMasBtn) {
+    verMasBtn.addEventListener('click', function() {
         const elementosOcultos = document.querySelectorAll('.oculto');
-        elementosOcultos.forEach(function (elemento) {
+        elementosOcultos.forEach(function(elemento) {
             elemento.style.display = 'block';
         });
         this.style.display = 'none';
