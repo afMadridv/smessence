@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico y calculadora de insolvencia — Fundación MASCaribe</title>
+<meta name="description" content="Calcula en pocos pasos si cumples los requisitos legales para acogerte a la Ley de Insolvencia de Persona Natural No Comerciante en Colombia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;500;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/portal/css/style.css">
+</head>
+<body>
+  <!-- ===================== MÓDULO 1: MODAL DE PRIVACIDAD ===================== -->
+  <div class="overlay" id="overlay-privacidad" role="dialog" aria-modal="true" aria-labelledby="priv-titulo" hidden>
+    <div class="modal">
+      <div class="modal__cab">
+        <h2 id="priv-titulo">Tratamiento de tus datos personales</h2>
+        <p>Antes de continuar, lee y autoriza el manejo de tu información conforme a la ley colombiana.</p>
+      </div>
+      <div class="modal__cuerpo" id="priv-cuerpo" tabindex="0">
+        <h3>Políticas de la Fundación MASCaribe</h3>
+        <p>La Fundación MASCaribe recolecta y trata tus datos personales con la única
+           finalidad de brindarte acompañamiento en tu proceso de insolvencia económica y
+           orientarte sobre las alternativas legales disponibles. Los datos que ingreses
+           (ingresos, gastos, acreedores y datos de contacto) se usan exclusivamente para
+           preparar tu diagnóstico y para que un asesor pueda comunicarse contigo.</p>
+
+        <h3>Decreto 0042 de 2026 y Ley 1581 de 2012 — Habeas Data</h3>
+        <p>El <strong>Régimen General de Protección de Datos Personales</strong>
+           (Ley 1581 de 2012 y su reglamentación, incluido el Decreto 0042 de 2026)
+           te reconoce el derecho a <strong>conocer, actualizar, rectificar y suprimir</strong>
+           tus datos, así como a revocar la autorización otorgada. El tratamiento de datos
+           personales requiere tu consentimiento previo, expreso e informado, que otorgas al
+           marcar la casilla de autorización de esta pantalla.</p>
+
+        <h3>Ley 1712 de 2014 — Transparencia y acceso a la información</h3>
+        <p>La <strong>Ley de Transparencia y del Derecho de Acceso a la Información Pública
+           Nacional</strong> garantiza tu derecho a acceder a la información sobre el tratamiento
+           que se da a tus datos y a solicitar en cualquier momento un informe sobre el uso de
+           los mismos.</p>
+
+        <div class="confidencial">
+          El tratamiento de su información se realiza de manera estrictamente confidencial
+          dentro del portal web de la fundación, garantizando que sus datos no serán
+          divulgados, compartidos ni saldrán de la institución bajo ningún escenario externo.
+        </div>
+
+        <p>Al autorizar, declaras haber leído y comprendido estas condiciones y aceptas que la
+           Fundación MASCaribe trate tus datos conforme a lo aquí señalado. Puedes ejercer tus
+           derechos escribiendo a los canales de contacto de la fundación.</p>
+      </div>
+      <div class="modal__pie">
+        <label class="check" for="priv-acepto">
+          <input type="checkbox" id="priv-acepto">
+          <span>Autorizo el manejo de mi información conforme a las políticas señaladas.</span>
+        </label>
+        <button class="btn btn--primario" id="priv-continuar" disabled>Continuar al portal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== MÓDULO 2: CALCULADORA ===================== -->
+  <header class="barra">
+    <div>
+      <h1>Fundación MASCaribe</h1>
+      <small>Diagnóstico y calculadora de insolvencia · Persona natural</small>
+    </div>
+    <nav aria-label="Navegación principal">
+      <a href="diagnostico.html" class="activo">Inicio</a>
+      <a href="index.html">Portal</a>
+    </nav>
+  </header>
+
+  <div class="tarjeta">
+    <div class="progreso">
+      <div class="progreso__barra"><div class="progreso__fill" id="progreso-fill"></div></div>
+      <div class="progreso__txt" id="progreso-txt">Paso 1 de 4</div>
+    </div>
+    <div id="contenido"></div>
+  </div>
+
+  <p class="pie">Este diagnóstico es orientativo y no constituye asesoría jurídica.
+     Basado en el régimen de insolvencia de persona natural no comerciante (Ley 1564 de 2012 y normas concordantes).
+     <a href="index.html">Ingresar al portal</a></p>
+
+<script>
+/* ============================================================================
+   CONFIGURA AQUÍ el canal de contacto de la fundación.
+   ========================================================================== */
+const CONTACTO = {
+    correo: 'contacto@fundacionmascaribe.org'  // <-- CAMBIAR si aplica
+};
+
+const CLAVE_CONSENT = 'mascaribe_consentimiento_v1';
+
+/* ===================== MÓDULO 1: gestión del consentimiento ===================== */
+(function gestionarPrivacidad(){
+    const overlay = document.getElementById('overlay-privacidad');
+    // Si ya autorizó en este dispositivo, no volver a mostrar.
+    if (localStorage.getItem(CLAVE_CONSENT)) return;
+
+    overlay.hidden = false;
+    document.body.style.overflow = 'hidden';   // bloquea el scroll de fondo
+
+    const check = document.getElementById('priv-acepto');
+    const btn   = document.getElementById('priv-continuar');
+    check.addEventListener('change', () => { btn.disabled = !check.checked; });
+    btn.addEventListener('click', () => {
+        if (!check.checked) return;
+        localStorage.setItem(CLAVE_CONSENT, JSON.stringify({ fecha: new Date().toISOString(), version: 'v1' }));
+        overlay.hidden = true;
+        document.body.style.overflow = '';
+    });
+    document.getElementById('priv-cuerpo').focus();
+})();
+
+/* ===================== Utilidades ===================== */
+const cont = document.getElementById('contenido');
+const NUM_PASOS = 4;  // Perfil, Ingresos, Gastos, Acreedores (el resultado va aparte)
+
+function pesos(n){
+    const v = Number(n || 0);
+    return v.toLocaleString('es-CO', { style:'currency', currency:'COP', maximumFractionDigits:0 });
+}
+function aNumero(str){ return Number(String(str).replace(/[^\d]/g, '')) || 0; }
+
+/* Estado del formulario */
+const estado = {
+    perfil: null,                                  // 'natural' | 'comerciante'
+    ingresos: { modo:'neto', neto:0, filas:[] },   // filas: {desc, monto}
+    gastos:   { modo:'neto', neto:0, filas:[] },   // filas: {desc, monto}
+    acreedores:{ modo:'detalle', neto:0, filas:[] },// filas: {nombre, concepto, monto, mora}
+    lead: { nombre:'', correo:'', telefono:'' }
+};
+
+let paso = 0;   // 0..3 pasos de entrada; 4 = resultado
+
+/* ===================== Progreso ===================== */
+function pintarProgreso(){
+    const idx = Math.min(paso, NUM_PASOS);
+    document.getElementById('progreso-fill').style.width = Math.round((idx / NUM_PASOS) * 100) + '%';
+    document.getElementById('progreso-txt').textContent =
+        paso < NUM_PASOS ? ('Paso ' + (paso + 1) + ' de ' + NUM_PASOS) : 'Resultado';
+}
+
+/* ===================== Totales ===================== */
+function totalIngresos(){
+    return estado.ingresos.modo === 'neto'
+        ? estado.ingresos.neto
+        : estado.ingresos.filas.reduce((s, f) => s + f.monto, 0);
+}
+function totalGastos(){
+    return estado.gastos.modo === 'neto'
+        ? estado.gastos.neto
+        : estado.gastos.filas.reduce((s, f) => s + f.monto, 0);
+}
+function totalDeudas(){
+    return estado.acreedores.modo === 'neto'
+        ? estado.acreedores.neto
+        : estado.acreedores.filas.reduce((s, f) => s + f.monto, 0);
+}
+
+/* ===================== Navegación ===================== */
+function irA(p){ paso = p; render(); document.querySelector('.tarjeta').scrollIntoView({ behavior:'smooth', block:'start' }); }
+
+function render(){
+    pintarProgreso();
+    if (paso === 0) pintarPerfil();
+    else if (paso === 1) pintarIngresos();
+    else if (paso === 2) pintarGastos();
+    else if (paso === 3) pintarAcreedores();
+    else pintarResultado();
+}
+
+/* Botones de navegación estándar (atrás / siguiente) */
+function navHTML(mostrarSiguiente){
+    return '<p class="aviso" id="aviso-paso" hidden>Completa todos los campos para continuar.</p>' +
+        '<div class="navegacion">' +
+        '<button class="btn btn--fantasma" id="btn-atras"' + (paso === 0 ? ' hidden' : '') + '>&larr; Atrás</button>' +
+        (mostrarSiguiente
+            ? '<button class="btn btn--primario" id="btn-sig">' + (paso === 3 ? 'Ver diagnóstico' : 'Siguiente') + ' &rarr;</button>'
+            : '<span></span>') +
+        '</div>';
+}
+function engancharNav(){
+    const atras = document.getElementById('btn-atras');
+    if (atras) atras.addEventListener('click', () => irA(paso - 1));
+    const sig = document.getElementById('btn-sig');
+    if (sig) sig.addEventListener('click', () => {
+        if (pasoValido()){ irA(paso + 1); return; }
+        const aviso = document.getElementById('aviso-paso');
+        if (aviso) aviso.hidden = false;
+        const primerError = cont.querySelector('.error');
+        if (primerError) primerError.focus();
+    });
+}
+
+/* Todos los campos del paso son obligatorios */
+function marcarError(el, mal){ if (el) el.classList.toggle('error', !!mal); return !mal; }
+
+function pasoValido(){
+    if (paso === 0) return !!estado.perfil;
+    if (paso === 1) return validarMonto('ingresos');
+    if (paso === 2) return validarMonto('gastos');
+    if (paso === 3) return validarAcreedores();
+    return true;
+}
+
+function validarMonto(clave){
+    const d = estado[clave];
+    let ok = true;
+    if (d.modo === 'neto'){
+        ok = marcarError(document.getElementById('neto-' + clave), d.neto <= 0);
+    } else {
+        cont.querySelectorAll('#filas-' + clave + ' .fila').forEach((row, i) => {
+            const f = d.filas[i]; if (!f) return;
+            if (!marcarError(row.querySelector('.desc'), !f.desc.trim())) ok = false;
+            if (!marcarError(row.querySelector('.monto'), f.monto <= 0)) ok = false;
+        });
+    }
+    return ok;
+}
+
+function validarAcreedores(){
+    const d = estado.acreedores;
+    let ok = true;
+    if (d.modo === 'neto'){
+        ok = marcarError(document.getElementById('neto-acreedores'), d.neto <= 0);
+    } else {
+        cont.querySelectorAll('#filas-ac .fila').forEach((row, i) => {
+            const f = d.filas[i]; if (!f) return;
+            const ins = row.querySelectorAll('input'); // [nombre, concepto, monto, mora]
+            if (!marcarError(ins[0], !f.nombre.trim())) ok = false;
+            if (!marcarError(ins[2], f.monto <= 0)) ok = false;
+            if (!marcarError(ins[3], ins[3].value.trim() === '')) ok = false; // mora obligatoria (0 válido)
+        });
+    }
+    return ok;
+}
+
+/* Toggle Valor neto / Detallado */
+function toggleHTML(modo){
+    return '<div class="toggle" role="tablist">' +
+        '<button data-modo="neto" class="' + (modo === 'neto' ? 'activo' : '') + '">Valor neto</button>' +
+        '<button data-modo="detalle" class="' + (modo === 'detalle' ? 'activo' : '') + '">Detallado</button>' +
+        '</div>';
+}
+
+/* ===================== PASO 0: Perfil ===================== */
+function pintarPerfil(){
+    cont.innerHTML =
+        '<div class="paso">' +
+            '<span class="paso__num">Paso 1 de ' + NUM_PASOS + '</span>' +
+            '<h2 class="paso__preg">¿Qué tipo de solicitante eres?</h2>' +
+            '<p class="paso__ayuda">Esto nos ayuda a orientar tu diagnóstico según el régimen que te corresponde.</p>' +
+            '<div class="opciones">' +
+                '<button class="opcion' + (estado.perfil === 'natural' ? ' activa' : '') + '" data-perfil="natural">' +
+                    'Persona Natural No Comerciante<small>Tienes deudas a título personal y no estás registrado como comerciante.</small></button>' +
+                '<button class="opcion' + (estado.perfil === 'comerciante' ? ' activa' : '') + '" data-perfil="comerciante">' +
+                    'Pequeño Comerciante<small>Ejerces una actividad comercial de pequeña escala.</small></button>' +
+            '</div>' +
+            navHTML(false) +
+        '</div>';
+    cont.querySelectorAll('.opcion').forEach(b => b.addEventListener('click', () => {
+        estado.perfil = b.dataset.perfil;
+        irA(1);
+    }));
+    engancharNav();
+}
+
+/* ===================== PASO 1: Ingresos ===================== */
+function pintarIngresos(){
+    const d = estado.ingresos;
+    cont.innerHTML =
+        '<div class="paso">' +
+            '<span class="paso__num">Paso 2 de ' + NUM_PASOS + '</span>' +
+            '<h2 class="paso__preg">Tus ingresos mensuales</h2>' +
+            '<p class="paso__ayuda">Para poder ayudarte en tu proceso bajo la ley de insolvencia, es necesario que nos indiques tus ingresos actuales. La ley de insolvencia no quiere que dejes de atender los gastos familiares para pagar deudas; por eso es importante conocer tus ingresos y los gastos necesarios para tu subsistencia y la de las personas a tu cargo. Ese es el fundamento de cualquier propuesta de pago.</p>' +
+            toggleHTML(d.modo) +
+            '<div id="cuerpo-ingresos"></div>' +
+            '<div class="total"><span>Total ingresos</span><strong id="tot-ingresos">' + pesos(totalIngresos()) + '</strong></div>' +
+            navHTML(true) +
+        '</div>';
+    engancharToggle('ingresos', pintarIngresos);
+    cuerpoMonto('ingresos', document.getElementById('cuerpo-ingresos'), '+ Añadir ingreso', 'Ej.: salario, arriendo, negocio…', actualizarTotalesIngresos);
+    engancharNav();
+}
+function actualizarTotalesIngresos(){ document.getElementById('tot-ingresos').textContent = pesos(totalIngresos()); }
+
+/* ===================== PASO 2: Gastos ===================== */
+function pintarGastos(){
+    const d = estado.gastos;
+    cont.innerHTML =
+        '<div class="paso">' +
+            '<span class="paso__num">Paso 3 de ' + NUM_PASOS + '</span>' +
+            '<h2 class="paso__preg">Tus gastos mensuales</h2>' +
+            '<p class="paso__ayuda">Gastos necesarios para la subsistencia del deudor y las personas a su cargo.</p>' +
+            toggleHTML(d.modo) +
+            '<div id="cuerpo-gastos"></div>' +
+            '<div class="total"><span>Total gastos</span><strong id="tot-gastos">' + pesos(totalGastos()) + '</strong></div>' +
+            '<div class="total balance" id="barra-balance"><span>Balance (ingresos − gastos)</span><strong class="val" id="tot-balance">' + pesos(0) + '</strong></div>' +
+            navHTML(true) +
+        '</div>';
+    engancharToggle('gastos', pintarGastos);
+    cuerpoMonto('gastos', document.getElementById('cuerpo-gastos'), '+ Añadir gasto', 'Ej.: arriendo, servicios, alimentación…', actualizarBalance);
+    actualizarBalance();
+    engancharNav();
+}
+function actualizarBalance(){
+    document.getElementById('tot-gastos').textContent = pesos(totalGastos());
+    const bal = totalIngresos() - totalGastos();
+    document.getElementById('tot-balance').textContent = pesos(bal);
+    document.getElementById('barra-balance').classList.toggle('neg', bal < 0);
+}
+
+/* Cuerpo genérico para ingresos/gastos (descripción + monto) */
+function cuerpoMonto(clave, host, textoAdd, placeholderDesc, onCambio){
+    const d = estado[clave];
+    if (d.modo === 'neto'){
+        host.innerHTML =
+            '<div class="campo-neto"><label>Total mensual (COP)</label>' +
+            '<input type="text" inputmode="numeric" id="neto-' + clave + '" placeholder="0" value="' + (d.neto ? d.neto.toLocaleString('es-CO') : '') + '"></div>';
+        const inp = document.getElementById('neto-' + clave);
+        inp.addEventListener('input', () => {
+            d.neto = aNumero(inp.value);
+            inp.value = d.neto ? d.neto.toLocaleString('es-CO') : '';
+            limpiar(inp);
+            onCambio();
+        });
+        return;
+    }
+    // Modo detallado
+    if (d.filas.length === 0) d.filas.push({ desc:'', monto:0 });
+    host.innerHTML = '<div class="filas" id="filas-' + clave + '"></div><button class="btn-add" id="add-' + clave + '">' + textoAdd + '</button>';
+    const cajaFilas = document.getElementById('filas-' + clave);
+
+    function dibujar(){
+        cajaFilas.innerHTML = '';
+        d.filas.forEach((f, i) => {
+            const row = document.createElement('div');
+            row.className = 'fila';
+            row.innerHTML =
+                '<input class="desc" type="text" placeholder="' + placeholderDesc + '" value="' + esc(f.desc) + '">' +
+                '<input class="monto" type="text" inputmode="numeric" placeholder="0" value="' + (f.monto ? f.monto.toLocaleString('es-CO') : '') + '">' +
+                '<button class="quitar" title="Eliminar" aria-label="Eliminar fila">×</button>';
+            row.querySelector('.desc').addEventListener('input', e => { f.desc = e.target.value; limpiar(e.target); });
+            const m = row.querySelector('.monto');
+            m.addEventListener('input', () => { f.monto = aNumero(m.value); m.value = f.monto ? f.monto.toLocaleString('es-CO') : ''; limpiar(m); onCambio(); });
+            row.querySelector('.quitar').addEventListener('click', () => {
+                d.filas.splice(i, 1);
+                if (d.filas.length === 0) d.filas.push({ desc:'', monto:0 });
+                dibujar(); onCambio();
+            });
+            cajaFilas.appendChild(row);
+        });
+    }
+    dibujar();
+    document.getElementById('add-' + clave).addEventListener('click', () => { d.filas.push({ desc:'', monto:0 }); dibujar(); onCambio(); });
+}
+
+/* ===================== PASO 3: Acreedores ===================== */
+function pintarAcreedores(){
+    const d = estado.acreedores;
+    cont.innerHTML =
+        '<div class="paso">' +
+            '<span class="paso__num">Paso 4 de ' + NUM_PASOS + '</span>' +
+            '<h2 class="paso__preg">Tus acreedores y deudas</h2>' +
+            '<p class="paso__ayuda">Agrega a quién le debes y el valor aproximado de la deuda. Ten en cuenta que solamente debes anotar el capital de la deuda, y debes incluir entidades financieras y créditos particulares. Para un diagnóstico preciso usa el modo <strong>Detallado</strong>.</p>' +
+            toggleHTML(d.modo) +
+            '<div id="cuerpo-acreedores"></div>' +
+            '<div class="total"><span>Total deudas (acreedores)</span><strong id="tot-deudas">' + pesos(totalDeudas()) + '</strong></div>' +
+            navHTML(true) +
+        '</div>';
+    engancharToggle('acreedores', pintarAcreedores);
+    cuerpoAcreedores(document.getElementById('cuerpo-acreedores'));
+    engancharNav();
+}
+function actualizarTotalDeudas(){ document.getElementById('tot-deudas').textContent = pesos(totalDeudas()); }
+
+function cuerpoAcreedores(host){
+    const d = estado.acreedores;
+    if (d.modo === 'neto'){
+        host.innerHTML =
+            '<div class="campo-neto"><label>Total de todas tus deudas (COP)</label>' +
+            '<input type="text" inputmode="numeric" id="neto-acreedores" placeholder="0" value="' + (d.neto ? d.neto.toLocaleString('es-CO') : '') + '"></div>';
+        const inp = document.getElementById('neto-acreedores');
+        inp.addEventListener('input', () => {
+            d.neto = aNumero(inp.value);
+            inp.value = d.neto ? d.neto.toLocaleString('es-CO') : '';
+            limpiar(inp);
+            actualizarTotalDeudas();
+        });
+        return;
+    }
+    if (d.filas.length === 0) d.filas.push({ nombre:'', concepto:'', monto:0, mora:0 });
+    host.innerHTML = '<div class="filas" id="filas-ac"></div><button class="btn-add" id="add-ac">+ Añadir acreedor</button>';
+    const caja = document.getElementById('filas-ac');
+
+    function dibujar(){
+        caja.innerHTML = '';
+        d.filas.forEach((f, i) => {
+            const row = document.createElement('div');
+            row.className = 'fila';
+            row.innerHTML =
+                '<input class="desc" type="text" placeholder="Ej.: Banco X, Tienda Y, Persona…" value="' + esc(f.nombre) + '">' +
+                '<input class="desc" type="text" placeholder="Concepto (opcional)" value="' + esc(f.concepto) + '">' +
+                '<input class="monto" type="text" inputmode="numeric" placeholder="Monto" value="' + (f.monto ? f.monto.toLocaleString('es-CO') : '') + '">' +
+                '<input class="mora" type="number" min="0" placeholder="Días mora" value="' + (f.mora || '') + '">' +
+                '<button class="quitar" title="Eliminar" aria-label="Eliminar fila">×</button>';
+            const ins = row.querySelectorAll('input');
+            ins[0].addEventListener('input', e => { f.nombre = e.target.value; limpiar(ins[0]); });
+            ins[1].addEventListener('input', e => { f.concepto = e.target.value; });
+            ins[2].addEventListener('input', () => { f.monto = aNumero(ins[2].value); ins[2].value = f.monto ? f.monto.toLocaleString('es-CO') : ''; limpiar(ins[2]); actualizarTotalDeudas(); });
+            ins[3].addEventListener('input', e => { f.mora = Number(e.target.value) || 0; limpiar(ins[3]); });
+            row.querySelector('.quitar').addEventListener('click', () => {
+                d.filas.splice(i, 1);
+                if (d.filas.length === 0) d.filas.push({ nombre:'', concepto:'', monto:0, mora:0 });
+                dibujar(); actualizarTotalDeudas();
+            });
+            caja.appendChild(row);
+        });
+    }
+    dibujar();
+    document.getElementById('add-ac').addEventListener('click', () => { d.filas.push({ nombre:'', concepto:'', monto:0, mora:0 }); dibujar(); actualizarTotalDeudas(); });
+}
+
+/* Toggle común */
+function engancharToggle(clave, repintar){
+    cont.querySelectorAll('.toggle button').forEach(b => b.addEventListener('click', () => {
+        estado[clave].modo = b.dataset.modo;
+        repintar();
+    }));
+}
+
+/* Escapa texto para inyectarlo en atributos value */
+function esc(s){ return String(s || '').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
+
+/* Limpia el estado de error de un campo al editarlo */
+function limpiar(el){ el.classList.remove('error'); const a = document.getElementById('aviso-paso'); if (a) a.hidden = true; }
+
+/* ===================== PASO 4: Evaluación legal ===================== */
+function evaluar(){
+    const total = totalDeudas();
+    // La fórmula legal requiere el detalle de acreedores (mora por obligación).
+    const detalle = estado.acreedores.modo === 'detalle';
+    const filas = estado.acreedores.filas.filter(f => f.nombre.trim() && f.monto > 0);
+
+    const acreedoresDistintos = new Set(filas.map(f => f.nombre.trim().toLowerCase())).size;
+    const enMora = filas.filter(f => f.mora >= 90);
+    const montoEnMora = enMora.reduce((s, f) => s + f.monto, 0);
+    const pctMora = total > 0 ? (montoEnMora / total) * 100 : 0;
+
+    const obligacionesMora = filas.filter(f => f.mora > 0).length;
+    const c1 = detalle && acreedoresDistintos >= 2;   // >= 2 acreedores distintos
+    const c2 = detalle && obligacionesMora >= 2;      // >= 2 obligaciones en mora
+    const c3 = detalle && enMora.length >= 2;         // esas obligaciones con 90 días o más de mora
+    const c4 = detalle && pctMora > 30;               // la mora de 90+ días supera el 30% del pasivo
+
+    return {
+        detalle, apto: c1 && c2 && c3 && c4,
+        acreedoresDistintos, enMora: enMora.length, obligacionesMora,
+        pctMora, total, montoEnMora,
+        criterios: [
+            { ok:c1, txt:'Dos o más acreedores distintos (tienes ' + acreedoresDistintos + ')' },
+            { ok:c2, txt:'Dos o más obligaciones en mora (tienes ' + obligacionesMora + ')' },
+            { ok:c3, txt:'Esas obligaciones con 90 días o más de mora (tienes ' + enMora.length + ')' },
+            { ok:c4, txt:'La mora de 90+ días supera el 30% del total (va en ' + pctMora.toFixed(1) + '%)' }
+        ]
+    };
+}
+
+const CHECK = '<svg class="ic ok" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+const CRUZ  = '<svg class="ic no" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>';
+
+function pintarResultado(){
+    pintarProgreso();
+    const ev = evaluar();
+    const icoOk = '<svg viewBox="0 0 24 24" fill="none" stroke="#157039" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+    const icoInfo = '<svg viewBox="0 0 24 24" fill="none" stroke="#8A4B08" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>';
+
+    let avisoDetalle = '';
+    if (!ev.detalle){
+        avisoDetalle = '<p style="color:var(--ambar)">Para un diagnóstico preciso necesitamos el <strong>detalle de tus acreedores</strong> (monto y días de mora de cada uno). Vuelve al paso de acreedores y usa el modo «Detallado».</p>';
+    }
+
+    const criteriosHTML = ev.detalle
+        ? '<ul class="criterios">' + ev.criterios.map(c => '<li>' + (c.ok ? CHECK : CRUZ) + '<span>' + c.txt + '</span></li>').join('') + '</ul>'
+        : '';
+
+    const clase = ev.apto ? 'resultado--exito' : 'resultado--info';
+    const ico   = ev.apto ? icoOk : icoInfo;
+    const titulo = ev.apto ? 'Cumples los requisitos' : (ev.detalle ? 'Aún no cumples todos los requisitos' : 'Necesitamos más detalle');
+    const mensaje = ev.apto
+        ? 'Cumples con los requisitos legales para acogerte a la <strong>Ley de Insolvencia de Persona Natural No Comerciante</strong>. Déjanos tus datos y un asesor iniciará tu trámite.'
+        : 'En este momento no cumples con el total de los requisitos de ley para insolvencia. Sin embargo, podemos asesorarte en otros procesos legales alternativos (como negociaciones directas o conciliaciones) para proteger tu patrimonio.';
+
+    cont.innerHTML =
+        '<div class="resultado ' + clase + '">' +
+            '<div class="resultado__ico">' + ico + '</div>' +
+            '<h2>' + titulo + '</h2>' +
+            '<p>' + mensaje + '</p>' +
+            avisoDetalle +
+            criteriosHTML +
+            leadHTML() +
+            '<div class="resultado__acciones">' +
+                '<div class="acciones-cta">' +
+                    '<button class="btn btn--primario" id="btn-correo">Enviar al correo</button>' +
+                '</div>' +
+                '<button class="enlace-sec" id="btn-reiniciar">Volver a empezar</button>' +
+            '</div>' +
+        '</div>';
+
+    engancharResultado(ev);
+}
+
+function leadHTML(){
+    const l = estado.lead;
+    return '<div class="lead">' +
+        '<h3>Deja tus datos para continuar</h3>' +
+        '<p class="sub">Un asesor de la fundación te contactará para procesar tu ayuda.</p>' +
+        '<div class="campo"><label for="l-nombre">Nombre completo *</label><input id="l-nombre" type="text" maxlength="90" value="' + esc(l.nombre) + '"></div>' +
+        '<div class="campo"><label for="l-correo">Correo electrónico *</label><input id="l-correo" type="email" maxlength="120" value="' + esc(l.correo) + '"></div>' +
+        '<div class="campo"><label for="l-tel">Teléfono / WhatsApp *</label><input id="l-tel" type="tel" maxlength="20" placeholder="Ej.: 300 123 4567" value="' + esc(l.telefono) + '"></div>' +
+        '</div>';
+}
+
+function engancharResultado(ev){
+    const nom = document.getElementById('l-nombre');
+    const cor = document.getElementById('l-correo');
+    const tel = document.getElementById('l-tel');
+    [nom, cor, tel].forEach(i => i.addEventListener('input', () => i.classList.remove('error')));
+
+    function leadValido(){
+        estado.lead = { nombre:nom.value.trim(), correo:cor.value.trim(), telefono:tel.value.trim() };
+        let ok = true;
+        if (!estado.lead.nombre){ nom.classList.add('error'); ok = false; }
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(estado.lead.correo)){ cor.classList.add('error'); ok = false; }
+        if (!estado.lead.telefono){ tel.classList.add('error'); ok = false; }
+        if (!ok){ (nom.classList.contains('error') ? nom : cor.classList.contains('error') ? cor : tel).focus(); }
+        return ok;
+    }
+
+    document.getElementById('btn-correo').addEventListener('click', () => {
+        if (!leadValido()) return;
+        const asunto = 'Solicitud de Asesoría de Insolvencia - ' + estado.lead.nombre;
+        window.location.href = 'mailto:' + CONTACTO.correo +
+            '?subject=' + encodeURIComponent(asunto) +
+            '&body=' + encodeURIComponent(plantilla(ev));
+    });
+    document.getElementById('btn-reiniciar').addEventListener('click', () => {
+        estado.perfil = null;
+        estado.ingresos = { modo:'neto', neto:0, filas:[] };
+        estado.gastos   = { modo:'neto', neto:0, filas:[] };
+        estado.acreedores = { modo:'detalle', neto:0, filas:[] };
+        estado.lead = { nombre:'', correo:'', telefono:'' };
+        irA(0);
+    });
+}
+
+/* Plantilla compartida para correo y WhatsApp (saltos de línea con \n; encodeURIComponent los codifica) */
+function plantilla(ev){
+    const l = estado.lead;
+    const bal = totalIngresos() - totalGastos();
+    const L = [];
+    L.push('SOLICITUD DE ASESORÍA DE INSOLVENCIA — Fundación MASCaribe');
+    L.push('');
+    L.push('Nombre: ' + l.nombre);
+    L.push('Correo: ' + l.correo);
+    L.push('Teléfono/WhatsApp: ' + l.telefono);
+    L.push('Perfil: ' + (estado.perfil === 'comerciante' ? 'Pequeño Comerciante' : 'Persona Natural No Comerciante'));
+    L.push('');
+    L.push('RESUMEN ECONÓMICO');
+    L.push('Total ingresos: ' + pesos(totalIngresos()));
+    L.push('Total gastos: ' + pesos(totalGastos()));
+    L.push('Balance: ' + pesos(bal));
+    L.push('Total deudas: ' + pesos(totalDeudas()));
+    L.push('');
+    if (estado.acreedores.modo === 'detalle'){
+        const filas = estado.acreedores.filas.filter(f => f.nombre.trim() && f.monto > 0);
+        if (filas.length){
+            L.push('ACREEDORES');
+            filas.forEach(f => L.push('- ' + f.nombre + (f.concepto ? ' (' + f.concepto + ')' : '') + ': ' + pesos(f.monto) + ' · ' + (f.mora || 0) + ' días de mora'));
+            L.push('');
+        }
+    }
+    L.push('DIAGNÓSTICO: ' + (ev.apto ? 'APTO para la Ley de Insolvencia' : 'NO APTO (requiere asesoría en alternativas)'));
+    L.push('');
+    L.push('Quiero agendar una cita para recibir orientación. ¡Gracias!');
+    return L.join('\n');
+}
+
+/* ===================== Arranque ===================== */
+render();
+</script>
+</body>
+</html>
