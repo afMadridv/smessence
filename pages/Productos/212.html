@@ -3,53 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smessence | 212 VIP</title>
-    <link rel="preload" href="../../css/normalize.css" as="style">
+    <title>212 VIP Black — Carolina Herrera | Smessence</title>
+    <meta name="description" content="Smessence — perfumería en línea: fragancias originales masculinas, femeninas y combos exclusivos.">
     <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Staatliches&display=swap" rel="stylesheet">
-    <link href="../../css/style.css" rel="stylesheet">
-    <link rel="preload" href="../../css/style.css" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
+<a class="salto-contenido" href="#contenido">Ir al contenido</a>
     <header class="header">
-        <a href="../../index.html"><h1 class="header__titulo"><i>Smessence</i></h1></a>
+        <a class="header__marca" href="../../index.html">
+            <span class="header__titulo"><i>Smessence</i></span>
+            <span class="header__lema">Perfumería</span>
+        </a>
     </header>
     <div class="nav-pri">
-        <nav class="navegacion-principal contenedor">
-            <a href="../masculinas.html">Masculinas</a>
-            <a href="../femeninas.html">Femeninas</a>
-            <a href="../combos.html">Combos</a>
+        <nav class="navegacion-principal contenedor" aria-label="Navegación principal">
+            <a href="../../index.html">Inicio</a>
+            <a href="../../pages/masculinas.html" class="activo" aria-current="page">Masculinas</a>
+            <a href="../../pages/femeninas.html">Femeninas</a>
+            <a href="../../pages/combos.html">Combos</a>
         </nav>
     </div>
-    <div class="carrusel">
-        <div class="carrusel-imagenes">
-            <img src="../../imagenes/Bodegon_Vogue_4_202.jpg" alt="Coleccion de perfumes" class="activo">
-            <img src="../../imagenes/jean-paul-gaultier-perfume-hombre-le-male-655b6e1000555.jpg" alt="Perfume para hombre">
-            <img src="../../imagenes/mejores-perfumes-citricos-para-hombre-649ea676714cf.jpg" alt="Fragancias citricas">
-        </div>
-    </div>
-    <main class="contenedor individual">
-        <h1>212 VIP</h1>
+
+    <main id="contenido" class="contenedor individual">
+        <nav class="miga" aria-label="Miga de pan">
+            <a href="../../index.html">Inicio</a>
+            <span aria-hidden="true">/</span>
+            <a href="../masculinas.html">Masculinas</a>
+            <span aria-hidden="true">/</span>
+            <span>212 VIP Black</span>
+        </nav>
         <div class="perfume">
-            <img class="perfume__imagen" src="../../imagenes/212.jpg" alt="Perfume 212 VIP">
-            <div class="camisa__contenido">
-                <p>
-                    Una fragancia moderna con un perfil elegante, dulce y amaderado, pensada para quienes buscan destacar con un aroma intenso y versatil.<br>
-                    <br>Notas principales: frutas, especias, acordes amaderados y un fondo calido.
-                    <br>Ocasion: ideal para salidas nocturnas, eventos y momentos especiales.
-                    <br>Duracion: buena fijacion y estela marcada.
-                </p>
-                <form class="formulario">
-                    <input class="formulario__submit" type="submit" value="Agregar al carrito">
-                </form>
+            <div class="perfume__visual revelar">
+                <img class="perfume__imagen" src="../../imagenes/212.jpg" alt="Frasco de 212 VIP Black de Carolina Herrera">
+            </div>
+            <div class="perfume__contenido revelar">
+                <p class="perfume__marca">Carolina Herrera</p>
+                <h1 class="perfume__titulo">212 VIP Black</h1>
+                <p class="perfume__familia">Aromático fougère · Eau de Parfum</p>
+                <p class="perfume__precio">$120.000 COP</p>
+                <p class="perfume__descripcion">La cara más nocturna de la línea 212. VIP Black abre con un contraste atrevido de absenta y anís que enseguida llama la atención, pensado para el hombre que marca el ritmo de la fiesta y no le pide permiso a nadie.</p>
+                <p class="perfume__descripcion">El corazón aromático de lavanda se funde con un fondo de vainilla negra y almizcle que deja una estela envolvente, moderna y muy reconocible. Un imprescindible del armario nocturno.</p>
+                <div class="piramide">
+                    <div class="piramide__nivel">
+                        <h2>Salida</h2>
+                        <p>Absenta y anís</p>
+                    </div>
+                    <div class="piramide__nivel">
+                        <h2>Corazón</h2>
+                        <p>Lavanda y acorde fougère de almizcle negro</p>
+                    </div>
+                    <div class="piramide__nivel">
+                        <h2>Fondo</h2>
+                        <p>Vainilla negra y ámbar</p>
+                    </div>
+                </div>
+                <dl class="perfume__meta">
+                    <div><dt>Ocasión</dt><dd>Fiestas, citas y planes de noche.</dd></div>
+                    <div><dt>Duración</dt><dd>Alta: 6 a 8 horas con estela moderada.</dd></div>
+                </dl>
+                <button class="btn-agregar" onclick="agregarAlCarrito('212 VIP Black', 120000, 'imagenes/212.jpg')">
+                    Agregar al carrito — $120.000 COP
+                </button>
             </div>
         </div>
     </main>
+
     <footer class="footer">
-        <p>Todos los derechos reservados. Andres Madrid Freelancer</p>
+        <div class="footer__contenido contenedor">
+            <div class="footer__marca">
+                <p class="footer__logo"><i>Smessence</i></p>
+                <p class="footer__lema">El arte de dejar huella.</p>
+            </div>
+            <nav class="footer__nav" aria-label="Enlaces del pie de página">
+                <a href="../../pages/masculinas.html">Masculinas</a>
+                <a href="../../pages/femeninas.html">Femeninas</a>
+                <a href="../../pages/combos.html">Combos</a>
+            </nav>
+        </div>
+        <p class="footer__copy">&copy; 2026 Smessence &middot; Andrés Madrid &middot; Todos los derechos reservados</p>
     </footer>
+    <script>window.RUTA_BASE = '../../';</script>
+    <script src="../../js/carrito.js"></script>
     <script src="../../js/script.js"></script>
 </body>
 </html>

@@ -1,19 +1,21 @@
 // ============================================
 // CARRITO - COMPONENTE REUTILIZABLE
+// Cada página define window.RUTA_BASE ('' | '../' | '../../')
+// y las imágenes se guardan con ruta relativa a la raíz.
 // ============================================
 
-let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+const rutaBase = window.RUTA_BASE || '';
 
-// Detectar la ruta base según dónde estemos
-const esSubpagina = window.location.pathname.includes('/pages/');
-const rutaBase = esSubpagina ? '../' : '';
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+// Normalizar entradas antiguas que guardaban '../imagenes/...'
+carrito.forEach(p => { p.imagen = p.imagen.replace(/^(\.\.\/)+/, ''); });
 
 function inyectarCarrito() {
     // Inyectar ícono en el header
     const header = document.querySelector('.header');
     if (header && !document.getElementById('carrito-contador')) {
         header.insertAdjacentHTML('beforeend', `
-            <div class="carrito-icono" onclick="abrirCarrito()">
+            <div class="carrito-icono" onclick="abrirCarrito()" role="button" aria-label="Abrir carrito" tabindex="0">
                 🛒
                 <span id="carrito-contador">0</span>
             </div>
@@ -26,7 +28,7 @@ function inyectarCarrito() {
             <div id="carrito-panel">
                 <div class="carrito-header">
                     <h2>Tu Carrito</h2>
-                    <button onclick="cerrarCarrito()">✕</button>
+                    <button onclick="cerrarCarrito()" aria-label="Cerrar carrito">✕</button>
                 </div>
                 <div id="carrito-lista">
                     <p class="carrito-vacio">Tu carrito está vacío</p>
@@ -40,7 +42,6 @@ function inyectarCarrito() {
             <div id="carrito-overlay" onclick="cerrarCarrito()"></div>
         `);
     }
-    
 }
 
 function guardarCarrito() {
@@ -48,26 +49,35 @@ function guardarCarrito() {
 }
 
 function agregarAlCarrito(nombre, precio, imagenRelativa) {
-    // Construir ruta absoluta desde la raíz
-    const imagen = rutaBase + imagenRelativa.replace('../', '').replace('imagenes/', 'imagenes/');
+    // Guardar siempre la ruta canónica desde la raíz del sitio
+    const imagen = imagenRelativa.replace(/^(\.\.\/)+/, '');
     const productoExistente = carrito.find(p => p.nombre === nombre);
 
     if (productoExistente) {
         productoExistente.cantidad++;
     } else {
-        carrito.push({ nombre, precio, imagen: imagenRelativa, cantidad: 1 });
+        carrito.push({ nombre, precio, imagen, cantidad: 1 });
     }
-    abrirCarrito();
     guardarCarrito();
     actualizarCarrito();
+    abrirCarrito();
+
+    // Pulso en el contador como confirmación visual
+    const contador = document.getElementById('carrito-contador');
+    if (contador) {
+        contador.classList.remove('late');
+        void contador.offsetWidth;
+        contador.classList.add('late');
+    }
 }
 
-function limpiarCarrito(){
-    carrito = [];;
+function limpiarCarrito() {
+    carrito = [];
     guardarCarrito();
     actualizarCarrito();
     cerrarCarrito();
 }
+
 function eliminarDelCarrito(nombre) {
     carrito = carrito.filter(p => p.nombre !== nombre);
     guardarCarrito();
@@ -89,20 +99,15 @@ function actualizarCarrito() {
         lista.innerHTML = '<p class="carrito-vacio">Tu carrito está vacío</p>';
     } else {
         carrito.forEach(p => {
-            // Construir ruta correcta de imagen según página actual
-            const imgSrc = esSubpagina
-                ? '../' + p.imagen.replace('../', '')
-                : p.imagen.replace('../', '');
-
             lista.innerHTML += `
                 <div class="carrito-item">
-                    <img src="${imgSrc}" alt="${p.nombre}">
+                    <img src="${rutaBase}${p.imagen}" alt="${p.nombre}">
                     <div class="carrito-item-info">
                         <p class="carrito-item-nombre">${p.nombre}</p>
                         <p class="carrito-item-precio">$${p.precio.toLocaleString('es-CO')} COP</p>
-                        <p class="carrito-item-cantidad">Cantidad: ${p.cantidad}</p>    
+                        <p class="carrito-item-cantidad">Cantidad: ${p.cantidad}</p>
                     </div>
-                    <button class="carrito-item-eliminar" onclick="eliminarDelCarrito('${p.nombre}')">✕</button>
+                    <button class="carrito-item-eliminar" onclick="eliminarDelCarrito('${p.nombre.replace(/'/g, "\\'")}')" aria-label="Eliminar ${p.nombre}">✕</button>
                 </div>
             `;
         });
@@ -122,7 +127,12 @@ function cerrarCarrito() {
     document.getElementById('carrito-overlay').style.display = 'none';
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     inyectarCarrito();
     actualizarCarrito();
+
+    // Cerrar con la tecla Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') cerrarCarrito();
+    });
 });

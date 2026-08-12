@@ -1,192 +1,246 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smessence</title>
-    <link rel="preload" href="css/normalize.css" as="style">
+    <title>Fragancias Femeninas | Smessence</title>
+    <meta name="description" content="Smessence — perfumería en línea: fragancias originales masculinas, femeninas y combos exclusivos.">
+    <link rel="stylesheet" href="../css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Staatliches&display=swap" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-    <link rel="preload" href="/css/style.css" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<a class="salto-contenido" href="#contenido">Ir al contenido</a>
     <header class="header">
-    <a href="../index.html"><h1 class="header__titulo"><i>Smessence</i></h1></a>
+        <a class="header__marca" href="../index.html">
+            <span class="header__titulo"><i>Smessence</i></span>
+            <span class="header__lema">Perfumería</span>
+        </a>
     </header>
-
     <div class="nav-pri">
-        <nav class="navegacion-principal contenedor">
-            <a href="masculinas.html">Masculinas</a>
-            <a href="femeninas.html">Femeninas</a>
-            <a href="combos.html">Combos</a>
-            <a href="../portal/index.html">Portal Documental</a>
+        <nav class="navegacion-principal contenedor" aria-label="Navegación principal">
+            <a href="../index.html">Inicio</a>
+            <a href="../pages/masculinas.html">Masculinas</a>
+            <a href="../pages/femeninas.html" class="activo" aria-current="page">Femeninas</a>
+            <a href="../pages/combos.html">Combos</a>
         </nav>
     </div>
-    <<!--<div class="carrusel">
-        <div class="carrusel-imagenes">
-            <img src="/imagenes/Bodegon_Vogue_4_202.jpg" alt="Imagen 1" class="activo">
-            <img src="/imagenes/jean-paul-gaultier-perfume-hombre-le-male-655b6e1000555.jpg" alt="Imagen 2">
-            <img src="/imagenes/pefumes-hombre-primavera-verano-2021-1620743506.jpg" alt="Imagen 4">
-            <img src="/imagenes/mejores-perfumes-citricos-para-hombre-649ea676714cf.jpg" alt="Imagen 5">
+
+    <main id="contenido" class="contenedor">
+        <div class="encabezado-seccion revelar">
+            <p class="encabezado-seccion__kicker">Colección femenina</p>
+            <h1 class="encabezado-seccion__titulo">Fragancias Femeninas</h1>
+            <div class="encabezado-seccion__adorno" aria-hidden="true"></div>
+            <p class="encabezado-seccion__sub">Florales, dulces y elegantes: tu próxima firma olfativa.</p>
         </div>
-    </div>-->
-    <main class="contenedor">
-        <h1>Fragancias Femeninas</h1>
+        <div class="filtros revelar" role="group" aria-label="Filtrar por tipo de perfumería">
+            <button class="filtro-btn activo" data-filtro="todos" aria-pressed="true">Todos</button>
+            <button class="filtro-btn" data-filtro="nicho" aria-pressed="false">Nicho</button>
+            <button class="filtro-btn" data-filtro="arabe" aria-pressed="false">Árabes</button>
+            <button class="filtro-btn" data-filtro="disenador" aria-pressed="false">Diseñador</button>
+        </div>
+        <p class="filtros-vacio" hidden>Muy pronto ampliaremos esta selección. Mientras tanto, explora las demás fragancias.</p>
         <div class="grid">
-            <div class="producto">
-                <a href="/pages/Productos/cloudariana.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/cloudariana.jpg" alt="Cloud de Ariana Grande">
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/cloudariana.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/cloudariana.jpg" alt="Cloud" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Cloud de Ariana Grande</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Ariana Grande</p>
+                        <p class="producto__nombre">Cloud</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Cloud de Ariana Grande', 120000, 'imagenes/cloudariana.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Cloud', 120000, 'imagenes/cloudariana.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto">
-                <a href="/pages/Productos/thankunext.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/thankunext.jpg" alt="Thank U Next de Ariana Grande">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/thankunext.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/thankunext.jpg" alt="Thank U Next" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Thank U Next de Ariana Grande</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Ariana Grande</p>
+                        <p class="producto__nombre">Thank U Next</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Thank U Next de Ariana Grande VIP', 120000, 'imagenes/thankunext.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Thank U Next', 120000, 'imagenes/thankunext.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto">
-                <a href="/pages/Productos/yara.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/yara.jpg" alt="Yara">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="arabe">
+                <a class="producto__enlace" href="../pages/Productos/yara.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/yara.jpg" alt="Yara" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
+                        <p class="producto__marca">Lattafa</p>
                         <p class="producto__nombre">Yara</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
                 <button class="btn-agregar" onclick="agregarAlCarrito('Yara', 120000, 'imagenes/yara.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto ">
-                <a href="/pages/Productos/scandal.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/scandaljeanpaul.jpg" alt="Scandal de Jean Paul Gaultier ">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/scandal.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/scandaljeanpaul.jpg" alt="Scandal" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Scandal de Jean Paul Gaultier</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Jean Paul Gaultier</p>
+                        <p class="producto__nombre">Scandal</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Scandal de Jean Paul Gaultier', 120000, 'imagenes/scandaljeanpaul.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Scandal', 120000, 'imagenes/scandaljeanpaul.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto ">
-                <a href="/pages/Productos/moschinotoy.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/moschinotoy2.jpg" alt="Moschino Toy 2 ">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/moschinotoy.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/moschinotoy2.jpg" alt="Toy 2" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Moschino Toy 2</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Moschino</p>
+                        <p class="producto__nombre">Toy 2</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('212 Moschino Toy 2', 120000, 'imagenes/moschinotoy2.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Toy 2', 120000, 'imagenes/moschinotoy2.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto">
-                <a href="/pages/Productos/moschinofresh.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/moschinofreshpink.jpg" alt="Moschino Fresh Pink ">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/moschinofresh.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/moschinofreshpink.jpg" alt="Pink Fresh Couture" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Moschino Fresh Pink</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Moschino</p>
+                        <p class="producto__nombre">Pink Fresh Couture</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Moschino Fresh Pink', 120000, 'imagenes/moschinofreshpink.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Pink Fresh Couture', 120000, 'imagenes/moschinofreshpink.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto">
-                <a href="/pages/Productos/lavieest.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/lavieestbelledelancome.jpg" alt="La Vie Est Belle de Lancôme">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/lavieest.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/lavieestbelledelancome.jpg" alt="La Vie Est Belle" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">La Vie Est Belle de Lancôme</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Lancôme</p>
+                        <p class="producto__nombre">La Vie Est Belle</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('212 La Vie Est Belle de Lancôme', 120000, 'imagenes/lavieestbelledelancome.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('La Vie Est Belle', 120000, 'imagenes/lavieestbelledelancome.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto">
-                <a href="/pages/Productos/verygoodgirl.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/goodgirlverygoodgirlCH.jpg" alt=" Good Girl Very Good Girl de Carolina Herrera">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/verygoodgirl.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/goodgirlverygoodgirlCH.jpg" alt="Very Good Girl" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Good Girl Very Good Girl de Carolina Herrera</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Carolina Herrera</p>
+                        <p class="producto__nombre">Very Good Girl</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Good Girl Very Good Girl de Carolina Herrera', 120000, 'imagenes/goodgirlverygoodgirlCH.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Very Good Girl', 120000, 'imagenes/goodgirlverygoodgirlCH.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto oculto">
-                <a href="/pages/Productos/goodgirl.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/goodgirlCH.jpg" alt="Good Girl de Carolina Herrera">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/goodgirl.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/goodgirlCH.jpg" alt="Good Girl" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Good Girl de Carolina Herrera</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Carolina Herrera</p>
+                        <p class="producto__nombre">Good Girl</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Good Girl de Carolina Herrera', 120000, 'imagenes/goodgirlCH.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Good Girl', 120000, 'imagenes/goodgirlCH.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <!--.PRODUCTOS-->
-            <div class="producto oculto">
-                <a href="/pages/Productos/olympea.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/Olympeadepacorabanne.jpg" alt="Olympea de Paco Rabanne">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/olympea.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/Olympeadepacorabanne.jpg" alt="Olympéa" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Olympea de Paco Rabanne</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Paco Rabanne</p>
+                        <p class="producto__nombre">Olympéa</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Olympea de Paco Rabanne', 120000, 'imagenes/Olympeadepacorabanne.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Olympéa', 120000, 'imagenes/Olympeadepacorabanne.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto oculto">
-                <a href="/pages/Productos/goodgirlblush.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/goodgirlblushCH.jpg" alt="Good Girl Blush de Carolina Herrera">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/goodgirlblush.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/goodgirlblushCH.jpg" alt="Good Girl Blush" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Good Girl Blush de Carolina Herrera</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Carolina Herrera</p>
+                        <p class="producto__nombre">Good Girl Blush</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('212 VIP', 120000, 'imagenes/goodgirlblushCH.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Good Girl Blush', 120000, 'imagenes/goodgirlblushCH.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto oculto">
-                <a href="/pages/Productos/coco.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/cocoMademoiselledechanel.jpg" alt="Coco Mademoiselle de Chanel">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/coco.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/cocoMademoiselledechanel.jpg" alt="Coco Mademoiselle" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Coco Mademoiselle de Chanel</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Chanel</p>
+                        <p class="producto__nombre">Coco Mademoiselle</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Coco Mademoiselle de Chanel', 120000, 'imagenes/cocoMademoiselledechanel.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Coco Mademoiselle', 120000, 'imagenes/cocoMademoiselledechanel.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
+                </button>
+            </article>
         </div>
-        
     </main>
-    <button id="ver-mas">Ver más</button>
+
     <footer class="footer">
-        <p>Todos los derechos reservados. Andres Madrid Freelancer</p>
-    </footer>   
+        <div class="footer__contenido contenedor">
+            <div class="footer__marca">
+                <p class="footer__logo"><i>Smessence</i></p>
+                <p class="footer__lema">El arte de dejar huella.</p>
+            </div>
+            <nav class="footer__nav" aria-label="Enlaces del pie de página">
+                <a href="../pages/masculinas.html">Masculinas</a>
+                <a href="../pages/femeninas.html">Femeninas</a>
+                <a href="../pages/combos.html">Combos</a>
+            </nav>
+        </div>
+        <p class="footer__copy">&copy; 2026 Smessence &middot; Andrés Madrid &middot; Todos los derechos reservados</p>
+    </footer>
+    <script>window.RUTA_BASE = '../';</script>
     <script src="../js/carrito.js"></script>
     <script src="../js/script.js"></script>
 </body>

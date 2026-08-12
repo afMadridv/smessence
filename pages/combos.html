@@ -1,154 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smessence</title>
-    <link rel="preload" href="css/normalize.css" as="style">
+    <title>Combos Exclusivos | Smessence</title>
+    <meta name="description" content="Smessence — perfumería en línea: fragancias originales masculinas, femeninas y combos exclusivos.">
+    <link rel="stylesheet" href="../css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Staatliches&display=swap" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-    <link rel="preload" href="/css/style.css" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<a class="salto-contenido" href="#contenido">Ir al contenido</a>
     <header class="header">
-    <a href="../index.html"><h1 class="header__titulo"><i>Smessence</i></h1></a>
+        <a class="header__marca" href="../index.html">
+            <span class="header__titulo"><i>Smessence</i></span>
+            <span class="header__lema">Perfumería</span>
+        </a>
     </header>
     <div class="nav-pri">
-        <nav class="navegacion-principal contenedor">
-            <a href="masculinas.html">Masculinas</a>
-            <a href="femeninas.html">Femeninas</a>
-            <a href="combos.html">Combos</a>
-            <a href="../portal/index.html">Portal Documental</a>
+        <nav class="navegacion-principal contenedor" aria-label="Navegación principal">
+            <a href="../index.html">Inicio</a>
+            <a href="../pages/masculinas.html">Masculinas</a>
+            <a href="../pages/femeninas.html">Femeninas</a>
+            <a href="../pages/combos.html" class="activo" aria-current="page">Combos</a>
         </nav>
     </div>
 
-   <<!-- <div class="carrusel">
-        <div class="carrusel-imagenes">
-            <img src="/imagenes/Bodegon_Vogue_4_202.jpg" alt="Imagen 1" class="activo">
-            <img src="/imagenes/jean-paul-gaultier-perfume-hombre-le-male-655b6e1000555.jpg" alt="Imagen 2">
-            <img src="/imagenes/pefumes-hombre-primavera-verano-2021-1620743506.jpg" alt="Imagen 4">
-            <img src="/imagenes/mejores-perfumes-citricos-para-hombre-649ea676714cf.jpg" alt="Imagen 5">
+    <main id="contenido" class="contenedor">
+        <div class="encabezado-seccion revelar">
+            <p class="encabezado-seccion__kicker">Ahorra en grande</p>
+            <h1 class="encabezado-seccion__titulo">Combos Exclusivos</h1>
+            <div class="encabezado-seccion__adorno" aria-hidden="true"></div>
+            <p class="encabezado-seccion__sub">Tríos y cuartetos de fragancias originales a precio especial.</p>
         </div>
-    </div>-->
-    <main class="contenedor">
-        <h1>Combos</h1>
         <div class="grid">
-            <div class="producto">
-                <a href="/pages/Productos/combokhamrah.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/combo-asad-khamrha-clubnuit.jpg" alt="Asad de Lattafa + Khamrah de Lattafa + Club de Nuit">
+            <article class="producto revelar">
+                <a class="producto__enlace" href="../pages/Productos/combokhamrah.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/combo-asad-khamrha-clubnuit.jpg" alt="Asad + Khamrah + Club de Nuit" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Asad de Lattafa + Khamrah de Lattafa + Club de Nuit</p>
-                        <p class="producto__precio">$210.000,00 COP</p>
+                        <p class="producto__marca">Trío Árabe Intenso</p>
+                        <p class="producto__nombre">Asad + Khamrah + Club de Nuit</p>
+                        <p class="producto__precio">$210.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Asad de Lattafa + Khamrah de Lattafa + Club de Nuit', 210000, 'imagenes/combo-asad-khamrha-clubnuit.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Asad + Khamrah + Club de Nuit', 210000, 'imagenes/combo-asad-khamrha-clubnuit.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto">
-                <a href="/pages/Productos/comboeros.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/combo-asad-eros-oudforglory.jpg" alt="Asad de Lattafa + Versace Eros + Oud for Glory de Lattafa">
+                </button>
+            </article>
+            <article class="producto revelar">
+                <a class="producto__enlace" href="../pages/Productos/comboeros.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/combo-asad-eros-oudforglory.jpg" alt="Asad + Versace Eros + Oud for Glory" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Asad de Lattafa + Versace Eros + Oud for Glory de Lattafa</p>
-                        <p class="producto__precio">$210.000,00 COP</p>
+                        <p class="producto__marca">Trío Seductor Oriental</p>
+                        <p class="producto__nombre">Asad + Versace Eros + Oud for Glory</p>
+                        <p class="producto__precio">$210.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Asad de Lattafa + Versace Eros + Oud for Glory de Lattafa', 210000, 'imagenes/combo-asad-eros-oudforglory.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Asad + Versace Eros + Oud for Glory', 210000, 'imagenes/combo-asad-eros-oudforglory.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto">
-                <a href="/pages/Productos/combobleuchanel.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/combo-dior-bluechanel-212.jpg" alt="Sauvage de Dior + Bleu de Chanel + 212 VIP Black de Carolina Herrera">
+                </button>
+            </article>
+            <article class="producto revelar">
+                <a class="producto__enlace" href="../pages/Productos/combobleuchanel.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/combo-dior-bluechanel-212.jpg" alt="Sauvage + Bleu de Chanel + 212 VIP Black" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Sauvage de Dior + Bleu de Chanel + 212 VIP Black de Carolina Herrera</p>
-                        <p class="producto__precio">$210.000,00 COP</p>
+                        <p class="producto__marca">Trío Ícono de Diseñador</p>
+                        <p class="producto__nombre">Sauvage + Bleu de Chanel + 212 VIP Black</p>
+                        <p class="producto__precio">$210.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Sauvage de Dior + Bleu de Chanel + 212 VIP Black de Carolina Herrera', 210000, 'imagenes/combo-dior-bluechanel-212.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Sauvage + Bleu de Chanel + 212 VIP Black', 210000, 'imagenes/combo-dior-bluechanel-212.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto">
-                <a href="/pages/Productos/combocreed.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/combo-eros-dior-creed-212.jpg" alt="Versace Eros + Sauvage de Dior + Silver Mountain Water de Creed + 212 Men">
+                </button>
+            </article>
+            <article class="producto revelar">
+                <a class="producto__enlace" href="../pages/Productos/combocreed.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/combo-eros-dior-creed-212.jpg" alt="Eros + Sauvage + Silver Mountain Water + 212 Men" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Versace Eros + Sauvage de Dior + Silver Mountain Water de Creed + 212 Men</p>
-                        <p class="producto__precio">$250.000,00 COP</p>
+                        <p class="producto__marca">Cuarteto Premium</p>
+                        <p class="producto__nombre">Eros + Sauvage + Silver Mountain Water + 212 Men</p>
+                        <p class="producto__precio">$250.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Versace Eros + Sauvage de Dior + Silver Mountain Water de Creed + 212 Men', 210000, 'imagenes/combo-eros-dior-creed-212.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Eros + Sauvage + Silver Mountain Water + 212 Men', 250000, 'imagenes/combo-eros-dior-creed-212.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto">
-                <a href="/pages/Productos/comboone.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/combo-onemillion,lemale,212.jpg" alt="One million + Le male de Jean Paul Gaultier + 212 VIP MEN">
+                </button>
+            </article>
+            <article class="producto revelar">
+                <a class="producto__enlace" href="../pages/Productos/comboone.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/combo-onemillion,lemale,212.jpg" alt="One Million + Le Male + 212 VIP Men" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">One million + Le male de Jean Paul Gaultier + 212 VIP MEN</p>
-                        <p class="producto__precio">$210.000,00 COP</p>
+                        <p class="producto__marca">Trío Fiesta Total</p>
+                        <p class="producto__nombre">One Million + Le Male + 212 VIP Men</p>
+                        <p class="producto__precio">$210.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('One million + Le male de Jean Paul Gaultier + 212 VIP MEN', 210000, 'imagenes/combo-onemillion,lemale,212.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('One Million + Le Male + 212 VIP Men', 210000, 'imagenes/combo-onemillion,lemale,212.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto">
-                <a href="/pages/Productos/combococo.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/combo-coco-blush-yara.jpg" alt="Good Girl Blush de Carolina Herrera + Coco Mademoiselle de Chanel + Yara de Lattafa">
+                </button>
+            </article>
+            <article class="producto revelar">
+                <a class="producto__enlace" href="../pages/Productos/combococo.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/combo-coco-blush-yara.jpg" alt="Good Girl Blush + Coco Mademoiselle + Yara" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Good Girl Blush de Carolina Herrera + Coco Mademoiselle de Chanel + Yara de Lattafa</p>
-                        <p class="producto__precio">$210.000,00 COP</p>
+                        <p class="producto__marca">Trío Elegancia Femenina</p>
+                        <p class="producto__nombre">Good Girl Blush + Coco Mademoiselle + Yara</p>
+                        <p class="producto__precio">$210.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Good Girl Blush de Carolina Herrera + Coco Mademoiselle de Chanel + Yara de Lattafa', 210000, 'imagenes/combo-coco-blush-yara.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Good Girl Blush + Coco Mademoiselle + Yara', 210000, 'imagenes/combo-coco-blush-yara.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto">
-                <a href="/pages/Productos/combogoodgirl.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/combo-goodgirl.jpg" alt="Good Girl + Good Girl Blush + Good Girl Very Good Girl">
+                </button>
+            </article>
+            <article class="producto revelar">
+                <a class="producto__enlace" href="../pages/Productos/combogoodgirl.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/combo-goodgirl.jpg" alt="Good Girl + Blush + Very Good Girl" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Good Girl + Good Girl Blush + Good Girl Very Good Girl</p>
-                        <p class="producto__precio">$210.000,00 COP</p>
+                        <p class="producto__marca">Colección Good Girl</p>
+                        <p class="producto__nombre">Good Girl + Blush + Very Good Girl</p>
+                        <p class="producto__precio">$210.000 COP</p>
                     </div>
                 </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Good Girl + Good Girl Blush + Good Girl Very Good Girl', 210000, 'imagenes/combo-goodgirl.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Good Girl + Blush + Very Good Girl', 210000, 'imagenes/combo-goodgirl.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto">
-                <a href="/pages/Productos/combomoschino.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/combo-toy2-goodblush-thanku.jpg" alt="Toy 2 Bubblegum de Moschino + Good Girl Blush de Carolina Herrera + Thank U Next de Ariana Grande">
+                </button>
+            </article>
+            <article class="producto revelar">
+                <a class="producto__enlace" href="../pages/Productos/combomoschino.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/combo-toy2-goodblush-thanku.jpg" alt="Toy 2 Bubble Gum + Good Girl Blush + Thank U Next" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Toy 2 Bubblegum de Moschino + Good Girl Blush de Carolina Herrera + Thank U Next de Ariana Grande</p>
-                        <p class="producto__precio">$210.000,00 COP</p>
+                        <p class="producto__marca">Trío Dulce Juvenil</p>
+                        <p class="producto__nombre">Toy 2 Bubble Gum + Good Girl Blush + Thank U Next</p>
+                        <p class="producto__precio">$210.000 COP</p>
                     </div>
                 </a>
-                 <button class="btn-agregar" onclick="agregarAlCarrito('Toy 2 Bubblegum de Moschino + Good Girl Blush de Carolina Herrera + Thank U Next de Ariana Grande', 210000, 'imagenes/combo-toy2-goodblush-thanku.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Toy 2 Bubble Gum + Good Girl Blush + Thank U Next', 210000, 'imagenes/combo-toy2-goodblush-thanku.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
-            <div class="producto oculto">
-                <a href="/pages/Productos/comboyara.html" class="producto.html">
-                    <img class="producto__imagen" src="/imagenes/combo-yara-goodblush-thanku.jpg" alt="Yara de Lattafa + Good Girl Blush de Carolina Herrera + Thank U Next de Ariana Grande">
+                </button>
+            </article>
+            <article class="producto revelar">
+                <a class="producto__enlace" href="../pages/Productos/comboyara.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/combo-yara-goodblush-thanku.jpg" alt="Yara + Good Girl Blush + Thank U Next" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Yara de Lattafa + Good Girl Blush de Carolina Herrera + Thank U Next de Ariana Grande</p>
-                        <p class="producto__precio">$210.000,00 COP</p>
+                        <p class="producto__marca">Trío Dulzura Total</p>
+                        <p class="producto__nombre">Yara + Good Girl Blush + Thank U Next</p>
+                        <p class="producto__precio">$210.000 COP</p>
                     </div>
                 </a>
-                 <button class="btn-agregar" onclick="agregarAlCarrito('Yara de Lattafa + Good Girl Blush de Carolina Herrera + Thank U Next de Ariana Grande', 210000, 'imagenes/combo-yara-goodblush-thanku.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Yara + Good Girl Blush + Thank U Next', 210000, 'imagenes/combo-yara-goodblush-thanku.jpg')">
                     Agregar al carrito
-                 </button>
-            </div><!--.PRODUCTOS-->
+                </button>
+            </article>
         </div>
     </main>
-    <button id="ver-mas">Ver más</button>
+
     <footer class="footer">
-        <p>Todos los derechos reservados. Andres Madrid Freelancer</p>
-    </footer>   
+        <div class="footer__contenido contenedor">
+            <div class="footer__marca">
+                <p class="footer__logo"><i>Smessence</i></p>
+                <p class="footer__lema">El arte de dejar huella.</p>
+            </div>
+            <nav class="footer__nav" aria-label="Enlaces del pie de página">
+                <a href="../pages/masculinas.html">Masculinas</a>
+                <a href="../pages/femeninas.html">Femeninas</a>
+                <a href="../pages/combos.html">Combos</a>
+            </nav>
+        </div>
+        <p class="footer__copy">&copy; 2026 Smessence &middot; Andrés Madrid &middot; Todos los derechos reservados</p>
+    </footer>
+    <script>window.RUTA_BASE = '../';</script>
     <script src="../js/carrito.js"></script>
     <script src="../js/script.js"></script>
 </body>

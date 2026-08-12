@@ -1,58 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smessence</title>
-    <link rel="preload" href="css/normalize.css" as="style">
+    <title>Amber Oud Gold Edition — Al Haramain | Smessence</title>
+    <meta name="description" content="Smessence — perfumería en línea: fragancias originales masculinas, femeninas y combos exclusivos.">
+    <link rel="stylesheet" href="../../css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Staatliches&display=swap" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-    <link rel="preload" href="/css/style.css" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
+<a class="salto-contenido" href="#contenido">Ir al contenido</a>
     <header class="header">
-        <a href="/index.html"><h1 class="header__titulo"><i>Smessence</i></h1></a>
+        <a class="header__marca" href="../../index.html">
+            <span class="header__titulo"><i>Smessence</i></span>
+            <span class="header__lema">Perfumería</span>
+        </a>
     </header>
     <div class="nav-pri">
-        <nav class="navegacion-principal contenedor">
-            <a href="/pages/masculinas.html">Masculinas</a>
-            <a href="/pages/femeninas.html">Femeninas</a>
-            <a href="/pages/combos.html">Combos</a>
+        <nav class="navegacion-principal contenedor" aria-label="Navegación principal">
+            <a href="../../index.html">Inicio</a>
+            <a href="../../pages/masculinas.html" class="activo" aria-current="page">Masculinas</a>
+            <a href="../../pages/femeninas.html">Femeninas</a>
+            <a href="../../pages/combos.html">Combos</a>
         </nav>
     </div>
-    <!--<div class="carrusel">
-        <div class="carrusel-imagenes">
-            <img src="/imagenes/Bodegon_Vogue_4_202.jpg" alt="Imagen 1" class="activo">
-            <img src="/imagenes/jean-paul-gaultier-perfume-hombre-le-male-655b6e1000555.jpg" alt="Imagen 2">
-            <img src="/imagenes/pefumes-hombre-primavera-verano-2021-1620743506.jpg" alt="Imagen 4">
-            <img src="/imagenes/mejores-perfumes-citricos-para-hombre-649ea676714cf.jpg" alt="Imagen 5">
-        </div>
-    </div>-->
-    <main class="contenedor individual">
-        <h1>Amber Oud</h1>
-        <div class="perfume">
-            <img class="perfume__imagen" src="/imagenes/amberoud.jpg" alt="Imagen del producto">
-            <div class="camisa__contenido">
-                <p>
-                    Una fragancia intensa, cálida y seductora, perfecta para quienes buscan un aroma de alto impacto y distinción. Amber Oud combina la riqueza del ámbar con la profundidad del oud, creando una esencia elegante y misteriosa que deja una impresión imborrable.<br>
 
-                    <br>🔹 Notas principales: Ámbar, oud, vainilla, cedro y especias exóticas.
-                    <br>🔹 Ocasión: Ideal para la noche, eventos especiales o cuando quieras proyectar sofisticación.
-                    <br>🔹 Duración: Extremadamente duradero con una estela poderosa y envolvente.
-                </p>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Amber Oud', 120000, 'imagenes/amberoud.jpg')">
-                    Agregar al carrito
-                 </button>
+    <main id="contenido" class="contenedor individual">
+        <nav class="miga" aria-label="Miga de pan">
+            <a href="../../index.html">Inicio</a>
+            <span aria-hidden="true">/</span>
+            <a href="../masculinas.html">Masculinas</a>
+            <span aria-hidden="true">/</span>
+            <span>Amber Oud Gold Edition</span>
+        </nav>
+        <div class="perfume">
+            <div class="perfume__visual revelar">
+                <img class="perfume__imagen" src="../../imagenes/amberoud.jpg" alt="Frasco de Amber Oud Gold Edition de Al Haramain">
+            </div>
+            <div class="perfume__contenido revelar">
+                <p class="perfume__marca">Al Haramain</p>
+                <h1 class="perfume__titulo">Amber Oud Gold Edition</h1>
+                <p class="perfume__familia">Ámbar dulce oriental · Eau de Parfum</p>
+                <p class="perfume__precio">$120.000 COP</p>
+                <p class="perfume__descripcion">Un abrazo dorado en formato perfume. Amber Oud Gold Edition abre con bergamota y frutas dulces que se derriten sobre un corazón cremoso de ámbar, en una de las composiciones dulces más queridas de la perfumería árabe.</p>
+                <p class="perfume__descripcion">El fondo de vainilla, almizcle y maderas suaves lo hace tan cómodo como adictivo: dulce sin empalagar, lujoso sin esfuerzo. Unisex en la práctica, favorito en clima fresco.</p>
+                <div class="piramide">
+                    <div class="piramide__nivel">
+                        <h2>Salida</h2>
+                        <p>Bergamota y frutas dulces</p>
+                    </div>
+                    <div class="piramide__nivel">
+                        <h2>Corazón</h2>
+                        <p>Ámbar cremoso y acorde goloso</p>
+                    </div>
+                    <div class="piramide__nivel">
+                        <h2>Fondo</h2>
+                        <p>Vainilla, almizcle y maderas suaves</p>
+                    </div>
+                </div>
+                <dl class="perfume__meta">
+                    <div><dt>Ocasión</dt><dd>Noches, planes en interiores y clima fresco.</dd></div>
+                    <div><dt>Duración</dt><dd>Muy alta: 8+ horas con estela dulce y cálida.</dd></div>
+                </dl>
+                <button class="btn-agregar" onclick="agregarAlCarrito('Amber Oud Gold Edition', 120000, 'imagenes/amberoud.jpg')">
+                    Agregar al carrito — $120.000 COP
+                </button>
             </div>
         </div>
-        
     </main>
+
     <footer class="footer">
-        <p>Todos los derechos reservados. Andres Madrid Freelancer</p>
-    </footer>   
-<script src="/js/carrito.js"></script>
-<script src="/js/script.js"></script>
+        <div class="footer__contenido contenedor">
+            <div class="footer__marca">
+                <p class="footer__logo"><i>Smessence</i></p>
+                <p class="footer__lema">El arte de dejar huella.</p>
+            </div>
+            <nav class="footer__nav" aria-label="Enlaces del pie de página">
+                <a href="../../pages/masculinas.html">Masculinas</a>
+                <a href="../../pages/femeninas.html">Femeninas</a>
+                <a href="../../pages/combos.html">Combos</a>
+            </nav>
+        </div>
+        <p class="footer__copy">&copy; 2026 Smessence &middot; Andrés Madrid &middot; Todos los derechos reservados</p>
+    </footer>
+    <script>window.RUTA_BASE = '../../';</script>
+    <script src="../../js/carrito.js"></script>
+    <script src="../../js/script.js"></script>
 </body>
 </html>

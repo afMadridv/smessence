@@ -3,168 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smessence | Masculinas</title>
-    <link rel="preload" href="../css/normalize.css" as="style">
+    <title>Perfumes Masculinos | Smessence</title>
+    <meta name="description" content="Smessence — perfumería en línea: fragancias originales masculinas, femeninas y combos exclusivos.">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Krub:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<a class="salto-contenido" href="#contenido">Ir al contenido</a>
     <header class="header">
-    <a href="../index.html"><h1 class="header__titulo"><i>Smessence</i></h1></a>
+        <a class="header__marca" href="../index.html">
+            <span class="header__titulo"><i>Smessence</i></span>
+            <span class="header__lema">Perfumería</span>
+        </a>
     </header>
     <div class="nav-pri">
-        <nav class="navegacion-principal contenedor">
-        <a href="masculinas.html">Masculinas</a>
-        <a href="femeninas.html">Femeninas</a>
-        <a href="combos.html">Combos</a>
-        <a href="../portal/index.html">Portal Documental</a>
-</nav>
+        <nav class="navegacion-principal contenedor" aria-label="Navegación principal">
+            <a href="../index.html">Inicio</a>
+            <a href="../pages/masculinas.html" class="activo" aria-current="page">Masculinas</a>
+            <a href="../pages/femeninas.html">Femeninas</a>
+            <a href="../pages/combos.html">Combos</a>
+        </nav>
     </div>
 
-    <main class="contenedor">
-        <h1>Perfumes Masculinos</h1>
+    <main id="contenido" class="contenedor">
+        <div class="encabezado-seccion revelar">
+            <p class="encabezado-seccion__kicker">Colección masculina</p>
+            <h1 class="encabezado-seccion__titulo">Perfumes Masculinos</h1>
+            <div class="encabezado-seccion__adorno" aria-hidden="true"></div>
+            <p class="encabezado-seccion__sub">Frescos, especiados y orientales: fragancias con presencia.</p>
+        </div>
+        <div class="filtros revelar" role="group" aria-label="Filtrar por tipo de perfumería">
+            <button class="filtro-btn activo" data-filtro="todos" aria-pressed="true">Todos</button>
+            <button class="filtro-btn" data-filtro="nicho" aria-pressed="false">Nicho</button>
+            <button class="filtro-btn" data-filtro="arabe" aria-pressed="false">Árabes</button>
+            <button class="filtro-btn" data-filtro="disenador" aria-pressed="false">Diseñador</button>
+        </div>
+        <p class="filtros-vacio" hidden>Muy pronto ampliaremos esta selección. Mientras tanto, explora las demás fragancias.</p>
         <div class="grid">
-            <div class="producto">
-                <a href="Productos/212.html">
-                    <img class="producto__imagen" src="../imagenes/212.jpg" alt="212 VIP">
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/212.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/212.jpg" alt="212 VIP Black" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">212 VIP</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Carolina Herrera</p>
+                        <p class="producto__nombre">212 VIP Black</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                 <button class="btn-agregar" onclick="agregarAlCarrito('212 VIP', 120000, 'imagenes/212.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('212 VIP Black', 120000, 'imagenes/212.jpg')">
                     Agregar al carrito
-                 </button>
-            </div>
-            <div class="producto">
-                <a href="Productos/asad.html">
-                    <img class="producto__imagen" src="../imagenes/asad.jpg" alt="Asad">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="arabe">
+                <a class="producto__enlace" href="../pages/Productos/asad.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/asad.jpg" alt="Asad" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Asad de Lattafa</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Lattafa</p>
+                        <p class="producto__nombre">Asad</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                 <button class="btn-agregar" onclick="agregarAlCarrito('Asad', 120000, 'imagenes/asad.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Asad', 120000, 'imagenes/asad.jpg')">
                     Agregar al carrito
-                 </button>
-            </div>
-            <div class="producto">
-                <a href="Productos/clubdenuit.html">
-                    <img class="producto__imagen" src="../imagenes/clubnuitintense.jpg" alt="Club de Nuit Intense">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="arabe">
+                <a class="producto__enlace" href="../pages/Productos/clubdenuit.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/clubnuitintense.jpg" alt="Club de Nuit Intense Man" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Club de Nuit Intense</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Armaf</p>
+                        <p class="producto__nombre">Club de Nuit Intense Man</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                 <button class="btn-agregar" onclick="agregarAlCarrito('Club de Nuit Intense', 120000, 'imagenes/clubnuitintense.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Club de Nuit Intense Man', 120000, 'imagenes/clubnuitintense.jpg')">
                     Agregar al carrito
-                 </button>
-            </div>
-            <div class="producto">
-                <a href="Productos/incituselixir.html">
-                    <img class="producto__imagen" src="../imagenes/invictuselixir.jpg" alt="Invictus Elixir">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/incituselixir.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/invictuselixir.jpg" alt="Invictus Victory Elixir" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Invictus Elixir</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Rabanne</p>
+                        <p class="producto__nombre">Invictus Victory Elixir</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                 <button class="btn-agregar" onclick="agregarAlCarrito('Invictus Elixir', 120000, 'imagenes/invictuselixir.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Invictus Victory Elixir', 120000, 'imagenes/invictuselixir.jpg')">
                     Agregar al carrito
-                 </button>
-            </div>
-            <div class="producto">
-                <a href="Productos/onemillion.html">
-                    <img class="producto__imagen" src="../imagenes/onemillion.jpg" alt="One Million">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/onemillion.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/onemillion.jpg" alt="One Million" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
+                        <p class="producto__marca">Rabanne</p>
                         <p class="producto__nombre">One Million</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                 <button class="btn-agregar" onclick="agregarAlCarrito('One Million', 120000, 'imagenes/onemillion.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('One Million', 120000, 'imagenes/onemillion.jpg')">
                     Agregar al carrito
-                 </button>
-            </div>
-            <div class="producto">
-                <a href="Productos/amberoud.html">
-                    <img class="producto__imagen" src="../imagenes/amberoud.jpg" alt="Amber Oud">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="arabe">
+                <a class="producto__enlace" href="../pages/Productos/amberoud.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/amberoud.jpg" alt="Amber Oud Gold Edition" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Amber Oud</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Al Haramain</p>
+                        <p class="producto__nombre">Amber Oud Gold Edition</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                 <button class="btn-agregar" onclick="agregarAlCarrito('Amber Oud', 120000, 'imagenes/amberoud.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Amber Oud Gold Edition', 120000, 'imagenes/amberoud.jpg')">
                     Agregar al carrito
-                 </button>
-            </div>
-            <div class="producto">
-                <a href="Productos/khamrah.html">
-                    <img class="producto__imagen" src="../imagenes/khamrah.jpg" alt="Khamrah">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="arabe">
+                <a class="producto__enlace" href="../pages/Productos/khamrah.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/khamrah.jpg" alt="Khamrah" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Khamrah de Lattafa</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Lattafa</p>
+                        <p class="producto__nombre">Khamrah</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                 <button class="btn-agregar" onclick="agregarAlCarrito('Khamrah', 120000, 'imagenes/khamrah.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Khamrah', 120000, 'imagenes/khamrah.jpg')">
                     Agregar al carrito
-                 </button>
-            </div>
-            <div class="producto">
-                <a href="Productos/diorsauvage.html">
-                    <img class="producto__imagen" src="../imagenes/diordsauvagetradicional.jpg" alt="Dior Sauvage">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/diorsauvage.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/diordsauvagetradicional.jpg" alt="Sauvage" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Dior Sauvage Tradicional</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Dior</p>
+                        <p class="producto__nombre">Sauvage</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                 <button class="btn-agregar" onclick="agregarAlCarrito('Dior Sauvage', 120000, 'imagenes/diordsauvagetradicional.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Sauvage', 120000, 'imagenes/diordsauvagetradicional.jpg')">
                     Agregar al carrito
-                 </button>
-            </div>
-            <div class="producto oculto">
-                <a href="Productos/creed.html">
-                    <img class="producto__imagen" src="../imagenes/creedvirginislanwater.jpg" alt="Creed Virgin Island Water">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="nicho">
+                <a class="producto__enlace" href="../pages/Productos/creed.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/creedvirginislanwater.jpg" alt="Virgin Island Water" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Creed Virgin Island Water</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Creed</p>
+                        <p class="producto__nombre">Virgin Island Water</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                 <button class="btn-agregar" onclick="agregarAlCarrito('Creed Virgin Island Water', 120000, 'imagenes/creedvirginislanwater.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Virgin Island Water', 120000, 'imagenes/creedvirginislanwater.jpg')">
                     Agregar al carrito
-                 </button>
-            </div>
-            <div class="producto oculto">
-                <a href="Productos/ultramale.html">
-                    <img class="producto__imagen" src="../imagenes/jeanpaulgaultierultramale.jpg" alt="Ultra Male">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/ultramale.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/jeanpaulgaultierultramale.jpg" alt="Ultra Male" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Ultra Male de Jean Paul Gaultier</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Jean Paul Gaultier</p>
+                        <p class="producto__nombre">Ultra Male</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                 <button class="btn-agregar" onclick="agregarAlCarrito('Ultra Male', 120000, 'imagenes/ultramale.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Ultra Male', 120000, 'imagenes/jeanpaulgaultierultramale.jpg')">
                     Agregar al carrito
-                 </button>
-            </div>
-            <div class="producto oculto">
-                <a href="Productos/borninroma.html">
-                    <img class="producto__imagen" src="../imagenes/romavaelntino.jpg" alt="Born in Roma Valentino">
+                </button>
+            </article>
+            <article class="producto revelar" data-tipo="disenador">
+                <a class="producto__enlace" href="../pages/Productos/borninroma.html">
+                    <div class="producto__marco">
+                        <img class="producto__imagen" src="../imagenes/romavaelntino.jpg" alt="Uomo Born in Roma" loading="lazy">
+                    </div>
                     <div class="producto__informacion">
-                        <p class="producto__nombre">Born in Roma Valentino</p>
-                        <p class="producto__precio">$120.000,00 COP</p>
+                        <p class="producto__marca">Valentino</p>
+                        <p class="producto__nombre">Uomo Born in Roma</p>
+                        <p class="producto__precio">$120.000 COP</p>
                     </div>
                 </a>
-                 <button class="btn-agregar" onclick="agregarAlCarrito('Born in Roma Vaalentino', 120000, 'imagenes/romavaelntino.jpg')">
+                <button class="btn-agregar" onclick="agregarAlCarrito('Uomo Born in Roma', 120000, 'imagenes/romavaelntino.jpg')">
                     Agregar al carrito
-                 </button>
-            </div>
+                </button>
+            </article>
         </div>
     </main>
-    <button id="ver-mas">Ver más</button>
+
     <footer class="footer">
-        <p>Todos los derechos reservados &copy; Smessence | Andrés Madrid</p>
+        <div class="footer__contenido contenedor">
+            <div class="footer__marca">
+                <p class="footer__logo"><i>Smessence</i></p>
+                <p class="footer__lema">El arte de dejar huella.</p>
+            </div>
+            <nav class="footer__nav" aria-label="Enlaces del pie de página">
+                <a href="../pages/masculinas.html">Masculinas</a>
+                <a href="../pages/femeninas.html">Femeninas</a>
+                <a href="../pages/combos.html">Combos</a>
+            </nav>
+        </div>
+        <p class="footer__copy">&copy; 2026 Smessence &middot; Andrés Madrid &middot; Todos los derechos reservados</p>
     </footer>
+    <script>window.RUTA_BASE = '../';</script>
     <script src="../js/carrito.js"></script>
     <script src="../js/script.js"></script>
 </body>
