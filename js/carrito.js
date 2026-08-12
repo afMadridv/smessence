@@ -16,7 +16,7 @@ function inyectarCarrito() {
     if (header && !document.getElementById('carrito-contador')) {
         header.insertAdjacentHTML('beforeend', `
             <div class="carrito-icono" onclick="abrirCarrito()" role="button" aria-label="Abrir carrito" tabindex="0">
-                🛒
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
                 <span id="carrito-contador">0</span>
             </div>
         `);
@@ -28,7 +28,9 @@ function inyectarCarrito() {
             <div id="carrito-panel">
                 <div class="carrito-header">
                     <h2>Tu Carrito</h2>
-                    <button onclick="cerrarCarrito()" aria-label="Cerrar carrito">✕</button>
+                    <button onclick="cerrarCarrito()" aria-label="Cerrar carrito">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
                 </div>
                 <div id="carrito-lista">
                     <p class="carrito-vacio">Tu carrito está vacío</p>
@@ -107,7 +109,9 @@ function actualizarCarrito() {
                         <p class="carrito-item-precio">$${p.precio.toLocaleString('es-CO')} COP</p>
                         <p class="carrito-item-cantidad">Cantidad: ${p.cantidad}</p>
                     </div>
-                    <button class="carrito-item-eliminar" onclick="eliminarDelCarrito('${p.nombre.replace(/'/g, "\\'")}')" aria-label="Eliminar ${p.nombre}">✕</button>
+                    <button class="carrito-item-eliminar" onclick="eliminarDelCarrito('${p.nombre.replace(/'/g, "\\'")}')" aria-label="Eliminar ${p.nombre}">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
                 </div>
             `;
         });

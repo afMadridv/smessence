@@ -1,4 +1,37 @@
 // ============================================
+// TEMA CLARO / OSCURO
+// El atributo data-tema ya viene puesto por el
+// snippet inline del <head> (evita parpadeo).
+// ============================================
+(function () {
+    const header = document.querySelector('.header');
+    if (!header) return;
+
+    const boton = document.createElement('button');
+    boton.className = 'tema-btn';
+    boton.type = 'button';
+
+    const ICONO_LUNA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    const ICONO_SOL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.6" y1="4.6" x2="6" y2="6"/><line x1="18" y1="18" x2="19.4" y2="19.4"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.6" y1="19.4" x2="6" y2="18"/><line x1="18" y1="6" x2="19.4" y2="4.6"/></svg>';
+
+    function pintarIcono() {
+        const oscuro = document.documentElement.dataset.tema === 'oscuro';
+        boton.innerHTML = oscuro ? ICONO_SOL : ICONO_LUNA;
+        boton.setAttribute('aria-label', oscuro ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
+    }
+
+    boton.addEventListener('click', () => {
+        const nuevo = document.documentElement.dataset.tema === 'oscuro' ? 'claro' : 'oscuro';
+        document.documentElement.dataset.tema = nuevo;
+        localStorage.setItem('tema', nuevo);
+        pintarIcono();
+    });
+
+    pintarIcono();
+    header.appendChild(boton);
+})();
+
+// ============================================
 // HERO - CARRUSEL DE FOTOS
 // Crossfade + Ken Burns, flechas, puntos,
 // autoplay con pausa al pasar el mouse y swipe
