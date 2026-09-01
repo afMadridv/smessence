@@ -900,6 +900,14 @@ h1, h2, h3{ font-family: var(--serif); color: var(--texto-fuerte); margin: 0; te
     border-top: 1px solid rgba(255,255,255,.08);
     font-size: 1.3rem; color: #9C917F;
 }
+/* Crédito del desarrollador */
+.pie__autor{
+    color: var(--beige);
+    border-bottom: 1px solid transparent;
+    transition: color .2s var(--curva), border-color .2s var(--curva);
+}
+.pie__autor:hover{ color: var(--claro-fijo); border-color: var(--beige); }
+
 /* Acceso discreto a la gestión de catálogo */
 .pie__portal{
     display: inline-block; padding: 0 .8rem;

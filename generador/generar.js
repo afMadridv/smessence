@@ -140,7 +140,7 @@ function pie(base) {
                 <p class="pie__texto">¿No sabes cuál elegir? Cuéntanos qué usas hoy y te recomendamos tu próxima firma olfativa.</p>
             </div>
         </div>
-        <p class="pie__copy">&copy; ${new Date().getFullYear()} Smessence · Andrés Madrid · Todos los derechos reservados<a class="pie__portal" href="${base}pages/portal.html" title="Gestión de catálogo" aria-label="Gestión de catálogo">·</a></p>
+        <p class="pie__copy">&copy; ${new Date().getFullYear()} Smessence · <a class="pie__autor" href="https://andresmadrid.vercel.app" target="_blank" rel="noopener noreferrer">Andrés Madrid</a> · Todos los derechos reservados<a class="pie__portal" href="${base}pages/portal.html" title="Gestión de catálogo" aria-label="Gestión de catálogo">·</a></p>
     </footer>`;
 }
 
