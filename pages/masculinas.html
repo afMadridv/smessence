@@ -4,230 +4,1556 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfumes Masculinos | Smessence</title>
-    <meta name="description" content="Smessence — perfumería en línea: fragancias originales masculinas, femeninas y combos exclusivos.">
+    <meta name="description" content="Frescos, especiados, amaderados y orientales con presencia.">
     <script>document.documentElement.dataset.tema = localStorage.getItem('tema') || 'claro';</script>
-    <link rel="stylesheet" href="../css/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/estilo.css">
 </head>
 <body>
 <a class="salto-contenido" href="#contenido">Ir al contenido</a>
-    <header class="header">
-        <a class="header__marca" href="../index.html">
-            <span class="header__titulo"><i>Smessence</i></span>
-            <span class="header__lema">Perfumería</span>
+    <header class="cabecera">
+        <a class="cabecera__marca" href="../index.html">
+            <span class="cabecera__logo">Smessence</span>
+            <span class="cabecera__lema">Perfumería de autor</span>
         </a>
     </header>
-    <div class="nav-pri">
-        <nav class="navegacion-principal contenedor" aria-label="Navegación principal">
+    <div class="barra-nav">
+        <div class="barra-nav__interior contenedor">
+            <nav class="nav" aria-label="Navegación principal">
             <a href="../index.html">Inicio</a>
             <a href="../pages/masculinas.html" class="activo" aria-current="page">Masculinas</a>
             <a href="../pages/femeninas.html">Femeninas</a>
             <a href="../pages/combos.html">Combos</a>
-        </nav>
+            </nav>
+            <div class="buscador" role="search">
+                <label class="buscador__campo">
+                    <span class="visualmente-oculto">Buscar perfume por nombre, marca o nota</span>
+                    <svg class="buscador__lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+                    <input type="search" id="buscador-entrada" placeholder="Buscar perfume…"
+                           autocomplete="off" role="combobox" aria-expanded="false"
+                           aria-controls="buscador-resultados" aria-autocomplete="list">
+                    <button type="button" class="buscador__limpiar" aria-label="Limpiar búsqueda" hidden>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                </label>
+                <div class="buscador__panel" id="buscador-resultados" role="listbox" hidden></div>
+            </div>
+        </div>
     </div>
 
-    <main id="contenido" class="contenedor">
-        <div class="encabezado-seccion revelar">
-            <p class="encabezado-seccion__kicker">Colección masculina</p>
-            <h1 class="encabezado-seccion__titulo">Perfumes Masculinos</h1>
-            <div class="encabezado-seccion__adorno" aria-hidden="true"></div>
-            <p class="encabezado-seccion__sub">Frescos, especiados y orientales: fragancias con presencia.</p>
-        </div>
+    <main id="contenido" class="contenedor seccion">
+        <header class="encabezado encabezado--pagina revelar">
+            <p class="encabezado__kicker">Colección masculina</p>
+            <h1 class="encabezado__titulo">Perfumes Masculinos</h1>
+            <div class="encabezado__filete" aria-hidden="true"></div>
+            <p class="encabezado__sub">Frescos, especiados, amaderados y orientales con presencia.</p>
+        </header>
+        <p class="conteo">91 referencias disponibles</p>
         <div class="filtros revelar" role="group" aria-label="Filtrar por tipo de perfumería">
-            <button class="filtro-btn activo" data-filtro="todos" aria-pressed="true">Todos</button>
-            <button class="filtro-btn" data-filtro="nicho" aria-pressed="false">Nicho</button>
-            <button class="filtro-btn" data-filtro="arabe" aria-pressed="false">Árabes</button>
-            <button class="filtro-btn" data-filtro="disenador" aria-pressed="false">Diseñador</button>
+            <button class="filtro activo" data-filtro="todos">Todos</button>
+            <button class="filtro" data-filtro="nicho">Nicho</button>
+            <button class="filtro" data-filtro="arabe">Árabes</button>
+            <button class="filtro" data-filtro="disenador">Diseñador</button>
         </div>
-        <p class="filtros-vacio" hidden>Muy pronto ampliaremos esta selección. Mientras tanto, explora las demás fragancias.</p>
-        <div class="grid">
-            <article class="producto revelar" data-tipo="disenador">
-                <a class="producto__enlace" href="../pages/Productos/212.html">
-                    <div class="producto__marco">
-                        <img class="producto__imagen" src="../imagenes/212.jpg" alt="212 VIP Black" loading="lazy">
-                    </div>
-                    <div class="producto__informacion">
-                        <p class="producto__marca">Carolina Herrera</p>
-                        <p class="producto__nombre">212 VIP Black</p>
-                        <p class="producto__precio">$120.000 COP</p>
-                    </div>
-                </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('212 VIP Black', 120000, 'imagenes/212.jpg')">
-                    Agregar al carrito
-                </button>
-            </article>
-            <article class="producto revelar" data-tipo="arabe">
-                <a class="producto__enlace" href="../pages/Productos/asad.html">
-                    <div class="producto__marco">
-                        <img class="producto__imagen" src="../imagenes/asad.jpg" alt="Asad" loading="lazy">
-                    </div>
-                    <div class="producto__informacion">
-                        <p class="producto__marca">Lattafa</p>
-                        <p class="producto__nombre">Asad</p>
-                        <p class="producto__precio">$120.000 COP</p>
-                    </div>
-                </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Asad', 120000, 'imagenes/asad.jpg')">
-                    Agregar al carrito
-                </button>
-            </article>
-            <article class="producto revelar" data-tipo="arabe">
-                <a class="producto__enlace" href="../pages/Productos/clubdenuit.html">
-                    <div class="producto__marco">
-                        <img class="producto__imagen" src="../imagenes/clubnuitintense.jpg" alt="Club de Nuit Intense Man" loading="lazy">
-                    </div>
-                    <div class="producto__informacion">
-                        <p class="producto__marca">Armaf</p>
-                        <p class="producto__nombre">Club de Nuit Intense Man</p>
-                        <p class="producto__precio">$120.000 COP</p>
-                    </div>
-                </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Club de Nuit Intense Man', 120000, 'imagenes/clubnuitintense.jpg')">
-                    Agregar al carrito
-                </button>
-            </article>
-            <article class="producto revelar" data-tipo="disenador">
-                <a class="producto__enlace" href="../pages/Productos/incituselixir.html">
-                    <div class="producto__marco">
-                        <img class="producto__imagen" src="../imagenes/invictuselixir.jpg" alt="Invictus Victory Elixir" loading="lazy">
-                    </div>
-                    <div class="producto__informacion">
-                        <p class="producto__marca">Rabanne</p>
-                        <p class="producto__nombre">Invictus Victory Elixir</p>
-                        <p class="producto__precio">$120.000 COP</p>
-                    </div>
-                </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Invictus Victory Elixir', 120000, 'imagenes/invictuselixir.jpg')">
-                    Agregar al carrito
-                </button>
-            </article>
-            <article class="producto revelar" data-tipo="disenador">
-                <a class="producto__enlace" href="../pages/Productos/onemillion.html">
-                    <div class="producto__marco">
-                        <img class="producto__imagen" src="../imagenes/onemillion.jpg" alt="One Million" loading="lazy">
-                    </div>
-                    <div class="producto__informacion">
-                        <p class="producto__marca">Rabanne</p>
-                        <p class="producto__nombre">One Million</p>
-                        <p class="producto__precio">$120.000 COP</p>
-                    </div>
-                </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('One Million', 120000, 'imagenes/onemillion.jpg')">
-                    Agregar al carrito
-                </button>
-            </article>
-            <article class="producto revelar" data-tipo="arabe">
-                <a class="producto__enlace" href="../pages/Productos/amberoud.html">
-                    <div class="producto__marco">
-                        <img class="producto__imagen" src="../imagenes/amberoud.jpg" alt="Amber Oud Gold Edition" loading="lazy">
-                    </div>
-                    <div class="producto__informacion">
-                        <p class="producto__marca">Al Haramain</p>
-                        <p class="producto__nombre">Amber Oud Gold Edition</p>
-                        <p class="producto__precio">$120.000 COP</p>
-                    </div>
-                </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Amber Oud Gold Edition', 120000, 'imagenes/amberoud.jpg')">
-                    Agregar al carrito
-                </button>
-            </article>
-            <article class="producto revelar" data-tipo="arabe">
-                <a class="producto__enlace" href="../pages/Productos/khamrah.html">
-                    <div class="producto__marco">
-                        <img class="producto__imagen" src="../imagenes/khamrah.jpg" alt="Khamrah" loading="lazy">
-                    </div>
-                    <div class="producto__informacion">
-                        <p class="producto__marca">Lattafa</p>
-                        <p class="producto__nombre">Khamrah</p>
-                        <p class="producto__precio">$120.000 COP</p>
-                    </div>
-                </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Khamrah', 120000, 'imagenes/khamrah.jpg')">
-                    Agregar al carrito
-                </button>
-            </article>
-            <article class="producto revelar" data-tipo="disenador">
-                <a class="producto__enlace" href="../pages/Productos/diorsauvage.html">
-                    <div class="producto__marco">
-                        <img class="producto__imagen" src="../imagenes/diordsauvagetradicional.jpg" alt="Sauvage" loading="lazy">
-                    </div>
-                    <div class="producto__informacion">
-                        <p class="producto__marca">Dior</p>
-                        <p class="producto__nombre">Sauvage</p>
-                        <p class="producto__precio">$120.000 COP</p>
-                    </div>
-                </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Sauvage', 120000, 'imagenes/diordsauvagetradicional.jpg')">
-                    Agregar al carrito
-                </button>
-            </article>
-            <article class="producto revelar" data-tipo="nicho">
-                <a class="producto__enlace" href="../pages/Productos/creed.html">
-                    <div class="producto__marco">
-                        <img class="producto__imagen" src="../imagenes/creedvirginislanwater.jpg" alt="Virgin Island Water" loading="lazy">
-                    </div>
-                    <div class="producto__informacion">
-                        <p class="producto__marca">Creed</p>
-                        <p class="producto__nombre">Virgin Island Water</p>
-                        <p class="producto__precio">$120.000 COP</p>
-                    </div>
-                </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Virgin Island Water', 120000, 'imagenes/creedvirginislanwater.jpg')">
-                    Agregar al carrito
-                </button>
-            </article>
-            <article class="producto revelar" data-tipo="disenador">
-                <a class="producto__enlace" href="../pages/Productos/ultramale.html">
-                    <div class="producto__marco">
-                        <img class="producto__imagen" src="../imagenes/jeanpaulgaultierultramale.jpg" alt="Ultra Male" loading="lazy">
-                    </div>
-                    <div class="producto__informacion">
-                        <p class="producto__marca">Jean Paul Gaultier</p>
-                        <p class="producto__nombre">Ultra Male</p>
-                        <p class="producto__precio">$120.000 COP</p>
-                    </div>
-                </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Ultra Male', 120000, 'imagenes/jeanpaulgaultierultramale.jpg')">
-                    Agregar al carrito
-                </button>
-            </article>
-            <article class="producto revelar" data-tipo="disenador">
-                <a class="producto__enlace" href="../pages/Productos/borninroma.html">
-                    <div class="producto__marco">
-                        <img class="producto__imagen" src="../imagenes/romavaelntino.jpg" alt="Uomo Born in Roma" loading="lazy">
-                    </div>
-                    <div class="producto__informacion">
-                        <p class="producto__marca">Valentino</p>
-                        <p class="producto__nombre">Uomo Born in Roma</p>
-                        <p class="producto__precio">$120.000 COP</p>
-                    </div>
-                </a>
-                <button class="btn-agregar" onclick="agregarAlCarrito('Uomo Born in Roma', 120000, 'imagenes/romavaelntino.jpg')">
-                    Agregar al carrito
-                </button>
-            </article>
+        <div class="filtro-activo" hidden>
+            <span class="filtro-activo__texto"></span>
+            <button class="filtro-activo__quitar" type="button">
+                Quitar filtro
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+        </div>
+        <p class="filtros-vacio" hidden>Ninguna fragancia coincide con esta combinación de filtros.</p>
+        <div class="rejilla">
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/212.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen" src="../imagenes/212.jpg" alt="212 VIP Black" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Carolina Herrera</p>
+                            <p class="tarjeta__nombre">212 VIP Black</p>
+                            <p class="tarjeta__precio">$385.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('212 VIP Black', 385000, '212.jpg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/asad.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen" src="../imagenes/asad.jpg" alt="Asad" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Lattafa</p>
+                            <p class="tarjeta__nombre">Asad</p>
+                            <p class="tarjeta__precio">$145.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Asad', 145000, 'asad.jpg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/clubdenuit.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen" src="../imagenes/clubnuitintense.jpg" alt="Club de Nuit Intense Man" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Armaf</p>
+                            <p class="tarjeta__nombre">Club de Nuit Intense Man</p>
+                            <p class="tarjeta__precio">$175.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Club de Nuit Intense Man', 175000, 'clubnuitintense.jpg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/incituselixir.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen" src="../imagenes/invictuselixir.jpg" alt="Invictus Victory Elixir" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Rabanne</p>
+                            <p class="tarjeta__nombre">Invictus Victory Elixir</p>
+                            <p class="tarjeta__precio">$520.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Invictus Victory Elixir', 520000, 'invictuselixir.jpg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/onemillion.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen" src="../imagenes/onemillion.jpg" alt="One Million" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Rabanne</p>
+                            <p class="tarjeta__nombre">One Million</p>
+                            <p class="tarjeta__precio">$425.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('One Million', 425000, 'onemillion.jpg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/amberoud.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen" src="../imagenes/amberoud.jpg" alt="Amber Oud Gold Edition" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Al Haramain</p>
+                            <p class="tarjeta__nombre">Amber Oud Gold Edition</p>
+                            <p class="tarjeta__precio">$185.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Amber Oud Gold Edition', 185000, 'amberoud.jpg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/khamrah.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen" src="../imagenes/khamrah.jpg" alt="Khamrah" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Lattafa</p>
+                            <p class="tarjeta__nombre">Khamrah</p>
+                            <p class="tarjeta__precio">$155.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Khamrah', 155000, 'khamrah.jpg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/diorsauvage.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen" src="../imagenes/diordsauvagetradicional.jpg" alt="Sauvage" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Dior</p>
+                            <p class="tarjeta__nombre">Sauvage</p>
+                            <p class="tarjeta__precio">$545.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Sauvage', 545000, 'diordsauvagetradicional.jpg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="nicho">
+                    <a class="tarjeta__enlace" href="../pages/producto/creed.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
+                            <img class="tarjeta__imagen" src="../imagenes/creedvirginislanwater.jpg" alt="Virgin Island Water" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Creed</p>
+                            <p class="tarjeta__nombre">Virgin Island Water</p>
+                            <p class="tarjeta__precio">$1.650.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Virgin Island Water', 1650000, 'creedvirginislanwater.jpg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/ultramale.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen" src="../imagenes/jeanpaulgaultierultramale.jpg" alt="Ultra Male" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Jean Paul Gaultier</p>
+                            <p class="tarjeta__nombre">Ultra Male</p>
+                            <p class="tarjeta__precio">$430.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Ultra Male', 430000, 'jeanpaulgaultierultramale.jpg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/borninroma.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen" src="../imagenes/romavaelntino.jpg" alt="Uomo Born in Roma" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Valentino</p>
+                            <p class="tarjeta__nombre">Uomo Born in Roma</p>
+                            <p class="tarjeta__precio">$415.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Uomo Born in Roma', 415000, 'romavaelntino.jpg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/ansaab.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/ansaab.svg" alt="Ansaab" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Lattafa</p>
+                            <p class="tarjeta__nombre">Ansaab</p>
+                            <p class="tarjeta__precio">$135.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Ansaab', 135000, 'frascos/ansaab.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/fakhar-black.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/fakhar-black.svg" alt="Fakhar Black" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Lattafa</p>
+                            <p class="tarjeta__nombre">Fakhar Black</p>
+                            <p class="tarjeta__precio">$140.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Fakhar Black', 140000, 'frascos/fakhar-black.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/oud-for-glory.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/oud-for-glory.svg" alt="Bade'e Al Oud Oud for Glory" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Lattafa</p>
+                            <p class="tarjeta__nombre">Bade'e Al Oud Oud for Glory</p>
+                            <p class="tarjeta__precio">$175.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Bade\'e Al Oud Oud for Glory', 175000, 'frascos/oud-for-glory.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/raghba.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/raghba.svg" alt="Raghba" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Lattafa</p>
+                            <p class="tarjeta__nombre">Raghba</p>
+                            <p class="tarjeta__precio">$115.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Raghba', 115000, 'frascos/raghba.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/ana-abiyedh-rouge.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/ana-abiyedh-rouge.svg" alt="Ana Abiyedh Rouge" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Lattafa</p>
+                            <p class="tarjeta__nombre">Ana Abiyedh Rouge</p>
+                            <p class="tarjeta__precio">$135.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Ana Abiyedh Rouge', 135000, 'frascos/ana-abiyedh-rouge.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/ramz-gold.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/ramz-gold.svg" alt="Ramz Gold" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Lattafa</p>
+                            <p class="tarjeta__nombre">Ramz Gold</p>
+                            <p class="tarjeta__precio">$140.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Ramz Gold', 140000, 'frascos/ramz-gold.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/qaed-al-fursan.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/qaed-al-fursan.svg" alt="Qaed Al Fursan" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Lattafa</p>
+                            <p class="tarjeta__nombre">Qaed Al Fursan</p>
+                            <p class="tarjeta__precio">$145.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Qaed Al Fursan', 145000, 'frascos/qaed-al-fursan.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/afnan-9pm.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/afnan-9pm.svg" alt="9PM" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Afnan</p>
+                            <p class="tarjeta__nombre">9PM</p>
+                            <p class="tarjeta__precio">$185.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('9PM', 185000, 'frascos/afnan-9pm.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/supremacy-intense.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/supremacy-intense.svg" alt="Supremacy Not Only Intense" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Afnan</p>
+                            <p class="tarjeta__nombre">Supremacy Not Only Intense</p>
+                            <p class="tarjeta__precio">$195.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Supremacy Not Only Intense', 195000, 'frascos/supremacy-intense.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/amber-oud-rouge.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/amber-oud-rouge.svg" alt="Amber Oud Rouge Edition" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Al Haramain</p>
+                            <p class="tarjeta__nombre">Amber Oud Rouge Edition</p>
+                            <p class="tarjeta__precio">$190.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Amber Oud Rouge Edition', 190000, 'frascos/amber-oud-rouge.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/hawas.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/hawas.svg" alt="Hawas for Him" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Rasasi</p>
+                            <p class="tarjeta__nombre">Hawas for Him</p>
+                            <p class="tarjeta__precio">$225.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Hawas for Him', 225000, 'frascos/hawas.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/la-yuqawam.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/la-yuqawam.svg" alt="La Yuqawam" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Rasasi</p>
+                            <p class="tarjeta__nombre">La Yuqawam</p>
+                            <p class="tarjeta__precio">$265.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('La Yuqawam', 265000, 'frascos/la-yuqawam.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/jean-lowe-immortal.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/jean-lowe-immortal.svg" alt="Jean Lowe Immortal" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Maison Alhambra</p>
+                            <p class="tarjeta__nombre">Jean Lowe Immortal</p>
+                            <p class="tarjeta__precio">$130.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Jean Lowe Immortal', 130000, 'frascos/jean-lowe-immortal.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/eros.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/eros.svg" alt="Eros" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Versace</p>
+                            <p class="tarjeta__nombre">Eros</p>
+                            <p class="tarjeta__precio">$355.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Eros', 355000, 'frascos/eros.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/eros-flame.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/eros-flame.svg" alt="Eros Flame" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Versace</p>
+                            <p class="tarjeta__nombre">Eros Flame</p>
+                            <p class="tarjeta__precio">$395.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Eros Flame', 395000, 'frascos/eros-flame.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/bleu-chanel.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/bleu-chanel.svg" alt="Bleu de Chanel" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Chanel</p>
+                            <p class="tarjeta__nombre">Bleu de Chanel</p>
+                            <p class="tarjeta__precio">$655.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Bleu de Chanel', 655000, 'frascos/bleu-chanel.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/sauvage-elixir.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/sauvage-elixir.svg" alt="Sauvage Elixir" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Dior</p>
+                            <p class="tarjeta__nombre">Sauvage Elixir</p>
+                            <p class="tarjeta__precio">$720.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Sauvage Elixir', 720000, 'frascos/sauvage-elixir.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/dior-homme-intense.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/dior-homme-intense.svg" alt="Dior Homme Intense" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Dior</p>
+                            <p class="tarjeta__nombre">Dior Homme Intense</p>
+                            <p class="tarjeta__precio">$615.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Dior Homme Intense', 615000, 'frascos/dior-homme-intense.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/le-male-le-parfum.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/le-male-le-parfum.svg" alt="Le Male Le Parfum" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Jean Paul Gaultier</p>
+                            <p class="tarjeta__nombre">Le Male Le Parfum</p>
+                            <p class="tarjeta__precio">$470.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Le Male Le Parfum', 470000, 'frascos/le-male-le-parfum.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/phantom.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/phantom.svg" alt="Phantom" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Rabanne</p>
+                            <p class="tarjeta__nombre">Phantom</p>
+                            <p class="tarjeta__precio">$415.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Phantom', 415000, 'frascos/phantom.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/invictus.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/invictus.svg" alt="Invictus" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Rabanne</p>
+                            <p class="tarjeta__nombre">Invictus</p>
+                            <p class="tarjeta__precio">$355.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Invictus', 355000, 'frascos/invictus.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/acqua-profumo.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/acqua-profumo.svg" alt="Acqua di Giò Profumo" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Giorgio Armani</p>
+                            <p class="tarjeta__nombre">Acqua di Giò Profumo</p>
+                            <p class="tarjeta__precio">$560.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Acqua di Giò Profumo', 560000, 'frascos/acqua-profumo.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/ysl-y-edp.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/ysl-y-edp.svg" alt="Y Eau de Parfum" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Yves Saint Laurent</p>
+                            <p class="tarjeta__nombre">Y Eau de Parfum</p>
+                            <p class="tarjeta__precio">$495.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Y Eau de Parfum', 495000, 'frascos/ysl-y-edp.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/la-nuit-homme.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/la-nuit-homme.svg" alt="La Nuit de L'Homme" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Yves Saint Laurent</p>
+                            <p class="tarjeta__nombre">La Nuit de L'Homme</p>
+                            <p class="tarjeta__precio">$455.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('La Nuit de L\'Homme', 455000, 'frascos/la-nuit-homme.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/most-wanted.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/most-wanted.svg" alt="The Most Wanted Parfum" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Azzaro</p>
+                            <p class="tarjeta__nombre">The Most Wanted Parfum</p>
+                            <p class="tarjeta__precio">$420.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('The Most Wanted Parfum', 420000, 'frascos/most-wanted.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/luna-rossa-carbon.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/luna-rossa-carbon.svg" alt="Luna Rossa Carbon" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Prada</p>
+                            <p class="tarjeta__nombre">Luna Rossa Carbon</p>
+                            <p class="tarjeta__precio">$445.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Luna Rossa Carbon', 445000, 'frascos/luna-rossa-carbon.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/bad-boy.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/bad-boy.svg" alt="Bad Boy" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Carolina Herrera</p>
+                            <p class="tarjeta__nombre">Bad Boy</p>
+                            <p class="tarjeta__precio">$465.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Bad Boy', 465000, 'frascos/bad-boy.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="nicho">
+                    <a class="tarjeta__enlace" href="../pages/producto/aventus.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/aventus.svg" alt="Aventus" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Creed</p>
+                            <p class="tarjeta__nombre">Aventus</p>
+                            <p class="tarjeta__precio">$2.150.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Aventus', 2150000, 'frascos/aventus.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="nicho">
+                    <a class="tarjeta__enlace" href="../pages/producto/br540.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/br540.svg" alt="Baccarat Rouge 540" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Maison Francis Kurkdjian</p>
+                            <p class="tarjeta__nombre">Baccarat Rouge 540</p>
+                            <p class="tarjeta__precio">$1.780.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Baccarat Rouge 540', 1780000, 'frascos/br540.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="nicho">
+                    <a class="tarjeta__enlace" href="../pages/producto/oud-greatness.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/oud-greatness.svg" alt="Oud for Greatness" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Initio</p>
+                            <p class="tarjeta__nombre">Oud for Greatness</p>
+                            <p class="tarjeta__precio">$1.390.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Oud for Greatness', 1390000, 'frascos/oud-greatness.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="nicho">
+                    <a class="tarjeta__enlace" href="../pages/producto/naxos.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/naxos.svg" alt="Naxos" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Xerjoff</p>
+                            <p class="tarjeta__nombre">Naxos</p>
+                            <p class="tarjeta__precio">$1.450.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Naxos', 1450000, 'frascos/naxos.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="nicho">
+                    <a class="tarjeta__enlace" href="../pages/producto/layton.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/layton.svg" alt="Layton" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Parfums de Marly</p>
+                            <p class="tarjeta__nombre">Layton</p>
+                            <p class="tarjeta__precio">$1.240.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Layton', 1240000, 'frascos/layton.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="nicho">
+                    <a class="tarjeta__enlace" href="../pages/producto/santal-33.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/santal-33.svg" alt="Santal 33" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Le Labo</p>
+                            <p class="tarjeta__nombre">Santal 33</p>
+                            <p class="tarjeta__precio">$1.180.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Santal 33', 1180000, 'frascos/santal-33.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/acqua-parfum.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/acqua-parfum.svg" alt="Acqua di Giò Parfum" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Giorgio Armani</p>
+                            <p class="tarjeta__nombre">Acqua di Giò Parfum</p>
+                            <p class="tarjeta__precio">$545.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Acqua di Giò Parfum', 545000, 'frascos/acqua-parfum.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/allure-sport.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/allure-sport.svg" alt="Allure Homme Sport" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Chanel</p>
+                            <p class="tarjeta__nombre">Allure Homme Sport</p>
+                            <p class="tarjeta__precio">$615.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Allure Homme Sport', 615000, 'frascos/allure-sport.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/the-one-men.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/the-one-men.svg" alt="The One for Men" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Dolce&amp;Gabbana</p>
+                            <p class="tarjeta__nombre">The One for Men</p>
+                            <p class="tarjeta__precio">$425.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('The One for Men', 425000, 'frascos/the-one-men.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/gentleman-society.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/gentleman-society.svg" alt="Gentleman Society" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Givenchy</p>
+                            <p class="tarjeta__nombre">Gentleman Society</p>
+                            <p class="tarjeta__precio">$470.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Gentleman Society', 470000, 'frascos/gentleman-society.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/burberry-hero.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/burberry-hero.svg" alt="Hero Eau de Parfum" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Burberry</p>
+                            <p class="tarjeta__nombre">Hero Eau de Parfum</p>
+                            <p class="tarjeta__precio">$435.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Hero Eau de Parfum', 435000, 'frascos/burberry-hero.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/boss-bottled.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/boss-bottled.svg" alt="Boss Bottled" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Hugo Boss</p>
+                            <p class="tarjeta__nombre">Boss Bottled</p>
+                            <p class="tarjeta__precio">$340.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Boss Bottled', 340000, 'frascos/boss-bottled.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/montblanc-explorer.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/montblanc-explorer.svg" alt="Explorer" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Montblanc</p>
+                            <p class="tarjeta__nombre">Explorer</p>
+                            <p class="tarjeta__precio">$355.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Explorer', 355000, 'frascos/montblanc-explorer.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/ombre-leather.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/ombre-leather.svg" alt="Ombré Leather" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Tom Ford</p>
+                            <p class="tarjeta__nombre">Ombré Leather</p>
+                            <p class="tarjeta__precio">$780.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Ombré Leather', 780000, 'frascos/ombre-leather.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/tobacco-vanille.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/tobacco-vanille.svg" alt="Tobacco Vanille" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Tom Ford</p>
+                            <p class="tarjeta__nombre">Tobacco Vanille</p>
+                            <p class="tarjeta__precio">$1.180.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Tobacco Vanille', 1180000, 'frascos/tobacco-vanille.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/amethyst.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/amethyst.svg" alt="Bade'e Al Oud Amethyst" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Lattafa</p>
+                            <p class="tarjeta__nombre">Bade'e Al Oud Amethyst</p>
+                            <p class="tarjeta__precio">$165.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Bade\'e Al Oud Amethyst', 165000, 'frascos/amethyst.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/hayaati.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/hayaati.svg" alt="Hayaati" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Lattafa</p>
+                            <p class="tarjeta__nombre">Hayaati</p>
+                            <p class="tarjeta__precio">$130.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Hayaati', 130000, 'frascos/hayaati.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/pride-nashama.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/pride-nashama.svg" alt="Pride Al Nashama" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Lattafa</p>
+                            <p class="tarjeta__nombre">Pride Al Nashama</p>
+                            <p class="tarjeta__precio">$125.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Pride Al Nashama', 125000, 'frascos/pride-nashama.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/club-nuit-sillage.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/club-nuit-sillage.svg" alt="Club de Nuit Sillage" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Armaf</p>
+                            <p class="tarjeta__nombre">Club de Nuit Sillage</p>
+                            <p class="tarjeta__precio">$195.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Club de Nuit Sillage', 195000, 'frascos/club-nuit-sillage.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/ventana.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/ventana.svg" alt="Ventana" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Armaf</p>
+                            <p class="tarjeta__nombre">Ventana</p>
+                            <p class="tarjeta__precio">$140.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Ventana', 140000, 'frascos/ventana.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/rare-carbon.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/rare-carbon.svg" alt="Rare Carbon" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Afnan</p>
+                            <p class="tarjeta__nombre">Rare Carbon</p>
+                            <p class="tarjeta__precio">$175.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Rare Carbon', 175000, 'frascos/rare-carbon.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/turathi-blue.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/turathi-blue.svg" alt="Turathi Blue" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Afnan</p>
+                            <p class="tarjeta__nombre">Turathi Blue</p>
+                            <p class="tarjeta__precio">$160.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Turathi Blue', 160000, 'frascos/turathi-blue.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/detour-noir.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/detour-noir.svg" alt="Détour Noir" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Al Haramain</p>
+                            <p class="tarjeta__nombre">Détour Noir</p>
+                            <p class="tarjeta__precio">$185.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Détour Noir', 185000, 'frascos/detour-noir.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/salvo.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/salvo.svg" alt="Salvo" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Maison Alhambra</p>
+                            <p class="tarjeta__nombre">Salvo</p>
+                            <p class="tarjeta__precio">$125.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Salvo', 125000, 'frascos/salvo.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="arabe">
+                    <a class="tarjeta__enlace" href="../pages/producto/shaghaf-oud.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Árabe</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/shaghaf-oud.svg" alt="Shaghaf Oud" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Swiss Arabian</p>
+                            <p class="tarjeta__nombre">Shaghaf Oud</p>
+                            <p class="tarjeta__precio">$205.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Shaghaf Oud', 205000, 'frascos/shaghaf-oud.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="nicho">
+                    <a class="tarjeta__enlace" href="../pages/producto/herod.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/herod.svg" alt="Herod" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Parfums de Marly</p>
+                            <p class="tarjeta__nombre">Herod</p>
+                            <p class="tarjeta__precio">$1.290.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Herod', 1290000, 'frascos/herod.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="nicho">
+                    <a class="tarjeta__enlace" href="../pages/producto/percival.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/percival.svg" alt="Percival" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Parfums de Marly</p>
+                            <p class="tarjeta__nombre">Percival</p>
+                            <p class="tarjeta__precio">$1.250.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Percival', 1250000, 'frascos/percival.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="nicho">
+                    <a class="tarjeta__enlace" href="../pages/producto/erba-pura.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/erba-pura.svg" alt="Erba Pura" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Xerjoff</p>
+                            <p class="tarjeta__nombre">Erba Pura</p>
+                            <p class="tarjeta__precio">$1.420.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Erba Pura', 1420000, 'frascos/erba-pura.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="nicho">
+                    <a class="tarjeta__enlace" href="../pages/producto/side-effect.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/side-effect.svg" alt="Side Effect" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Initio</p>
+                            <p class="tarjeta__nombre">Side Effect</p>
+                            <p class="tarjeta__precio">$1.380.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Side Effect', 1380000, 'frascos/side-effect.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="nicho">
+                    <a class="tarjeta__enlace" href="../pages/producto/grand-soir.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/grand-soir.svg" alt="Grand Soir" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Maison Francis Kurkdjian</p>
+                            <p class="tarjeta__nombre">Grand Soir</p>
+                            <p class="tarjeta__precio">$1.520.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Grand Soir', 1520000, 'frascos/grand-soir.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="nicho">
+                    <a class="tarjeta__enlace" href="../pages/producto/hacivat.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/hacivat.svg" alt="Hacivat" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Nishane</p>
+                            <p class="tarjeta__nombre">Hacivat</p>
+                            <p class="tarjeta__precio">$1.340.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Hacivat', 1340000, 'frascos/hacivat.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="nicho">
+                    <a class="tarjeta__enlace" href="../pages/producto/interlude-man.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/interlude-man.svg" alt="Interlude Man" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Amouage</p>
+                            <p class="tarjeta__nombre">Interlude Man</p>
+                            <p class="tarjeta__precio">$2.280.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Interlude Man', 2280000, 'frascos/interlude-man.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="nicho">
+                    <a class="tarjeta__enlace" href="../pages/producto/gypsy-water.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/gypsy-water.svg" alt="Gypsy Water" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Byredo</p>
+                            <p class="tarjeta__nombre">Gypsy Water</p>
+                            <p class="tarjeta__precio">$1.120.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Gypsy Water', 1120000, 'frascos/gypsy-water.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/nautica-voyage.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/nautica-voyage.svg" alt="Voyage" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Nautica</p>
+                            <p class="tarjeta__nombre">Voyage</p>
+                            <p class="tarjeta__precio">$165.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Voyage', 165000, 'frascos/nautica-voyage.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/ck-eternity.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/ck-eternity.svg" alt="Eternity for Men" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Calvin Klein</p>
+                            <p class="tarjeta__nombre">Eternity for Men</p>
+                            <p class="tarjeta__precio">$285.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Eternity for Men', 285000, 'frascos/ck-eternity.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/ck-one.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span><span class="insignia insignia--tenue">Unisex</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/ck-one.svg" alt="CK One" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Calvin Klein</p>
+                            <p class="tarjeta__nombre">CK One</p>
+                            <p class="tarjeta__precio">$265.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('CK One', 265000, 'frascos/ck-one.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/polo-blue.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/polo-blue.svg" alt="Polo Blue" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Ralph Lauren</p>
+                            <p class="tarjeta__nombre">Polo Blue</p>
+                            <p class="tarjeta__precio">$320.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Polo Blue', 320000, 'frascos/polo-blue.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/cool-water.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/cool-water.svg" alt="Cool Water" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Davidoff</p>
+                            <p class="tarjeta__nombre">Cool Water</p>
+                            <p class="tarjeta__precio">$215.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Cool Water', 215000, 'frascos/cool-water.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/leau-issey-homme.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/leau-issey-homme.svg" alt="L'Eau d'Issey Pour Homme" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Issey Miyake</p>
+                            <p class="tarjeta__nombre">L'Eau d'Issey Pour Homme</p>
+                            <p class="tarjeta__precio">$295.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('L\'Eau d\'Issey Pour Homme', 295000, 'frascos/leau-issey-homme.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/bvlgari-man-black.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/bvlgari-man-black.svg" alt="Man in Black" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Bvlgari</p>
+                            <p class="tarjeta__nombre">Man in Black</p>
+                            <p class="tarjeta__precio">$395.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Man in Black', 395000, 'frascos/bvlgari-man-black.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/azzaro-chrome.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/azzaro-chrome.svg" alt="Chrome" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Azzaro</p>
+                            <p class="tarjeta__nombre">Chrome</p>
+                            <p class="tarjeta__precio">$275.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Chrome', 275000, 'frascos/azzaro-chrome.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/banderas-king.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/banderas-king.svg" alt="King of Seduction" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Antonio Banderas</p>
+                            <p class="tarjeta__nombre">King of Seduction</p>
+                            <p class="tarjeta__precio">$145.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('King of Seduction', 145000, 'frascos/banderas-king.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/banderas-secret.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/banderas-secret.svg" alt="The Secret" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Antonio Banderas</p>
+                            <p class="tarjeta__nombre">The Secret</p>
+                            <p class="tarjeta__precio">$150.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('The Secret', 150000, 'frascos/banderas-secret.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/light-blue-homme.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/light-blue-homme.svg" alt="Light Blue Pour Homme" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Dolce&amp;Gabbana</p>
+                            <p class="tarjeta__nombre">Light Blue Pour Homme</p>
+                            <p class="tarjeta__precio">$340.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Light Blue Pour Homme', 340000, 'frascos/light-blue-homme.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/boss-the-scent.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/boss-the-scent.svg" alt="The Scent" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Hugo Boss</p>
+                            <p class="tarjeta__nombre">The Scent</p>
+                            <p class="tarjeta__precio">$335.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('The Scent', 335000, 'frascos/boss-the-scent.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/ferragamo-uomo.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/ferragamo-uomo.svg" alt="Uomo" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Salvatore Ferragamo</p>
+                            <p class="tarjeta__nombre">Uomo</p>
+                            <p class="tarjeta__precio">$265.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Uomo', 265000, 'frascos/ferragamo-uomo.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/kenzo-homme.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/kenzo-homme.svg" alt="Kenzo Homme Intense" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Kenzo</p>
+                            <p class="tarjeta__nombre">Kenzo Homme Intense</p>
+                            <p class="tarjeta__precio">$290.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Kenzo Homme Intense', 290000, 'frascos/kenzo-homme.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/jaguar-classic-black.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/jaguar-classic-black.svg" alt="Classic Black" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Jaguar</p>
+                            <p class="tarjeta__nombre">Classic Black</p>
+                            <p class="tarjeta__precio">$135.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Classic Black', 135000, 'frascos/jaguar-classic-black.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/mercedes-man.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/mercedes-man.svg" alt="Mercedes-Benz Man" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Mercedes-Benz</p>
+                            <p class="tarjeta__nombre">Mercedes-Benz Man</p>
+                            <p class="tarjeta__precio">$245.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Mercedes-Benz Man', 245000, 'frascos/mercedes-man.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/police-to-be.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/police-to-be.svg" alt="To Be" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Police</p>
+                            <p class="tarjeta__nombre">To Be</p>
+                            <p class="tarjeta__precio">$155.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('To Be', 155000, 'frascos/police-to-be.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/guess-seductive-blue.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/guess-seductive-blue.svg" alt="Seductive Homme Blue" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Guess</p>
+                            <p class="tarjeta__nombre">Seductive Homme Blue</p>
+                            <p class="tarjeta__precio">$140.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Seductive Homme Blue', 140000, 'frascos/guess-seductive-blue.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/adidas-victory.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/adidas-victory.svg" alt="Victory League" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Adidas</p>
+                            <p class="tarjeta__nombre">Victory League</p>
+                            <p class="tarjeta__precio">$75.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Victory League', 75000, 'frascos/adidas-victory.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
+                <article class="tarjeta revelar" data-tipo="disenador">
+                    <a class="tarjeta__enlace" href="../pages/producto/tommy-hilfiger.html">
+                        <div class="tarjeta__marco">
+                            <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
+                            <img class="tarjeta__imagen es-vector" src="../imagenes/frascos/tommy-hilfiger.svg" alt="Tommy" loading="lazy" decoding="async">
+                        </div>
+                        <div class="tarjeta__info">
+                            <p class="tarjeta__marca">Tommy Hilfiger</p>
+                            <p class="tarjeta__nombre">Tommy</p>
+                            <p class="tarjeta__precio">$185.000 COP</p>
+                        </div>
+                    </a>
+                    <button class="btn-agregar" onclick="agregarAlCarrito('Tommy', 185000, 'frascos/tommy-hilfiger.svg')">
+                        Agregar al carrito
+                    </button>
+                </article>
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="footer__contenido contenedor">
-            <div class="footer__marca">
-                <p class="footer__logo"><i>Smessence</i></p>
-                <p class="footer__lema">El arte de dejar huella.</p>
+    <footer class="pie">
+        <div class="pie__grid contenedor">
+            <div>
+                <p class="pie__logo">Smessence</p>
+                <p class="pie__lema">El arte de dejar huella.</p>
+                <p class="pie__texto">Fragancias originales seleccionadas con criterio de perfumería. Envíos a toda Colombia.</p>
             </div>
-            <nav class="footer__nav" aria-label="Enlaces del pie de página">
+            <nav aria-label="Catálogo">
+                <h2 class="pie__titulo">Catálogo</h2>
                 <a href="../pages/masculinas.html">Masculinas</a>
                 <a href="../pages/femeninas.html">Femeninas</a>
                 <a href="../pages/combos.html">Combos</a>
             </nav>
+            <nav aria-label="Colecciones">
+                <h2 class="pie__titulo">Colecciones</h2>
+                <a href="../pages/arabes.html">Perfumería árabe</a>
+                <a href="../pages/nicho.html">Alta perfumería de nicho</a>
+                <a href="../index.html#novedades">Novedades</a>
+            </nav>
+            <div>
+                <h2 class="pie__titulo">Asesoría</h2>
+                <p class="pie__texto">¿No sabes cuál elegir? Cuéntanos qué usas hoy y te recomendamos tu próxima firma olfativa.</p>
+            </div>
         </div>
-        <p class="footer__copy">&copy; 2026 Smessence &middot; Andrés Madrid &middot; Todos los derechos reservados</p>
+        <p class="pie__copy">&copy; 2026 Smessence · Andrés Madrid · Todos los derechos reservados<a class="pie__portal" href="../pages/portal.html" title="Gestión de catálogo" aria-label="Gestión de catálogo">·</a></p>
     </footer>
     <script>window.RUTA_BASE = '../';</script>
+    <script src="../js/indice.js"></script>
     <script src="../js/carrito.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../js/app.js"></script>
 </body>
 </html>

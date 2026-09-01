@@ -1,20 +1,25 @@
-// ============================================
-// CARRITO - COMPONENTE REUTILIZABLE
-// Cada página define window.RUTA_BASE ('' | '../' | '../../')
-// y las imágenes se guardan con ruta relativa a la raíz.
-// ============================================
+/* ============================================
+   CARRITO
+   Cada página define window.RUTA_BASE ('', '../', '../../')
+   apuntando a la raíz del sitio.
+   La imagen se guarda como clave:
+     'frascos/xxx.svg'   → packshot vectorial
+     'productos/xxx.jpg' → foto real aportada por la tienda
+     'xxx.jpg'           → foto heredada en imagenes/
+   ============================================ */
 
 const rutaBase = window.RUTA_BASE || '';
 
-let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-// Normalizar entradas antiguas que guardaban '../imagenes/...'
-carrito.forEach(p => { p.imagen = p.imagen.replace(/^(\.\.\/)+/, ''); });
+const resolverImagen = (clave) => /^(frascos|productos)\//.test(clave)
+    ? rutaBase + 'imagenes/' + clave
+    : rutaBase + 'imagenes/' + clave;
+
+let carrito = JSON.parse(localStorage.getItem('carrito_borrador')) || [];
 
 function inyectarCarrito() {
-    // Inyectar ícono en el header
-    const header = document.querySelector('.header');
-    if (header && !document.getElementById('carrito-contador')) {
-        header.insertAdjacentHTML('beforeend', `
+    const cabecera = document.querySelector('.cabecera');
+    if (cabecera && !document.getElementById('carrito-contador')) {
+        cabecera.insertAdjacentHTML('beforeend', `
             <div class="carrito-icono" onclick="abrirCarrito()" role="button" aria-label="Abrir carrito" tabindex="0">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
                 <span id="carrito-contador">0</span>
@@ -22,7 +27,6 @@ function inyectarCarrito() {
         `);
     }
 
-    // Inyectar panel lateral si no existe
     if (!document.getElementById('carrito-panel')) {
         document.body.insertAdjacentHTML('beforeend', `
             <div id="carrito-panel">
@@ -47,16 +51,13 @@ function inyectarCarrito() {
 }
 
 function guardarCarrito() {
-    localStorage.setItem('carrito', JSON.stringify(carrito));
+    localStorage.setItem('carrito_borrador', JSON.stringify(carrito));
 }
 
-function agregarAlCarrito(nombre, precio, imagenRelativa) {
-    // Guardar siempre la ruta canónica desde la raíz del sitio
-    const imagen = imagenRelativa.replace(/^(\.\.\/)+/, '');
-    const productoExistente = carrito.find(p => p.nombre === nombre);
-
-    if (productoExistente) {
-        productoExistente.cantidad++;
+function agregarAlCarrito(nombre, precio, imagen) {
+    const existente = carrito.find(p => p.nombre === nombre);
+    if (existente) {
+        existente.cantidad++;
     } else {
         carrito.push({ nombre, precio, imagen, cantidad: 1 });
     }
@@ -64,7 +65,6 @@ function agregarAlCarrito(nombre, precio, imagenRelativa) {
     actualizarCarrito();
     abrirCarrito();
 
-    // Pulso en el contador como confirmación visual
     const contador = document.getElementById('carrito-contador');
     if (contador) {
         contador.classList.remove('late');
@@ -91,8 +91,8 @@ function calcularTotal() {
 }
 
 function actualizarCarrito() {
-    const totalItems = carrito.reduce((total, p) => total + p.cantidad, 0);
-    document.getElementById('carrito-contador').textContent = totalItems;
+    document.getElementById('carrito-contador').textContent =
+        carrito.reduce((total, p) => total + p.cantidad, 0);
 
     const lista = document.getElementById('carrito-lista');
     lista.innerHTML = '';
@@ -103,7 +103,7 @@ function actualizarCarrito() {
         carrito.forEach(p => {
             lista.innerHTML += `
                 <div class="carrito-item">
-                    <img src="${rutaBase}${p.imagen}" alt="${p.nombre}">
+                    <img src="${resolverImagen(p.imagen)}" alt="${p.nombre}">
                     <div class="carrito-item-info">
                         <p class="carrito-item-nombre">${p.nombre}</p>
                         <p class="carrito-item-precio">$${p.precio.toLocaleString('es-CO')} COP</p>
@@ -134,8 +134,6 @@ function cerrarCarrito() {
 document.addEventListener('DOMContentLoaded', function () {
     inyectarCarrito();
     actualizarCarrito();
-
-    // Cerrar con la tecla Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') cerrarCarrito();
     });
