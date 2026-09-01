@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" role="img" aria-label="Santal 33 de Le Labo">
+  <defs>
+    <linearGradient id="g-vidrio" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#C9A47A"/>
+      <stop offset="52%" stop-color="#C9A47A"/>
+      <stop offset="100%" stop-color="#8A6640"/>
+    </linearGradient>
+    <linearGradient id="g-brillo" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fff" stop-opacity=".46"/>
+      <stop offset="38%" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="g-metal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#111316"/>
+      <stop offset="22%" stop-color="#4A4F55"/>
+      <stop offset="52%" stop-color="#2A2E33"/>
+      <stop offset="78%" stop-color="#4A4F55"/>
+      <stop offset="100%" stop-color="#111316"/>
+    </linearGradient>
+    <linearGradient id="g-placa" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4A4F55" stop-opacity=".95"/>
+      <stop offset="100%" stop-color="#2A2E33" stop-opacity=".85"/>
+    </linearGradient>
+    <radialGradient id="g-sombra" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#2A2E33" stop-opacity=".34"/>
+      <stop offset="100%" stop-color="#2A2E33" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="recorte-cuerpo"><path d="M136,286 Q136,250 168,238 V214 H232 V238 Q264,250 264,286 V464 Q264,490 238,490 H162 Q136,490 136,464 Z"/></clipPath>
+  </defs>
+
+  <ellipse cx="200" cy="504" rx="132" ry="26" fill="url(#g-sombra)"/>
+
+  <g>
+    <rect x="161" y="188" width="78" height="40" fill="url(#g-vidrio)" opacity=".92"/>
+    <rect x="148" y="142" width="104" height="46" rx="7" fill="url(#g-metal)"/>
+    <rect x="148" y="179" width="104" height="9" rx="3" fill="#111316" opacity=".55"/>
+    <rect x="155" y="150" width="7" height="26" rx="3" fill="#fff" opacity=".34"/>
+  </g>
+
+  <path d="M136,286 Q136,250 168,238 V214 H232 V238 Q264,250 264,286 V464 Q264,490 238,490 H162 Q136,490 136,464 Z" fill="url(#g-vidrio)"/>
+  <g clip-path="url(#recorte-cuerpo)">
+    <rect x="100" y="150" width="118" height="360" fill="url(#g-brillo)"/>
+    <ellipse cx="292" cy="470" rx="70" ry="52" fill="#fff" opacity=".07"/>
+    <rect x="88" y="452" width="240" height="46" fill="#8A6640" opacity=".45"/>
+  </g>
+  <path d="M136,286 Q136,250 168,238 V214 H232 V238 Q264,250 264,286 V464 Q264,490 238,490 H162 Q136,490 136,464 Z" fill="none" stroke="#fff" stroke-opacity=".34" stroke-width="2"/>
+
+  <g>
+    <rect x="147" y="369" width="106" height="54" rx="6" fill="url(#g-placa)"/>
+    <rect x="152" y="374" width="96" height="44" rx="4" fill="none" stroke="#111316" stroke-opacity=".5"/>
+    <text x="200" y="405" text-anchor="middle"
+          font-family="Georgia, 'Playfair Display', serif" font-size="27" letter-spacing="4"
+          fill="#111316" fill-opacity=".92">L</text>
+  </g>
+
+  <rect x="153" y="440" width="94" height="2" rx="1" fill="#2A2E33" opacity=".5"/>
+</svg>

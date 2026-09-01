@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" role="img" aria-label="To Be de Police">
+  <defs>
+    <linearGradient id="g-vidrio" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2A2E33"/>
+      <stop offset="52%" stop-color="#2A2E33"/>
+      <stop offset="100%" stop-color="#111316"/>
+    </linearGradient>
+    <linearGradient id="g-brillo" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fff" stop-opacity=".46"/>
+      <stop offset="38%" stop-color="#fff" stop-opacity=".08"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="g-metal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7E858C"/>
+      <stop offset="22%" stop-color="#EFF2F4"/>
+      <stop offset="52%" stop-color="#C4C8CC"/>
+      <stop offset="78%" stop-color="#EFF2F4"/>
+      <stop offset="100%" stop-color="#7E858C"/>
+    </linearGradient>
+    <linearGradient id="g-placa" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EFF2F4" stop-opacity=".95"/>
+      <stop offset="100%" stop-color="#C4C8CC" stop-opacity=".85"/>
+    </linearGradient>
+    <radialGradient id="g-sombra" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#2A2E33" stop-opacity=".34"/>
+      <stop offset="100%" stop-color="#2A2E33" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="recorte-cuerpo"><path d="M200,200 C232,200 246,222 246,246 C246,262 240,272 240,282 C268,296 282,330 284,378 L288,466 a24,24 0 0 1 -24,24 H136 a24,24 0 0 1 -24,-24 L116,378 C118,330 132,296 160,282 C160,272 154,262 154,246 C154,222 168,200 200,200 Z"/></clipPath>
+  </defs>
+
+  <ellipse cx="200" cy="504" rx="132" ry="26" fill="url(#g-sombra)"/>
+
+  <g>
+    <rect x="180" y="166" width="40" height="48" fill="url(#g-vidrio)" opacity=".92"/>
+    <rect x="169" y="114" width="62" height="52" rx="7" fill="url(#g-metal)"/>
+    <rect x="169" y="157" width="62" height="9" rx="3" fill="#7E858C" opacity=".55"/>
+    <rect x="176" y="122" width="7" height="32" rx="3" fill="#fff" opacity=".34"/>
+  </g>
+
+  <path d="M200,200 C232,200 246,222 246,246 C246,262 240,272 240,282 C268,296 282,330 284,378 L288,466 a24,24 0 0 1 -24,24 H136 a24,24 0 0 1 -24,-24 L116,378 C118,330 132,296 160,282 C160,272 154,262 154,246 C154,222 168,200 200,200 Z" fill="url(#g-vidrio)"/>
+  <g clip-path="url(#recorte-cuerpo)">
+    <rect x="100" y="150" width="118" height="360" fill="url(#g-brillo)"/>
+    <ellipse cx="292" cy="470" rx="70" ry="52" fill="#fff" opacity=".07"/>
+    <rect x="88" y="452" width="240" height="46" fill="#111316" opacity=".45"/>
+  </g>
+  <path d="M200,200 C232,200 246,222 246,246 C246,262 240,272 240,282 C268,296 282,330 284,378 L288,466 a24,24 0 0 1 -24,24 H136 a24,24 0 0 1 -24,-24 L116,378 C118,330 132,296 160,282 C160,272 154,262 154,246 C154,222 168,200 200,200 Z" fill="none" stroke="#fff" stroke-opacity=".34" stroke-width="2"/>
+
+  <g>
+    <rect x="146" y="373" width="108" height="54" rx="6" fill="url(#g-placa)"/>
+    <rect x="151" y="378" width="98" height="44" rx="4" fill="none" stroke="#7E858C" stroke-opacity=".5"/>
+    <text x="200" y="409" text-anchor="middle"
+          font-family="Georgia, 'Playfair Display', serif" font-size="27" letter-spacing="4"
+          fill="#7E858C" fill-opacity=".92">P</text>
+  </g>
+
+  <rect x="152" y="444" width="96" height="2" rx="1" fill="#B9BEC4" opacity=".5"/>
+</svg>

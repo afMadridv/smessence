@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trío Seductor Oriental | Smessence</title>
+    <meta name="description" content="Trío Seductor Oriental: Asad + Versace Eros + Oud for Glory. Tres registros de seducción: la frescura dulce mediterránea de Eros, la fuerza ahumada de Asad y el lujo profu…">
+    <script>document.documentElement.dataset.tema = localStorage.getItem('tema') || 'claro';</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/estilo.css">
+</head>
+<body>
+<a class="salto-contenido" href="#contenido">Ir al contenido</a>
+    <header class="cabecera">
+        <a class="cabecera__marca" href="../../index.html">
+            <span class="cabecera__logo">Smessence</span>
+            <span class="cabecera__lema">Perfumería de autor</span>
+        </a>
+    </header>
+    <div class="barra-nav">
+        <div class="barra-nav__interior contenedor">
+            <nav class="nav" aria-label="Navegación principal">
+            <a href="../../index.html">Inicio</a>
+            <a href="../../pages/masculinas.html">Masculinas</a>
+            <a href="../../pages/femeninas.html">Femeninas</a>
+            <a href="../../pages/combos.html" class="activo" aria-current="page">Combos</a>
+            </nav>
+            <div class="buscador" role="search">
+                <label class="buscador__campo">
+                    <span class="visualmente-oculto">Buscar perfume por nombre, marca o nota</span>
+                    <svg class="buscador__lupa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+                    <input type="search" id="buscador-entrada" placeholder="Buscar perfume…"
+                           autocomplete="off" role="combobox" aria-expanded="false"
+                           aria-controls="buscador-resultados" aria-autocomplete="list">
+                    <button type="button" class="buscador__limpiar" aria-label="Limpiar búsqueda" hidden>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                </label>
+                <div class="buscador__panel" id="buscador-resultados" role="listbox" hidden></div>
+            </div>
+        </div>
+    </div>
+
+    <main id="contenido" class="contenedor seccion">
+        <nav class="miga" aria-label="Miga de pan">
+            <a href="../../index.html">Inicio</a><span aria-hidden="true">/</span>
+            <a href="../../pages/combos.html">Combos</a><span aria-hidden="true">/</span>
+            <span>Trío Seductor Oriental</span>
+        </nav>
+
+        <div class="ficha">
+            <div class="ficha__visual revelar">
+                <img src="../../../imagenes/combo-asad-eros-oudforglory.jpg" alt="Asad + Versace Eros + Oud for Glory" decoding="async">
+            </div>
+            <div class="ficha__texto revelar">
+                <div class="ficha__insignias"><span class="insignia insignia--combo">Combo</span></div>
+                <p class="ficha__marca">Combo exclusivo</p>
+                <h1 class="ficha__titulo">Trío Seductor Oriental</h1>
+                <p class="ficha__familia">Asad + Versace Eros + Oud for Glory</p>
+                <p class="ficha__precio">$545.000 COP</p>
+                <p class="ficha__desc">Tres registros de seducción: la frescura dulce mediterránea de Eros, la fuerza ahumada de Asad y el lujo profundo del oud. Un arsenal completo para la noche.</p>
+
+                <div class="incluye">
+                    <h2>Qué incluye</h2>
+                    <ul>
+                        <li><strong>Asad — Lattafa</strong><span>Café, tabaco y ámbar: el león de Lattafa.</span></li>
+                        <li><strong>Eros — Versace</strong><span>Menta, manzana verde y vainilla: frescura seductora italiana.</span></li>
+                        <li><strong>Bade’e Al Oud for Glory — Lattafa</strong><span>Azafrán y oud ambarado: opulencia oriental.</span></li>
+                    </ul>
+                </div>
+
+                <dl class="ficha__meta">
+                    <div><dt>Ideal para</dt><dd>El hombre que alterna entre lo fresco-seductor y lo oriental intenso.</dd></div>
+                    <div><dt>Presentación</dt><dd>Fragancias originales selladas de 100 ml.</dd></div>
+                </dl>
+
+                <button class="btn-agregar" onclick="agregarAlCarrito('Trío Seductor Oriental', 545000, 'combo-asad-eros-oudforglory.jpg')">
+                    Agregar al carrito — $545.000 COP
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="pie">
+        <div class="pie__grid contenedor">
+            <div>
+                <p class="pie__logo">Smessence</p>
+                <p class="pie__lema">El arte de dejar huella.</p>
+                <p class="pie__texto">Fragancias originales seleccionadas con criterio de perfumería. Envíos a toda Colombia.</p>
+            </div>
+            <nav aria-label="Catálogo">
+                <h2 class="pie__titulo">Catálogo</h2>
+                <a href="../../pages/masculinas.html">Masculinas</a>
+                <a href="../../pages/femeninas.html">Femeninas</a>
+                <a href="../../pages/combos.html">Combos</a>
+            </nav>
+            <nav aria-label="Colecciones">
+                <h2 class="pie__titulo">Colecciones</h2>
+                <a href="../../pages/arabes.html">Perfumería árabe</a>
+                <a href="../../pages/nicho.html">Alta perfumería de nicho</a>
+                <a href="../../index.html#novedades">Novedades</a>
+            </nav>
+            <div>
+                <h2 class="pie__titulo">Asesoría</h2>
+                <p class="pie__texto">¿No sabes cuál elegir? Cuéntanos qué usas hoy y te recomendamos tu próxima firma olfativa.</p>
+            </div>
+        </div>
+        <p class="pie__copy">&copy; 2026 Smessence · Andrés Madrid · Todos los derechos reservados<a class="pie__portal" href="../../pages/portal.html" title="Gestión de catálogo" aria-label="Gestión de catálogo">·</a></p>
+    </footer>
+    <script>window.RUTA_BASE = '../../';</script>
+    <script src="../../js/indice.js"></script>
+    <script src="../../js/carrito.js"></script>
+    <script src="../../js/app.js"></script>
+</body>
+</html>
