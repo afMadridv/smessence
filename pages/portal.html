@@ -211,15 +211,17 @@
         <h2 class="tablero__titulo">Cómo publicar lo que registraste</h2>
         <ol class="pasos">
             <li>Pulsa <strong>Exportar archivo</strong>: se descarga <code>datos-portal.js</code>.</li>
-            <li>Cópialo junto a los demás archivos del generador, donde están <code>datos.js</code>, <code>datos2.js</code> y <code>datos3.js</code>.</li>
-            <li>En <code>generar.js</code> añade la importación y súmalo al catálogo:
-                <pre><code>const { NUEVOS4 } = require('./datos-portal.js');
-// …y dentro del arreglo CATALOGO:
-...NUEVOS4.map(p =&gt; ({ ...p, imgKey: 'frascos/' + p.id + '.svg', vector: true }))</code></pre>
+            <li>Guárdalo dentro de la carpeta <code>generador/</code> del proyecto.</li>
+            <li>Abre una terminal en esa carpeta y ejecuta:
+                <pre><code>node generar.js</code></pre>
+                Se crean la ficha, el packshot y las tarjetas en cada sección.
             </li>
-            <li>Ejecuta <code>node generar.js</code>. Se crean la ficha, el packshot y las tarjetas en cada sección.</li>
+            <li>Cuando estés conforme, pasa las fragancias nuevas de <code>datos-portal.js</code>
+                al arreglo <code>PERFUMES</code> de <code>datos.js</code> y borra el archivo del portal.
+                Así el catálogo queda en un solo sitio.</li>
         </ol>
-        <p class="nota">La lista se guarda en este navegador. Si cambias de equipo o borras los datos del sitio, se pierde: exporta antes.</p>
+        <p class="nota">La lista se guarda en este navegador. Si cambias de equipo o borras los datos del sitio, se pierde: exporta antes.
+        Para que la fragancia tenga fotografía en vez de packshot, deja la imagen en <code>imagenes/productos/</code> con el mismo identificador.</p>
     </section>
 
 </main>

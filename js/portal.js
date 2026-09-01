@@ -328,13 +328,16 @@ $('#btn-exportar').addEventListener('click', () => {
    Generado por el portal de gestión de Smessence
    ${new Date().toLocaleString('es-CO')}
    ${productos.length} ${productos.length === 1 ? 'fragancia' : 'fragancias'}
+
+   Deja este archivo dentro de la carpeta generador/ y ejecuta
+   "node generar.js". Se sumará al catálogo automáticamente.
    ========================================================= */
 
-const NUEVOS4 = [
+const NUEVOS = [
 ${cuerpo}
 ];
 
-module.exports = { NUEVOS4 };
+module.exports = { NUEVOS };
 `;
 
     const enlace = document.createElement('a');
