@@ -8,6 +8,8 @@ const fs = require('fs');
 const path = require('path');
 const { PERFUMES, COMBOS } = require('./datos.js');
 const { frascoSVG } = require('./frascos.js');
+const { ESTILOS, CUANDO, acordesDe, climaDe, estilosDe, cuandoDe, similitud } = require('./ficha-tecnica.js');
+const { STOCK } = require('./stock.js');
 
 const SALIDA = path.resolve(__dirname, '..');
 
@@ -36,12 +38,35 @@ try {
   if (DEL_PORTAL.length) console.log('✔ ' + DEL_PORTAL.length + ' del portal de gestión');
 } catch { /* no hay altas pendientes */ }
 
+/* ---------- Decants ----------
+   Precio = (precio del frasco / 100 ml) × ml × recargo + atomizador,
+   redondeado a miles. Cambia estos valores y se recalcula todo el
+   catálogo. Un perfume con  decants: false  solo se vende en frasco.
+   ------------------------------ */
+const DECANTS = [
+  { ml: 5, recargo: 1.6, atomizador: 6000 },
+  { ml: 10, recargo: 1.45, atomizador: 8000 }
+];
+const precioDecant = (precio, d) => Math.round((precio / 100 * d.ml * d.recargo + d.atomizador) / 1000) * 1000;
+
 /* ---------- Catálogo normalizado ---------- */
 const CATALOGO = [...PERFUMES, ...DEL_PORTAL].map(p => {
   const propia = fotoReal(p.id);
   const imgKey = propia || p.foto || ('frascos/' + p.id + '.svg');
-  return { ...p, imgKey, vector: imgKey.startsWith('frascos/') };
+  const acordes = acordesDe(p);
+  const clima = climaDe(acordes);
+  return {
+    ...p, imgKey, vector: imgKey.startsWith('frascos/'),
+    acordes, clima, estilos: estilosDe(acordes), cuando: cuandoDe(clima),
+    stock: STOCK[p.id] || p.stock || 'disponible'
+  };
 });
+
+// Los agotados van al final de cada listado, sin alterar el orden del resto
+const agotadosAlFinal = lista => [
+  ...lista.filter(p => p.stock !== 'agotado'),
+  ...lista.filter(p => p.stock === 'agotado')
+];
 
 const COMBOS_N = COMBOS.map(c => {
   const propia = fotoReal(c.id);
@@ -154,18 +179,29 @@ function scripts(base) {
 `;
 }
 
-/* ---------- Tarjeta de producto ---------- */
-function tarjeta(p, base, { oculto = false, combo = false } = {}) {
+/* ---------- Insignia de disponibilidad ---------- */
+const insigniaStock = p =>
+  p.stock === 'agotado' ? '<span class="insignia insignia--agotado">Agotado</span>'
+  : p.stock === 'pocas' ? '<span class="insignia insignia--pocas">Últimas unidades</span>'
+  : '';
+
+/* ---------- Tarjeta de producto ----------
+   afinidad: acordes que comparte con otra fragancia (sugerencias)
+   ------------------------------------------ */
+function tarjeta(p, base, { oculto = false, combo = false, afinidad = [] } = {}) {
   const href = `${base}pages/producto/${p.id}.html`;
   const src = imgSrc(p.imgKey, base);
   const supra = combo ? 'Combo exclusivo' : p.marca;
+  const agotado = !combo && p.stock === 'agotado';
   const insignias = combo
     ? '<span class="insignia insignia--combo">Combo</span>'
     : `<span class="insignia">${ETIQUETA_TIPO[p.tipo] || ''}</span>` +
-      (p.genero === 'u' ? '<span class="insignia insignia--tenue">Unisex</span>' : '');
-  const datos = combo ? '' : ` data-tipo="${p.tipo}"`;
+      (p.genero === 'u' ? '<span class="insignia insignia--tenue">Unisex</span>' : '') +
+      insigniaStock(p);
+  const datos = combo ? '' :
+    ` data-tipo="${p.tipo}" data-estilo="${p.estilos.join(' ')}" data-cuando="${p.cuando.join(' ')}" data-stock="${p.stock}"`;
 
-  return `                <article class="tarjeta revelar${oculto ? ' oculto' : ''}"${datos}>
+  return `                <article class="tarjeta revelar${oculto ? ' oculto' : ''}${agotado ? ' tarjeta--agotada' : ''}"${datos}>
                     <a class="tarjeta__enlace" href="${href}">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias">${insignias}</div>
@@ -174,12 +210,14 @@ function tarjeta(p, base, { oculto = false, combo = false } = {}) {
                         <div class="tarjeta__info">
                             <p class="tarjeta__marca">${esc(supra)}</p>
                             <p class="tarjeta__nombre">${esc(combo ? p.titulo : p.nombre)}</p>
-                            <p class="tarjeta__precio">${precioCOP(p.precio)}</p>
+${afinidad.length ? `                            <p class="tarjeta__afinidad">${afinidad.map(esc).join(' · ')}</p>\n` : ''}                            <p class="tarjeta__precio">${precioCOP(p.precio)}</p>
                         </div>
                     </a>
-                    <button class="btn-agregar" onclick="agregarAlCarrito('${escJS(combo ? p.titulo : p.nombre)}', ${p.precio}, '${escJS(p.imgKey)}')">
+${agotado
+    ? `                    <button class="btn-agregar" disabled>Agotado</button>`
+    : `                    <button class="btn-agregar" onclick="agregarAlCarrito('${escJS(combo ? p.titulo : p.nombre)}', ${p.precio}, '${escJS(p.imgKey)}')">
                         Agregar al carrito
-                    </button>
+                    </button>`}
                 </article>`;
 }
 
@@ -193,14 +231,36 @@ function encabezado(kicker, titulo, sub, extra = '') {
         </header>`;
 }
 
-function filtros() {
+/* Filtros: tipo de perfumería + estilo olfativo + cuándo usarlo.
+   Solo se ofrecen los estilos y momentos que existen en la lista. */
+function filtros(items) {
+  const chip = (grupo, clave, texto, activo = false) =>
+    `<button class="chip${activo ? ' activo' : ''}" data-${grupo}="${clave}" aria-pressed="${activo}">${esc(texto)}</button>`;
+  const cuenta = (campo, clave) => items.filter(p => p[campo].includes(clave)).length;
+  const estilos = Object.entries(ESTILOS).filter(([k]) => cuenta('estilos', k) > 0);
+  const momentos = Object.entries(CUANDO).filter(([k]) => cuenta('cuando', k) > 0);
+
   return `        <div class="filtros revelar" role="group" aria-label="Filtrar por tipo de perfumería">
-            <button class="filtro activo" data-filtro="todos">Todos</button>
-            <button class="filtro" data-filtro="nicho">Nicho</button>
-            <button class="filtro" data-filtro="arabe">Árabes</button>
-            <button class="filtro" data-filtro="disenador">Diseñador</button>
+            <button class="filtro activo" data-filtro="todos" aria-pressed="true">Todos</button>
+            <button class="filtro" data-filtro="nicho" aria-pressed="false">Nicho</button>
+            <button class="filtro" data-filtro="arabe" aria-pressed="false">Árabes</button>
+            <button class="filtro" data-filtro="disenador" aria-pressed="false">Diseñador</button>
         </div>
-        <p class="filtros-vacio" hidden>Ninguna fragancia coincide con esta combinación de filtros.</p>`;
+        <div class="refinar revelar">
+            <div class="refinar__grupo" role="group" aria-label="Filtrar por estilo olfativo">
+                <span class="refinar__etiqueta">Estilo</span>
+                ${chip('estilo', 'todos', 'Todos', true)}
+                ${estilos.map(([k, e]) => chip('estilo', k, e.nombre)).join('\n                ')}
+            </div>
+            <div class="refinar__grupo" role="group" aria-label="Filtrar por momento de uso">
+                <span class="refinar__etiqueta">Cuándo</span>
+                ${chip('cuando', 'todos', 'Siempre', true)}
+                ${momentos.map(([k, t]) => chip('cuando', k, t)).join('\n                ')}
+            </div>
+            <p class="refinar__conteo" aria-live="polite"></p>
+        </div>
+        <p class="filtros-vacio" hidden>Ninguna fragancia coincide con esta combinación de filtros.
+            <button type="button" class="filtros-restablecer">Quitar filtros</button></p>`;
 }
 
 /* =========================================================
@@ -261,9 +321,9 @@ const GUIA = [
 
 function portada() {
   const base = '';
-  const destacados = CATALOGO.filter(p => p.destacado);
+  const destacados = CATALOGO.filter(p => p.destacado && p.stock !== 'agotado');
   const visibles = 12;
-  const catalogo = CATALOGO.map((p, i) => tarjeta(p, base, { oculto: i >= visibles })).join('\n');
+  const catalogo = agotadosAlFinal(CATALOGO).map((p, i) => tarjeta(p, base, { oculto: i >= visibles })).join('\n');
   const marcas = [...new Set(CATALOGO.map(p => p.marca))];
 
   const slides = DIAPOSITIVAS.map((s, i) => `            <article class="diapositiva${i === 0 ? ' activa' : ''}">
@@ -338,7 +398,7 @@ ${encabezado('Selección del perfumista', 'La firma de la casa', '')}
 
         <section class="seccion contenedor" id="catalogo">
 ${encabezado('Catálogo completo', 'Nuestras fragancias', `${CATALOGO.length} fragancias originales entre diseñador, perfumería árabe y nicho.`)}
-${filtros()}
+${filtros(CATALOGO)}
             <div class="rejilla">
 ${catalogo}
             </div>
@@ -396,10 +456,13 @@ ${navegacion(base, clave)}
             <div class="encabezado__filete" aria-hidden="true"></div>
             <p class="encabezado__sub">${esc(sub)}</p>
         </header>
-        <p class="conteo">${items.length} ${items.length === 1 ? 'referencia' : 'referencias'} disponibles</p>
-${combos ? '' : filtros()}
+        <p class="conteo">${items.length} ${items.length === 1 ? 'referencia' : 'referencias'}${(() => {
+          const a = items.filter(p => p.stock === 'agotado').length;
+          return a ? ` · ${a} ${a === 1 ? 'agotada' : 'agotadas'}` : '';
+        })()}</p>
+${combos ? '' : filtros(items)}
         <div class="rejilla">
-${items.map(p => tarjeta(p, base, { combo: combos })).join('\n')}
+${(combos ? items : agotadosAlFinal(items)).map(p => tarjeta(p, base, { combo: combos })).join('\n')}
         </div>
     </main>
 
@@ -410,16 +473,71 @@ ${scripts(base)}`;
 /* =========================================================
    FICHA DE PRODUCTO
    ========================================================= */
+const svgClima = d => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+const CLIMA = [
+  ['primavera', 'Primavera', svgClima('<circle cx="12" cy="12" r="2.2"/><path d="M12 9.8c-1.6-2.6-1-5.3 0-6.3 1 1 1.6 3.7 0 6.3zM12 14.2c1.6 2.6 1 5.3 0 6.3-1-1-1.6-3.7 0-6.3zM9.8 12c-2.6 1.6-5.3 1-6.3 0 1-1 3.7-1.6 6.3 0zM14.2 12c2.6-1.6 5.3-1 6.3 0-1 1-3.7 1.6-6.3 0z"/>')],
+  ['verano', 'Verano', svgClima('<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/>')],
+  ['otono', 'Otoño', svgClima('<path d="M5 19c0-8 5-13.5 14-14-.5 9-6 14-14 14z"/><path d="M5 19l8-8"/>')],
+  ['invierno', 'Invierno', svgClima('<path d="M12 2.5v19M3.8 7.25l16.4 9.5M3.8 16.75l16.4-9.5M9.5 4l2.5 2 2.5-2M9.5 20l2.5-2 2.5 2"/>')],
+  ['dia', 'Día', svgClima('<path d="M3 18h18M7.5 18a4.5 4.5 0 0 1 9 0"/><path d="M12 7.5v2M5.6 10.6l1.4 1.4M18.4 10.6 17 12M3 14.5h1.5M19.5 14.5H21"/>')],
+  ['noche', 'Noche', svgClima('<path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/>')]
+];
+
+function perfilOlfativo(p) {
+  const { acordes, clima } = p;
+  if (!acordes.length) return '';
+  const item = ([clave, nombre, icono]) => {
+    const v = clima[clave];
+    return `                        <li class="clima__item${v >= 60 ? ' clima__item--alto' : ''}">
+                            ${icono}
+                            <span class="clima__nombre">${nombre}</span>
+                            <span class="clima__nivel" aria-hidden="true"><span style="--nivel:${v}%"></span></span>
+                            <span class="visualmente-oculto">afinidad ${v} %</span>
+                        </li>`;
+  };
+  return `                <section class="perfil" aria-labelledby="perfil-titulo">
+                    <h2 class="perfil__titulo" id="perfil-titulo">Perfil olfativo</h2>
+                    <ul class="acordes">
+${acordes.map(a => `                        <li class="acorde">
+                            <span class="acorde__nombre">${a.nombre}</span>
+                            <span class="acorde__barra" aria-hidden="true"><span style="--ancho:${a.ancho}%;--tono:${a.color}"></span></span>
+                        </li>`).join('\n')}
+                    </ul>
+                    <h3 class="perfil__subtitulo">Cuándo luce mejor</h3>
+                    <ul class="clima">
+${CLIMA.slice(0, 4).map(item).join('\n')}
+                    </ul>
+                    <ul class="clima clima--momento">
+${CLIMA.slice(4).map(item).join('\n')}
+                    </ul>
+                    <p class="perfil__nota">Calculado a partir de la pirámide olfativa de la fragancia.</p>
+                </section>`;
+}
+
 function fichaPerfume(p) {
   const base = '../../';
   const catClave = p.tipo === 'nicho' ? 'nicho' : p.tipo === 'arabe' ? 'arabe' : (p.genero === 'f' ? 'femeninas' : 'masculinas');
   const catHref = p.tipo === 'nicho' ? 'nicho.html' : p.tipo === 'arabe' ? 'arabes.html' : (p.genero === 'f' ? 'femeninas.html' : 'masculinas.html');
   const catNombre = p.tipo === 'nicho' ? 'Nicho' : p.tipo === 'arabe' ? 'Árabes' : (p.genero === 'f' ? 'Femeninas' : 'Masculinas');
 
-  // Sugerencias: mismo tipo de perfumería, público compatible
+  // Sugerencias: las 4 fragancias con acordes más parecidos, para el mismo
+  // público y con stock. Mismo tipo de perfumería desempata.
   const relacionados = CATALOGO
-    .filter(o => o.id !== p.id && o.tipo === p.tipo && (o.genero === p.genero || o.genero === 'u' || p.genero === 'u'))
-    .slice(0, 4);
+    .filter(o => o.id !== p.id && o.stock !== 'agotado' && (o.genero === p.genero || o.genero === 'u' || p.genero === 'u'))
+    .map(o => ({ o, s: similitud(p.acordes, o.acordes) + (o.tipo === p.tipo ? 0.02 : 0) }))
+    .sort((a, b) => b.s - a.s)
+    .slice(0, 4)
+    .map(({ o }) => ({
+      o,
+      // Los acordes principales que comparten, en el orden de esta ficha
+      comunes: p.acordes.slice(0, 4).filter(a => o.acordes.slice(0, 4).some(b => b.clave === a.clave)).slice(0, 2).map(a => a.nombre)
+    }));
+
+  const agotado = p.stock === 'agotado';
+  const presentaciones = p.decants === false ? [] : [
+    ...DECANTS.map(d => ({ etiqueta: `Decant ${d.ml} ml`, precio: precioDecant(p.precio, d) })),
+    { etiqueta: 'Frasco original', precio: p.precio, frasco: true }
+  ];
 
   return `${cabecera(`${p.nombre} — ${p.marca} | Smessence`, base, `${p.nombre} de ${p.marca}: ${p.familia}. ${p.desc[0].slice(0, 110)}…`)}
 ${navegacion(base, catClave)}
@@ -439,11 +557,12 @@ ${navegacion(base, catClave)}
                 <div class="ficha__insignias">
                     <span class="insignia">${ETIQUETA_TIPO[p.tipo] || ''}</span>
                     <span class="insignia insignia--tenue">${ETIQUETA_GENERO[p.genero]}</span>
+                    ${insigniaStock(p)}
                 </div>
                 <p class="ficha__marca">${esc(p.marca)}</p>
                 <h1 class="ficha__titulo">${esc(p.nombre)}</h1>
                 <p class="ficha__familia">${esc(p.familia)}</p>
-                <p class="ficha__precio">${precioCOP(p.precio)}</p>
+                <p class="ficha__precio">${precioCOP(p.precio)}${p.stock === 'pocas' ? ' <span class="ficha__aviso">Quedan pocas unidades</span>' : ''}</p>
 ${p.desc.map(t => `                <p class="ficha__desc">${esc(t)}</p>`).join('\n')}
 
                 <div class="piramide">
@@ -454,21 +573,37 @@ ${[['Salida', p.notas.salida], ['Corazón', p.notas.corazon], ['Fondo', p.notas.
                     </div>`).join('\n')}
                 </div>
 
+${perfilOlfativo(p)}
+
                 <dl class="ficha__meta">
                     <div><dt>Ocasión</dt><dd>${esc(p.ocasion)}</dd></div>
                     <div><dt>Duración</dt><dd>${esc(p.duracion)}</dd></div>
-                </dl>
+${p.anio ? `                    <div><dt>Lanzamiento</dt><dd>${esc(p.anio)}</dd></div>\n` : ''}${p.perfumista ? `                    <div><dt>Perfumista</dt><dd>${esc(p.perfumista)}</dd></div>\n` : ''}                </dl>
 
-                <button class="btn-agregar" onclick="agregarAlCarrito('${escJS(p.nombre)}', ${p.precio}, '${escJS(p.imgKey)}')">
+${presentaciones.length && !agotado ? `                <fieldset class="presentaciones">
+                    <legend>Presentación</legend>
+                    <div class="presentaciones__opciones">
+${presentaciones.map(o => `                        <label class="presentacion">
+                            <input type="radio" name="presentacion" value="${o.precio}" data-etiqueta="${o.frasco ? '' : escAtr(o.etiqueta)}"${o.frasco ? ' checked' : ''}>
+                            <span class="presentacion__nombre">${esc(o.etiqueta)}</span>
+                            <span class="presentacion__precio">${precioCOP(o.precio).replace(' COP', '')}</span>
+                        </label>`).join('\n')}
+                    </div>
+                    <p class="presentaciones__nota">Decant: el mismo perfume original, trasvasado a un atomizador de viaje.</p>
+                </fieldset>
+` : ''}${agotado
+    ? `                <button class="btn-agregar" disabled>Agotado</button>
+                <p class="ficha__agotado">Esta fragancia no está disponible por ahora. Abajo tienes opciones con acordes parecidos.</p>`
+    : `                <button class="btn-agregar btn-agregar--ficha" data-nombre="${escAtr(p.nombre)}" data-precio="${p.precio}" data-img="${escAtr(p.imgKey)}">
                     Agregar al carrito — ${precioCOP(p.precio)}
-                </button>
+                </button>`}
             </div>
         </div>
 
 ${relacionados.length ? `        <section class="seccion">
-${encabezado('También te puede gustar', 'Fragancias afines', '')}
+${encabezado(`Si te gusta ${p.nombre}`, 'Fragancias con acordes parecidos', 'Elegidas por cómo huelen, no por la marca: comparten sus acordes principales.')}
             <div class="rejilla rejilla--compacta">
-${relacionados.map(o => tarjeta(o, base)).join('\n')}
+${relacionados.map(({ o, comunes }) => tarjeta(o, base, { afinidad: comunes })).join('\n')}
             </div>
         </section>` : ''}
     </main>
@@ -546,8 +681,11 @@ const indice = [
   ...CATALOGO.map(p => ({
     n: p.nombre, m: p.marca, t: p.tipo, g: p.genero, p: p.precio,
     i: p.imgKey, u: 'pages/producto/' + p.id + '.html',
+    // Disponibilidad: la lee el buscador y el portal de gestión
+    id: p.id, s: p.stock,
     // Notas de la pirámide: permiten buscar por ingrediente ("azafrán", "vainilla")
-    k: [p.familia, p.notas.salida, p.notas.corazon, p.notas.fondo].join(', ')
+    // y por perfumista ("Kurkdjian", "Morillas")
+    k: [p.familia, p.notas.salida, p.notas.corazon, p.notas.fondo, p.perfumista].filter(Boolean).join(', ')
   })),
   ...COMBOS_N.map(c => ({
     n: c.titulo, m: 'Combo exclusivo', t: 'combo', g: 'u', p: c.precio,

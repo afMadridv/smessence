@@ -147,40 +147,114 @@ function normalizar(texto) {
 }
 
 /* --------------------------------------------
-   FILTROS POR TIPO DE PERFUMERÍA
+   FILTROS: TIPO + ESTILO OLFATIVO + CUÁNDO
+   Los tres se combinan. Cada tarjeta trae
+   data-tipo, data-estilo y data-cuando.
    -------------------------------------------- */
 (function () {
     const rejilla = document.querySelector('.rejilla');
     if (!rejilla) return;
 
-    const botones = [...document.querySelectorAll('.filtro')];
     const tarjetas = [...rejilla.querySelectorAll('.tarjeta')];
     const aviso = document.querySelector('.filtros-vacio');
+    const conteo = document.querySelector('.refinar__conteo');
     const verMas = document.getElementById('ver-mas');
-    if (botones.length === 0) return;
 
-    botones.forEach((boton) => {
-        boton.addEventListener('click', () => {
-            const filtro = boton.dataset.filtro;
-            botones.forEach(b => b.classList.toggle('activo', b === boton));
+    // grupo → atributo de la tarjeta y botones que lo controlan
+    const grupos = {
+        filtro: { atributo: 'tipo', botones: [...document.querySelectorAll('[data-filtro]')], lista: false },
+        estilo: { atributo: 'estilo', botones: [...document.querySelectorAll('.chip[data-estilo]')], lista: true },
+        cuando: { atributo: 'cuando', botones: [...document.querySelectorAll('.chip[data-cuando]')], lista: true }
+    };
+    if (grupos.filtro.botones.length === 0) return;
 
-            let visibles = 0;
-            tarjetas.forEach((t) => {
-                const coincide = filtro === 'todos' || t.dataset.tipo === filtro;
-                t.classList.toggle('filtrado-fuera', !coincide);
-                if (coincide) visibles++;
-            });
+    const estado = { filtro: 'todos', estilo: 'todos', cuando: 'todos' };
 
-            // Con un filtro activo se muestra todo lo que coincide, sin paginar
-            if (filtro !== 'todos') {
-                tarjetas.forEach(t => t.classList.remove('oculto'));
-                if (verMas) verMas.style.display = 'none';
-            } else if (verMas && tarjetas.some(t => t.classList.contains('oculto'))) {
-                verMas.style.display = '';
-            }
-
-            if (aviso) aviso.hidden = visibles > 0;
+    function coincide(t) {
+        return Object.entries(grupos).every(([g, { atributo, lista }]) => {
+            const valor = estado[g];
+            if (valor === 'todos') return true;
+            const dato = t.dataset[atributo] || '';
+            return lista ? dato.split(' ').includes(valor) : dato === valor;
         });
+    }
+
+    function aplicar() {
+        let visibles = 0;
+        tarjetas.forEach((t) => {
+            const si = coincide(t);
+            t.classList.toggle('filtrado-fuera', !si);
+            if (si) visibles++;
+        });
+
+        const filtrando = Object.values(estado).some(v => v !== 'todos');
+        // Con un filtro activo se muestra todo lo que coincide, sin paginar
+        if (filtrando) {
+            tarjetas.forEach(t => t.classList.remove('oculto'));
+            if (verMas) verMas.style.display = 'none';
+        } else if (verMas && tarjetas.some(t => t.classList.contains('oculto'))) {
+            verMas.style.display = '';
+        }
+
+        if (aviso) aviso.hidden = visibles > 0;
+        if (conteo) {
+            conteo.textContent = filtrando && visibles > 0
+                ? `${visibles} de ${tarjetas.length} fragancias`
+                : '';
+        }
+    }
+
+    function elegir(grupo, valor) {
+        estado[grupo] = valor;
+        grupos[grupo].botones.forEach((b) => {
+            const activo = b.dataset[grupo] === valor;
+            b.classList.toggle('activo', activo);
+            b.setAttribute('aria-pressed', String(activo));
+        });
+        aplicar();
+    }
+
+    Object.entries(grupos).forEach(([grupo, { botones }]) => {
+        botones.forEach((boton) => {
+            boton.addEventListener('click', () => {
+                const valor = boton.dataset[grupo];
+                // Pulsar de nuevo un chip activo lo desactiva
+                elegir(grupo, estado[grupo] === valor && grupo !== 'filtro' ? 'todos' : valor);
+            });
+        });
+    });
+
+    const restablecer = document.querySelector('.filtros-restablecer');
+    if (restablecer) {
+        restablecer.addEventListener('click', () => Object.keys(grupos).forEach(g => elegir(g, 'todos')));
+    }
+})();
+
+/* --------------------------------------------
+   PRESENTACIÓN EN LA FICHA (decant o frasco)
+   -------------------------------------------- */
+(function () {
+    const boton = document.querySelector('.btn-agregar--ficha');
+    if (!boton) return;
+
+    const opciones = [...document.querySelectorAll('input[name="presentacion"]')];
+    const elegida = () => opciones.find(o => o.checked);
+    const precioActual = () => {
+        const o = elegida();
+        return o ? Number(o.value) : Number(boton.dataset.precio);
+    };
+
+    function pintar() {
+        boton.textContent = 'Agregar al carrito — $' + precioActual().toLocaleString('es-CO') + ' COP';
+    }
+
+    opciones.forEach(o => o.addEventListener('change', pintar));
+
+    boton.addEventListener('click', () => {
+        const o = elegida();
+        const etiqueta = o ? o.dataset.etiqueta : '';
+        // El frasco va con el nombre a secas; los decants llevan su tamaño
+        agregarAlCarrito(boton.dataset.nombre + (etiqueta ? ' · ' + etiqueta : ''), precioActual(), boton.dataset.img);
     });
 })();
 
@@ -244,6 +318,8 @@ function normalizar(texto) {
                     <span class="buscador__datos">
                         <span class="buscador__marca">${e.m}</span>
                         <span class="buscador__nombre">${e.n}</span>
+                        ${e.s === 'agotado' ? '<span class="buscador__estado">Agotado</span>'
+                          : e.s === 'pocas' ? '<span class="buscador__estado buscador__estado--pocas">Últimas unidades</span>' : ''}
                     </span>
                     <span class="buscador__precio">${precioCOP(e.p)}</span>
                 </a>`).join('');

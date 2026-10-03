@@ -50,16 +50,39 @@
             <div class="encabezado__filete" aria-hidden="true"></div>
             <p class="encabezado__sub">Creed, Maison Francis Kurkdjian, Xerjoff, Initio, Parfums de Marly y Le Labo.</p>
         </header>
-        <p class="conteo">16 referencias disponibles</p>
+        <p class="conteo">16 referencias</p>
         <div class="filtros revelar" role="group" aria-label="Filtrar por tipo de perfumería">
-            <button class="filtro activo" data-filtro="todos">Todos</button>
-            <button class="filtro" data-filtro="nicho">Nicho</button>
-            <button class="filtro" data-filtro="arabe">Árabes</button>
-            <button class="filtro" data-filtro="disenador">Diseñador</button>
+            <button class="filtro activo" data-filtro="todos" aria-pressed="true">Todos</button>
+            <button class="filtro" data-filtro="nicho" aria-pressed="false">Nicho</button>
+            <button class="filtro" data-filtro="arabe" aria-pressed="false">Árabes</button>
+            <button class="filtro" data-filtro="disenador" aria-pressed="false">Diseñador</button>
         </div>
-        <p class="filtros-vacio" hidden>Ninguna fragancia coincide con esta combinación de filtros.</p>
+        <div class="refinar revelar">
+            <div class="refinar__grupo" role="group" aria-label="Filtrar por estilo olfativo">
+                <span class="refinar__etiqueta">Estilo</span>
+                <button class="chip activo" data-estilo="todos" aria-pressed="true">Todos</button>
+                <button class="chip" data-estilo="fresco" aria-pressed="false">Frescos</button>
+                <button class="chip" data-estilo="floral" aria-pressed="false">Florales</button>
+                <button class="chip" data-estilo="frutal" aria-pressed="false">Frutales</button>
+                <button class="chip" data-estilo="dulce" aria-pressed="false">Dulces</button>
+                <button class="chip" data-estilo="especiado" aria-pressed="false">Especiados</button>
+                <button class="chip" data-estilo="amaderado" aria-pressed="false">Amaderados</button>
+                <button class="chip" data-estilo="oriental" aria-pressed="false">Ámbar y oud</button>
+            </div>
+            <div class="refinar__grupo" role="group" aria-label="Filtrar por momento de uso">
+                <span class="refinar__etiqueta">Cuándo</span>
+                <button class="chip activo" data-cuando="todos" aria-pressed="true">Siempre</button>
+                <button class="chip" data-cuando="calor" aria-pressed="false">Clima cálido</button>
+                <button class="chip" data-cuando="frio" aria-pressed="false">Clima frío</button>
+                <button class="chip" data-cuando="dia" aria-pressed="false">De día</button>
+                <button class="chip" data-cuando="noche" aria-pressed="false">De noche</button>
+            </div>
+            <p class="refinar__conteo" aria-live="polite"></p>
+        </div>
+        <p class="filtros-vacio" hidden>Ninguna fragancia coincide con esta combinación de filtros.
+            <button type="button" class="filtros-restablecer">Quitar filtros</button></p>
         <div class="rejilla">
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="fresco floral" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/creed.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
@@ -75,7 +98,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="floral frutal amaderado" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/aventus.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
@@ -91,7 +114,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="amaderado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/br540.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -107,7 +130,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="especiado amaderado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/oud-greatness.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -123,7 +146,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="dulce oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/naxos.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
@@ -139,7 +162,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="floral dulce amaderado" data-cuando="frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/layton.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
@@ -155,7 +178,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="floral frutal amaderado" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/delina.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
@@ -171,7 +194,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="amaderado" data-cuando="frio dia noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/santal-33.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -187,7 +210,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="dulce especiado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/herod.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
@@ -203,7 +226,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="fresco oriental" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/percival.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
@@ -219,7 +242,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="fresco frutal oriental" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/erba-pura.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -235,7 +258,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/side-effect.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -251,7 +274,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="dulce oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/grand-soir.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -267,7 +290,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="amaderado" data-cuando="frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/hacivat.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -283,7 +306,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/interlude-man.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
@@ -299,7 +322,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="amaderado" data-cuando="frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/gypsy-water.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>

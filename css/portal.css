@@ -110,6 +110,40 @@
 .opcion input:focus-visible + span{
     outline: 3px solid color-mix(in srgb, var(--oro) 55%, transparent); outline-offset: 2px;
 }
+.casilla{
+    display: flex; align-items: flex-start; gap: 1rem; margin-top: 1.4rem;
+    font-size: 1.4rem; color: var(--tinta); cursor: pointer;
+}
+.casilla input{ width: 1.8rem; height: 1.8rem; margin: .2rem 0 0; accent-color: var(--oro); flex: none; }
+
+/* ---------- Disponibilidad ---------- */
+.stock__barra{ display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem; margin-bottom: 1.6rem; }
+.stock__buscar{ flex: 1 1 26rem; margin: 0; }
+.stock__lista{
+    display: grid; gap: .6rem; max-height: 56rem; overflow-y: auto;
+    padding-right: .4rem; margin-bottom: 1.4rem;
+}
+.stock-fila{
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .8rem 1.6rem;
+    padding: 1rem 1.4rem; border: 1px solid var(--borde); border-radius: 1.1rem;
+    background: var(--vidrio-alto);
+}
+.stock-fila--cambiada{ border-color: var(--oro); box-shadow: inset 3px 0 0 var(--oro); }
+.stock-fila__nombre{ margin: 0; font-family: var(--serif); font-size: 1.6rem; color: var(--texto-fuerte); }
+.stock-fila__nombre span{ margin-left: .6rem; font-family: var(--editorial); font-style: italic; font-size: 1.4rem; color: var(--gris-texto); }
+.segmento{ display: inline-flex; border: 1px solid var(--borde); border-radius: 99rem; overflow: hidden; }
+.segmento label{ position: relative; cursor: pointer; }
+.segmento input{ position: absolute; opacity: 0; width: 0; height: 0; }
+.segmento span{
+    display: block; padding: .55rem 1.3rem; font-size: 1.2rem; letter-spacing: .06rem; color: var(--gris-texto);
+    transition: background-color .2s var(--curva), color .2s var(--curva);
+}
+.segmento label + label span{ border-left: 1px solid var(--borde); }
+.segmento input:checked + span{ background: var(--navy); color: var(--claro-fijo); }
+.segmento input[value="pocas"]:checked + span{ background: var(--rojo); color: #fff; }
+.segmento input[value="agotado"]:checked + span{ background: #6E6455; color: #fff; }
+:root[data-tema="oscuro"] .segmento input[value="disponible"]:checked + span{ background: var(--oro); color: #131A22; }
+.segmento input:focus-visible + span{ outline: 3px solid color-mix(in srgb, var(--oro) 55%, transparent); outline-offset: -3px; }
 .nota{
     margin: 1rem 0 0; font-size: 1.3rem; font-weight: 300;
     line-height: 1.5; color: var(--gris-texto);

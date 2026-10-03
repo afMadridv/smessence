@@ -50,16 +50,39 @@
             <div class="encabezado__filete" aria-hidden="true"></div>
             <p class="encabezado__sub">Frescos, especiados, amaderados y orientales con presencia.</p>
         </header>
-        <p class="conteo">91 referencias disponibles</p>
+        <p class="conteo">91 referencias</p>
         <div class="filtros revelar" role="group" aria-label="Filtrar por tipo de perfumería">
-            <button class="filtro activo" data-filtro="todos">Todos</button>
-            <button class="filtro" data-filtro="nicho">Nicho</button>
-            <button class="filtro" data-filtro="arabe">Árabes</button>
-            <button class="filtro" data-filtro="disenador">Diseñador</button>
+            <button class="filtro activo" data-filtro="todos" aria-pressed="true">Todos</button>
+            <button class="filtro" data-filtro="nicho" aria-pressed="false">Nicho</button>
+            <button class="filtro" data-filtro="arabe" aria-pressed="false">Árabes</button>
+            <button class="filtro" data-filtro="disenador" aria-pressed="false">Diseñador</button>
         </div>
-        <p class="filtros-vacio" hidden>Ninguna fragancia coincide con esta combinación de filtros.</p>
+        <div class="refinar revelar">
+            <div class="refinar__grupo" role="group" aria-label="Filtrar por estilo olfativo">
+                <span class="refinar__etiqueta">Estilo</span>
+                <button class="chip activo" data-estilo="todos" aria-pressed="true">Todos</button>
+                <button class="chip" data-estilo="fresco" aria-pressed="false">Frescos</button>
+                <button class="chip" data-estilo="floral" aria-pressed="false">Florales</button>
+                <button class="chip" data-estilo="frutal" aria-pressed="false">Frutales</button>
+                <button class="chip" data-estilo="dulce" aria-pressed="false">Dulces</button>
+                <button class="chip" data-estilo="especiado" aria-pressed="false">Especiados</button>
+                <button class="chip" data-estilo="amaderado" aria-pressed="false">Amaderados</button>
+                <button class="chip" data-estilo="oriental" aria-pressed="false">Ámbar y oud</button>
+            </div>
+            <div class="refinar__grupo" role="group" aria-label="Filtrar por momento de uso">
+                <span class="refinar__etiqueta">Cuándo</span>
+                <button class="chip activo" data-cuando="todos" aria-pressed="true">Siempre</button>
+                <button class="chip" data-cuando="calor" aria-pressed="false">Clima cálido</button>
+                <button class="chip" data-cuando="frio" aria-pressed="false">Clima frío</button>
+                <button class="chip" data-cuando="dia" aria-pressed="false">De día</button>
+                <button class="chip" data-cuando="noche" aria-pressed="false">De noche</button>
+            </div>
+            <p class="refinar__conteo" aria-live="polite"></p>
+        </div>
+        <p class="filtros-vacio" hidden>Ninguna fragancia coincide con esta combinación de filtros.
+            <button type="button" class="filtros-restablecer">Quitar filtros</button></p>
         <div class="rejilla">
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/212.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -75,7 +98,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="amaderado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/asad.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -91,7 +114,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="fresco frutal oriental" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/clubdenuit.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -107,7 +130,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco especiado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/incituselixir.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -123,7 +146,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="especiado amaderado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/onemillion.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -139,7 +162,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/amberoud.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -155,7 +178,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="dulce especiado" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/khamrah.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -171,7 +194,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco especiado oriental" data-cuando="frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/diorsauvage.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -187,7 +210,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="fresco floral" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/creed.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
@@ -203,7 +226,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco especiado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/ultramale.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -219,7 +242,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="amaderado" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/borninroma.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -235,7 +258,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="fresco amaderado" data-cuando="frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/ansaab.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -251,7 +274,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="fresco dulce especiado" data-cuando="frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/fakhar-black.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -267,7 +290,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="especiado amaderado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/oud-for-glory.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -283,7 +306,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="dulce oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/raghba.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -299,7 +322,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="especiado amaderado" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/ana-abiyedh-rouge.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -315,7 +338,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="fresco amaderado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/ramz-gold.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -331,7 +354,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="floral frutal amaderado" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/qaed-al-fursan.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -347,7 +370,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="dulce oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/afnan-9pm.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -363,7 +386,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="amaderado" data-cuando="frio dia noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/supremacy-intense.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -379,7 +402,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="frutal oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/amber-oud-rouge.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -395,7 +418,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="fresco floral" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/hawas.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -411,7 +434,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="frutal amaderado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/la-yuqawam.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -427,7 +450,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="fresco amaderado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/jean-lowe-immortal.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -443,7 +466,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco dulce amaderado" data-cuando="frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/eros.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -459,7 +482,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco dulce amaderado" data-cuando="frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/eros-flame.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -475,7 +498,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="amaderado" data-cuando="frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/bleu-chanel.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -491,7 +514,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="especiado amaderado" data-cuando="frio dia noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/sauvage-elixir.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -507,7 +530,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="floral amaderado" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/dior-homme-intense.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -523,7 +546,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="dulce oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/le-male-le-parfum.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -539,7 +562,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco amaderado" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/phantom.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -555,7 +578,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco amaderado oriental" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/invictus.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -571,7 +594,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco amaderado" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/acqua-profumo.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -587,7 +610,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco amaderado" data-cuando="frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/ysl-y-edp.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -603,7 +626,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="amaderado" data-cuando="frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/la-nuit-homme.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -619,7 +642,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="dulce especiado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/most-wanted.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -635,7 +658,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/luna-rossa-carbon.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -651,7 +674,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="especiado amaderado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/bad-boy.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -667,7 +690,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="floral frutal amaderado" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/aventus.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
@@ -683,7 +706,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="amaderado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/br540.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -699,7 +722,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="especiado amaderado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/oud-greatness.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -715,7 +738,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="dulce oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/naxos.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
@@ -731,7 +754,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="floral dulce amaderado" data-cuando="frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/layton.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
@@ -747,7 +770,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="amaderado" data-cuando="frio dia noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/santal-33.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -763,7 +786,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco amaderado" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/acqua-parfum.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -779,7 +802,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco dulce amaderado" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/allure-sport.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -795,7 +818,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="especiado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/the-one-men.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -811,7 +834,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco amaderado" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/gentleman-society.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -827,7 +850,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="especiado amaderado" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/burberry-hero.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -843,7 +866,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="especiado amaderado" data-cuando="frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/boss-bottled.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -859,7 +882,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="amaderado" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/montblanc-explorer.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -875,7 +898,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="floral amaderado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/ombre-leather.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -891,7 +914,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="dulce oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/tobacco-vanille.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -907,7 +930,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="floral frutal oriental" data-cuando="calor frio dia noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/amethyst.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -923,7 +946,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="fresco amaderado" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/hayaati.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -939,7 +962,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="floral frutal amaderado" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/pride-nashama.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -955,7 +978,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="floral especiado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/club-nuit-sillage.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -971,7 +994,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="frutal oriental" data-cuando="calor frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/ventana.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -987,7 +1010,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="amaderado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/rare-carbon.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -1003,7 +1026,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="fresco oriental" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/turathi-blue.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -1019,7 +1042,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="amaderado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/detour-noir.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -1035,7 +1058,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="fresco amaderado" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/salvo.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span></div>
@@ -1051,7 +1074,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="arabe">
+                <article class="tarjeta revelar" data-tipo="arabe" data-estilo="dulce oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/shaghaf-oud.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Árabe</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -1067,7 +1090,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="dulce especiado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/herod.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
@@ -1083,7 +1106,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="fresco oriental" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/percival.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
@@ -1099,7 +1122,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="fresco frutal oriental" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/erba-pura.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -1115,7 +1138,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/side-effect.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -1131,7 +1154,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="dulce oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/grand-soir.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -1147,7 +1170,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="amaderado" data-cuando="frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/hacivat.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -1163,7 +1186,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/interlude-man.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span></div>
@@ -1179,7 +1202,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="nicho">
+                <article class="tarjeta revelar" data-tipo="nicho" data-estilo="amaderado" data-cuando="frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/gypsy-water.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Nicho</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -1195,7 +1218,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco floral frutal" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/nautica-voyage.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1211,7 +1234,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco floral" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/ck-eternity.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1227,7 +1250,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco floral" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/ck-one.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span><span class="insignia insignia--tenue">Unisex</span></div>
@@ -1243,7 +1266,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco amaderado" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/polo-blue.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1259,7 +1282,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco amaderado" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/cool-water.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1275,7 +1298,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco amaderado" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/leau-issey-homme.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1291,7 +1314,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="especiado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/bvlgari-man-black.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1307,7 +1330,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco amaderado" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/azzaro-chrome.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1323,7 +1346,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco amaderado" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/banderas-king.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1339,7 +1362,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="especiado amaderado" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/banderas-secret.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1355,7 +1378,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco amaderado" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/light-blue-homme.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1371,7 +1394,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="especiado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/boss-the-scent.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1387,7 +1410,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="dulce especiado amaderado" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/ferragamo-uomo.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1403,7 +1426,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco especiado amaderado" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/kenzo-homme.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1419,7 +1442,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco amaderado" data-cuando="calor frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/jaguar-classic-black.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1435,7 +1458,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="amaderado" data-cuando="frio dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/mercedes-man.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1451,7 +1474,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="especiado oriental" data-cuando="frio noche" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/police-to-be.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1467,7 +1490,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/guess-seductive-blue.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1483,7 +1506,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/adidas-victory.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>
@@ -1499,7 +1522,7 @@
                         Agregar al carrito
                     </button>
                 </article>
-                <article class="tarjeta revelar" data-tipo="disenador">
+                <article class="tarjeta revelar" data-tipo="disenador" data-estilo="fresco floral amaderado" data-cuando="calor dia" data-stock="disponible">
                     <a class="tarjeta__enlace" href="../pages/producto/tommy-hilfiger.html">
                         <div class="tarjeta__marco">
                             <div class="tarjeta__insignias"><span class="insignia">Diseñador</span></div>

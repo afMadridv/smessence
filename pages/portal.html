@@ -118,11 +118,36 @@
                     <input type="text" id="f-ocasion" placeholder="Noches frías y planes especiales.">
                 </label>
 
+                <div class="campo-par">
+                    <label class="campo">
+                        <span>Año de lanzamiento</span>
+                        <input type="number" id="f-anio" min="1900" max="2100" step="1" placeholder="2022">
+                    </label>
+                    <label class="campo">
+                        <span>Perfumista</span>
+                        <input type="text" id="f-perfumista" placeholder="Francis Kurkdjian">
+                        <small>Déjalo vacío si la marca no lo publica.</small>
+                    </label>
+                </div>
+
                 <label class="campo">
                     <span>Descripción</span>
                     <textarea id="f-desc" rows="4" placeholder="Un párrafo por línea."></textarea>
-                    <small>Cada salto de línea crea un párrafo en la ficha.</small>
+                    <small>Cada salto de línea crea un párrafo en la ficha. Los acordes, la estación y el momento del día se calculan solos a partir de las notas.</small>
                 </label>
+
+                <fieldset class="grupo">
+                    <legend>Venta</legend>
+                    <div class="opciones">
+                        <label class="opcion"><input type="radio" name="stock" value="disponible" checked><span>Disponible</span></label>
+                        <label class="opcion"><input type="radio" name="stock" value="pocas"><span>Últimas unidades</span></label>
+                        <label class="opcion"><input type="radio" name="stock" value="agotado"><span>Agotado</span></label>
+                    </div>
+                    <label class="casilla">
+                        <input type="checkbox" id="f-decants" checked>
+                        <span>Vender también en decants de 5 y 10 ml (el precio se calcula solo a partir del frasco)</span>
+                    </label>
+                </fieldset>
 
                 <fieldset class="grupo">
                     <legend>Frasco para el packshot</legend>
@@ -207,6 +232,34 @@
         <div id="lista" class="lista"></div>
     </section>
 
+    <!-- ============ DISPONIBILIDAD ============ -->
+    <section class="tablero tablero--ancho" id="disponibilidad">
+        <div class="tablero__cabecera">
+            <h2 class="tablero__titulo">Disponibilidad del catálogo <span class="contador" id="contador-stock">0</span></h2>
+            <div class="tablero__botones">
+                <button type="button" class="btn-linea" id="btn-exportar-stock">Exportar stock.js</button>
+                <button type="button" class="btn-linea btn-linea--riesgo" id="btn-descartar-stock">Descartar cambios</button>
+            </div>
+        </div>
+        <p class="tablero__ayuda">Marca lo que se agotó o está por agotarse. Los agotados muestran su insignia, pierden el
+            botón de compra y bajan al final de cada sección. El contador indica cambios sin publicar.</p>
+        <div class="stock__barra">
+            <label class="campo stock__buscar">
+                <span class="visualmente-oculto">Buscar en el catálogo</span>
+                <input type="search" id="stock-buscar" placeholder="Buscar por nombre o marca…" autocomplete="off">
+            </label>
+            <div class="opciones" role="group" aria-label="Mostrar">
+                <label class="opcion"><input type="radio" name="stock-ver" value="todas" checked><span>Todas</span></label>
+                <label class="opcion"><input type="radio" name="stock-ver" value="cambios"><span>Con cambios</span></label>
+                <label class="opcion"><input type="radio" name="stock-ver" value="pocas"><span>Últimas</span></label>
+                <label class="opcion"><input type="radio" name="stock-ver" value="agotado"><span>Agotadas</span></label>
+            </div>
+        </div>
+        <div class="stock__lista" id="stock-lista"></div>
+        <p class="nota">Para publicar: <strong>Exportar stock.js</strong>, reemplaza <code>generador/stock.js</code> con el archivo descargado
+            y ejecuta <code>node generar.js</code>. Los cambios se guardan en este navegador hasta que los exportes.</p>
+    </section>
+
     <section class="tablero tablero--ancho">
         <h2 class="tablero__titulo">Cómo publicar lo que registraste</h2>
         <ol class="pasos">
@@ -238,6 +291,7 @@
     </div>
 </footer>
 
+<script src="../js/indice.js"></script>
 <script src="../js/portal.js"></script>
 </body>
 </html>

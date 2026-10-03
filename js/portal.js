@@ -68,6 +68,7 @@ function destinosDe(genero, tipo) {
 
 const NOMBRE_TIPO = { disenador: 'Diseñador', arabe: 'Árabe', nicho: 'Nicho' };
 const NOMBRE_GENERO = { m: 'Masculino', f: 'Femenino', u: 'Unisex' };
+const NOMBRE_STOCK = { disponible: 'Disponible', pocas: 'Últimas unidades', agotado: 'Agotado' };
 
 /* --------------------------------------------
    Lee el formulario
@@ -90,6 +91,10 @@ function leerFormulario() {
         },
         ocasion: $('#f-ocasion').value.trim(),
         duracion: $('#f-duracion').value.trim(),
+        anio: Number($('#f-anio').value) || null,
+        perfumista: $('#f-perfumista').value.trim(),
+        stock: formulario.querySelector('[name="stock"]:checked').value,
+        decants: $('#f-decants').checked,
         desc: $('#f-desc').value.split('\n').map(t => t.trim()).filter(Boolean),
         frasco: {
             forma: $('#f-forma').value,
@@ -193,7 +198,7 @@ function pintarLista() {
             <div class="fila__datos">
                 <p class="fila__nombre">${p.nombre} <span class="fila__marca">${p.marca}</span></p>
                 <p class="fila__meta"><code>${p.id}</code> · ${NOMBRE_GENERO[p.genero]} ·
-                   ${NOMBRE_TIPO[p.tipo]} · $${p.precio.toLocaleString('es-CO')} COP</p>
+                   ${NOMBRE_TIPO[p.tipo]} · $${p.precio.toLocaleString('es-CO')} COP${p.stock && p.stock !== 'disponible' ? ' · ' + NOMBRE_STOCK[p.stock] : ''}${p.decants === false ? ' · sin decants' : ''}</p>
                 <div class="fila__destinos">${destinos}</div>
             </div>
             <div class="fila__acciones">
@@ -259,6 +264,10 @@ $('#lista').addEventListener('click', (e) => {
         $('#f-fondo').value = p.notas.fondo;
         $('#f-ocasion').value = p.ocasion;
         $('#f-duracion').value = p.duracion;
+        $('#f-anio').value = p.anio || '';
+        $('#f-perfumista').value = p.perfumista || '';
+        $('#f-decants').checked = p.decants !== false;
+        formulario.querySelector(`[name="stock"][value="${p.stock || 'disponible'}"]`).checked = true;
         $('#f-desc').value = p.desc.join('\n');
         $('#f-forma').value = p.frasco.forma;
         $('#f-tapa').value = p.frasco.tapa;
@@ -315,7 +324,10 @@ $('#btn-exportar').addEventListener('click', () => {
 
     const cuerpo = productos.map(p => `  {
     id: ${JSON.stringify(p.id)}, nombre: ${JSON.stringify(p.nombre)}, marca: ${JSON.stringify(p.marca)},
-    genero: ${JSON.stringify(p.genero)}, tipo: ${JSON.stringify(p.tipo)}, precio: ${p.precio},
+    genero: ${JSON.stringify(p.genero)}, tipo: ${JSON.stringify(p.tipo)}, precio: ${p.precio},${p.anio ? ` anio: ${p.anio},` : ''}${p.perfumista ? `
+    perfumista: ${JSON.stringify(p.perfumista)},` : ''}${p.stock && p.stock !== 'disponible' ? `
+    stock: ${JSON.stringify(p.stock)},` : ''}${p.decants === false ? `
+    decants: false,` : ''}
     familia: ${JSON.stringify(p.familia)},
     desc: ${JSON.stringify(p.desc)},
     notas: { salida: ${JSON.stringify(p.notas.salida)}, corazon: ${JSON.stringify(p.notas.corazon)}, fondo: ${JSON.stringify(p.notas.fondo)} },
@@ -340,13 +352,126 @@ ${cuerpo}
 module.exports = { NUEVOS };
 `;
 
+    descargar('datos-portal.js', archivo);
+});
+
+function descargar(nombre, contenido) {
     const enlace = document.createElement('a');
-    enlace.href = URL.createObjectURL(new Blob([archivo], { type: 'text/javascript' }));
-    enlace.download = 'datos-portal.js';
+    enlace.href = URL.createObjectURL(new Blob([contenido], { type: 'text/javascript' }));
+    enlace.download = nombre;
     enlace.click();
     URL.revokeObjectURL(enlace.href);
-    avisar('Archivo descargado: datos-portal.js');
+    avisar('Archivo descargado: ' + nombre);
+}
+
+/* --------------------------------------------
+   DISPONIBILIDAD DEL CATÁLOGO PUBLICADO
+   Parte del estado que trae js/indice.js (lo que
+   está en la web) y guarda aquí solo los cambios.
+   Exporta generador/stock.js completo.
+   -------------------------------------------- */
+const CLAVE_STOCK = 'smessence_portal_stock';
+const CATALOGO_WEB = (window.INDICE_PERFUMES || [])
+    .filter(e => e.id)
+    .sort((a, b) => a.n.localeCompare(b.n, 'es'));
+const PUBLICADO = Object.fromEntries(CATALOGO_WEB.map(e => [e.id, e.s || 'disponible']));
+
+let cambiosStock = (() => {
+    try { return JSON.parse(localStorage.getItem(CLAVE_STOCK)) || {}; } catch { return {}; }
+})();
+// Descarta cambios de fragancias que ya no existen o que ya se publicaron
+Object.keys(cambiosStock).forEach((id) => {
+    if (!(id in PUBLICADO) || cambiosStock[id] === PUBLICADO[id]) delete cambiosStock[id];
 });
+
+const estadoStock = id => cambiosStock[id] || PUBLICADO[id];
+
+function guardarStock() {
+    try { localStorage.setItem(CLAVE_STOCK, JSON.stringify(cambiosStock)); } catch { /* sin almacenamiento */ }
+}
+
+function pintarStock() {
+    const lista = $('#stock-lista');
+    if (!lista) return;
+    $('#contador-stock').textContent = Object.keys(cambiosStock).length;
+
+    const q = aIdentificador($('#stock-buscar').value).replace(/-/g, ' ');
+    const ver = document.querySelector('[name="stock-ver"]:checked').value;
+
+    const filas = CATALOGO_WEB.filter((e) => {
+        if (q && !aIdentificador(e.n + ' ' + e.m).replace(/-/g, ' ').includes(q)) return false;
+        if (ver === 'cambios') return e.id in cambiosStock;
+        if (ver === 'pocas' || ver === 'agotado') return estadoStock(e.id) === ver;
+        return true;
+    });
+
+    if (filas.length === 0) {
+        lista.innerHTML = '<p class="vacio">Nada coincide con la búsqueda.</p>';
+        return;
+    }
+
+    lista.innerHTML = filas.map((e) => {
+        const actual = estadoStock(e.id);
+        const opcion = (valor, texto) => `<label><input type="radio" name="s-${e.id}" value="${valor}" data-id="${e.id}"${actual === valor ? ' checked' : ''}><span>${texto}</span></label>`;
+        return `<div class="stock-fila${e.id in cambiosStock ? ' stock-fila--cambiada' : ''}">
+            <p class="stock-fila__nombre">${e.n}<span>${e.m}</span></p>
+            <div class="segmento" role="radiogroup" aria-label="Disponibilidad de ${e.n}">
+                ${opcion('disponible', 'Disponible')}${opcion('pocas', 'Últimas')}${opcion('agotado', 'Agotado')}
+            </div>
+        </div>`;
+    }).join('');
+}
+
+if ($('#stock-lista')) {
+    $('#stock-lista').addEventListener('change', (e) => {
+        const id = e.target.dataset.id;
+        if (!id) return;
+        if (e.target.value === PUBLICADO[id]) delete cambiosStock[id];
+        else cambiosStock[id] = e.target.value;
+        guardarStock();
+        $('#contador-stock').textContent = Object.keys(cambiosStock).length;
+        e.target.closest('.stock-fila').classList.toggle('stock-fila--cambiada', id in cambiosStock);
+    });
+
+    $('#stock-buscar').addEventListener('input', pintarStock);
+    document.querySelectorAll('[name="stock-ver"]').forEach(r => r.addEventListener('change', pintarStock));
+
+    $('#btn-descartar-stock').addEventListener('click', () => {
+        const n = Object.keys(cambiosStock).length;
+        if (n === 0) return;
+        if (!confirm('Se descartarán ' + n + ' cambios de disponibilidad sin publicar. ¿Continuar?')) return;
+        cambiosStock = {};
+        guardarStock();
+        pintarStock();
+        avisar('Cambios descartados.');
+    });
+
+    $('#btn-exportar-stock').addEventListener('click', () => {
+        const marcados = CATALOGO_WEB.filter(e => estadoStock(e.id) !== 'disponible');
+        const cuerpo = marcados
+            .map(e => `  ${JSON.stringify(e.id)}: ${JSON.stringify(estadoStock(e.id))},   // ${e.n} · ${e.m}`)
+            .join('\n');
+
+        descargar('stock.js', `/* =========================================================
+   DISPONIBILIDAD DEL CATÁLOGO
+   Lo que no aparezca aquí se muestra como disponible.
+
+     "pocas"   → insignia «Últimas unidades»
+     "agotado" → insignia «Agotado», sin botón de compra y al
+                 final de las secciones
+
+   Exportado desde el portal de gestión: ${new Date().toLocaleString('es-CO')}
+   Reemplaza generador/stock.js y ejecuta "node generar.js".
+   ========================================================= */
+
+const STOCK = {
+${cuerpo}
+};
+
+module.exports = { STOCK };
+`);
+    });
+}
 
 /* --------------------------------------------
    Avisos
@@ -391,3 +516,4 @@ $('#f-id').addEventListener('input', (e) => {
 pintarDestinos();
 pintarPrevia();
 pintarLista();
+pintarStock();

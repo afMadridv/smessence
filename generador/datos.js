@@ -13,7 +13,7 @@
 const PERFUMES = [
   {
     id: "212", nombre: "212 VIP Black", marca: "Carolina Herrera",
-    genero: "m", tipo: "disenador", precio: 385000,
+    genero: "m", tipo: "disenador", precio: 385000, anio: 2017,
     familia: "Aromático fougère · Eau de Parfum",
     desc: [
       "La cara más nocturna de la línea 212. VIP Black abre con un contraste atrevido de absenta y anís que enseguida llama la atención, pensado para el hombre que marca el ritmo de la fiesta y no le pide permiso a nadie.",
@@ -26,7 +26,7 @@ const PERFUMES = [
   },
   {
     id: "asad", nombre: "Asad", marca: "Lattafa",
-    genero: "m", tipo: "arabe", precio: 145000,
+    genero: "m", tipo: "arabe", precio: 145000, anio: 2021,
     familia: "Ámbar amaderado especiado · Eau de Parfum",
     desc: [
       "Asad significa \"león\" en árabe, y la fragancia hace honor al nombre: pimienta negra, incienso y un toque de piña abren paso a un carácter fuerte y una presencia imponente desde el primer segundo.",
@@ -39,7 +39,7 @@ const PERFUMES = [
   },
   {
     id: "clubdenuit", nombre: "Club de Nuit Intense Man", marca: "Armaf",
-    genero: "m", tipo: "arabe", precio: 175000,
+    genero: "m", tipo: "arabe", precio: 175000, anio: 2015,
     familia: "Cítrico amaderado ahumado · Eau de Toilette",
     desc: [
       "Un clásico moderno de la perfumería árabe y uno de los perfumes con mejor relación calidad-precio del mundo. Abre con una explosión frutal de limón, piña, manzana y grosella negra que se siente fresca y lujosa a la vez.",
@@ -52,7 +52,7 @@ const PERFUMES = [
   },
   {
     id: "incituselixir", nombre: "Invictus Victory Elixir", marca: "Rabanne",
-    genero: "m", tipo: "disenador", precio: 520000,
+    genero: "m", tipo: "disenador", precio: 520000, anio: 2023,
     familia: "Ámbar especiado · Parfum Intense",
     desc: [
       "La versión más intensa del trofeo Invictus. El Elixir sube la apuesta con una salida vibrante de cardamomo y pimienta negra que anuncia una fragancia hecha para ganar.",
@@ -65,7 +65,8 @@ const PERFUMES = [
   },
   {
     id: "onemillion", nombre: "One Million", marca: "Rabanne",
-    genero: "m", tipo: "disenador", precio: 425000,
+    genero: "m", tipo: "disenador", precio: 425000, anio: 2008,
+    perfumista: "Christophe Raynaud, Olivier Pescheux y Michel Girard",
     familia: "Cuero especiado · Eau de Toilette",
     desc: [
       "El lingote dorado que cambió la perfumería masculina moderna. One Million abre fresco y chispeante con pomelo, menta y mandarina roja, y enseguida revela su verdadero carácter: canela y especias sobre un fondo de cuero y ámbar.",
@@ -78,7 +79,7 @@ const PERFUMES = [
   },
   {
     id: "amberoud", nombre: "Amber Oud Gold Edition", marca: "Al Haramain",
-    genero: "m", tipo: "arabe", precio: 185000,
+    genero: "m", tipo: "arabe", precio: 185000, anio: 2018,
     familia: "Ámbar dulce oriental · Eau de Parfum",
     desc: [
       "Un abrazo dorado en formato perfume. Amber Oud Gold Edition abre con bergamota y frutas dulces que se derriten sobre un corazón cremoso de ámbar, en una de las composiciones dulces más queridas de la perfumería árabe.",
@@ -91,7 +92,7 @@ const PERFUMES = [
   },
   {
     id: "khamrah", nombre: "Khamrah", marca: "Lattafa",
-    genero: "m", tipo: "arabe", precio: 155000,
+    genero: "m", tipo: "arabe", precio: 155000, anio: 2022,
     familia: "Gourmand especiado · Eau de Parfum",
     desc: [
       "Khamrah es un festín especiado: canela y nuez moscada iluminadas por bergamota, sobre un corazón goloso de dátiles, praliné y tuberosa que recuerda a un postre árabe recién servido.",
@@ -104,7 +105,8 @@ const PERFUMES = [
   },
   {
     id: "diorsauvage", nombre: "Sauvage", marca: "Dior",
-    genero: "m", tipo: "disenador", precio: 545000,
+    genero: "m", tipo: "disenador", precio: 545000, anio: 2015,
+    perfumista: "François Demachy",
     familia: "Aromático fresco especiado · Eau de Toilette",
     desc: [
       "El masculino más vendido del mundo, inspirado en los grandes espacios abiertos. La bergamota de Calabria explota fresca y jugosa sobre un corazón vibrante de pimienta de Sichuan, lavanda y geranio.",
@@ -117,7 +119,8 @@ const PERFUMES = [
   },
   {
     id: "creed", nombre: "Virgin Island Water", marca: "Creed",
-    genero: "m", tipo: "nicho", precio: 1650000,
+    genero: "m", tipo: "nicho", precio: 1650000, anio: 2007,
+    perfumista: "Olivier Creed y Erwin Creed",
     familia: "Cítrico tropical · Eau de Parfum",
     desc: [
       "Unas vacaciones en el Caribe embotelladas por la casa Creed. Lima fresca, coco y bergamota recrean la brisa de las Islas Vírgenes, con un corazón floral de ylang-ylang y jazmín.",
@@ -130,7 +133,7 @@ const PERFUMES = [
   },
   {
     id: "ultramale", nombre: "Ultra Male", marca: "Jean Paul Gaultier",
-    genero: "m", tipo: "disenador", precio: 430000,
+    genero: "m", tipo: "disenador", precio: 430000, anio: 2015,
     familia: "Oriental fougère · Eau de Toilette Intense",
     desc: [
       "La versión más seductora del icónico marinero de Gaultier. Ultra Male abre con pera helada, menta y lavanda: un contraste frutal-fresco diseñado para atraer miradas de inmediato.",
@@ -143,7 +146,7 @@ const PERFUMES = [
   },
   {
     id: "borninroma", nombre: "Uomo Born in Roma", marca: "Valentino",
-    genero: "m", tipo: "disenador", precio: 415000,
+    genero: "m", tipo: "disenador", precio: 415000, anio: 2019,
     familia: "Amaderado especiado avainillado · Eau de Toilette",
     desc: [
       "La elegancia romana con actitud de calle. El frasco negro con tachuelas couture anticipa una fragancia moderna: jengibre y salvia en la salida, sobre un vetiver pulido y notas minerales.",
@@ -156,7 +159,7 @@ const PERFUMES = [
   },
   {
     id: "cloudariana", nombre: "Cloud", marca: "Ariana Grande",
-    genero: "f", tipo: "disenador", precio: 285000,
+    genero: "f", tipo: "disenador", precio: 285000, anio: 2018,
     familia: "Gourmand cremoso · Eau de Parfum",
     desc: [
       "Dormir sobre una nube de crema batida: así se siente Cloud. Lavanda, pera y bergamota abren paso a un corazón de coco, praliné y vainilla que se volvió fenómeno mundial.",
@@ -169,7 +172,7 @@ const PERFUMES = [
   },
   {
     id: "thankunext", nombre: "Thank U Next", marca: "Ariana Grande",
-    genero: "f", tipo: "disenador", precio: 265000,
+    genero: "f", tipo: "disenador", precio: 265000, anio: 2019,
     familia: "Frutal gourmand · Eau de Parfum",
     desc: [
       "Dulce, descarado y con mucha personalidad, como la canción que lo inspiró. Pera blanca y frambuesa jugosa abren una composición golosa de coco cremoso y pétalos de rosa.",
@@ -182,7 +185,7 @@ const PERFUMES = [
   },
   {
     id: "yara", nombre: "Yara", marca: "Lattafa",
-    genero: "f", tipo: "arabe", precio: 150000,
+    genero: "f", tipo: "arabe", precio: 150000, anio: 2020,
     familia: "Floral gourmand · Eau de Parfum",
     desc: [
       "El fenómeno rosado de Lattafa. Yara envuelve desde el inicio con orquídea, heliotropo y mandarina, un comienzo empolvado y dulce que se siente como terciopelo.",
@@ -195,7 +198,7 @@ const PERFUMES = [
   },
   {
     id: "scandal", nombre: "Scandal", marca: "Jean Paul Gaultier",
-    genero: "f", tipo: "disenador", precio: 470000,
+    genero: "f", tipo: "disenador", precio: 470000, anio: 2017,
     familia: "Chipre de miel · Eau de Parfum",
     desc: [
       "El escándalo más elegante de París. Naranja sanguina y mandarina iluminan una composición cuyo corazón es pura miel dorada, acompañada de gardenia y jazmín.",
@@ -208,7 +211,7 @@ const PERFUMES = [
   },
   {
     id: "moschinotoy", nombre: "Toy 2", marca: "Moschino",
-    genero: "f", tipo: "disenador", precio: 340000,
+    genero: "f", tipo: "disenador", precio: 340000, anio: 2018,
     familia: "Floral frutal · Eau de Parfum",
     desc: [
       "El osito transparente más famoso de la perfumería. Toy 2 abre chispeante con manzana verde, mandarina y magnolia, fresca como una mañana de primavera.",
@@ -234,7 +237,8 @@ const PERFUMES = [
   },
   {
     id: "lavieest", nombre: "La Vie Est Belle", marca: "Lancôme",
-    genero: "f", tipo: "disenador", precio: 590000,
+    genero: "f", tipo: "disenador", precio: 590000, anio: 2012,
+    perfumista: "Olivier Polge, Dominique Ropion y Anne Flipo",
     familia: "Iris gourmand · Eau de Parfum",
     desc: [
       "\"La vida es bella\": una declaración de felicidad convertida en perfume. Grosella negra y pera abren camino al corazón noble de iris, jazmín y flor de azahar.",
@@ -247,7 +251,7 @@ const PERFUMES = [
   },
   {
     id: "verygoodgirl", nombre: "Very Good Girl", marca: "Carolina Herrera",
-    genero: "f", tipo: "disenador", precio: 520000,
+    genero: "f", tipo: "disenador", precio: 520000, anio: 2021,
     familia: "Frutal avainillado · Eau de Parfum",
     desc: [
       "El tacón rojo de Carolina Herrera: la energía de Good Girl en clave frutal. Frambuesa y grosella roja abren vibrantes, jugosas y llenas de actitud.",
@@ -260,7 +264,8 @@ const PERFUMES = [
   },
   {
     id: "goodgirl", nombre: "Good Girl", marca: "Carolina Herrera",
-    genero: "f", tipo: "disenador", precio: 545000,
+    genero: "f", tipo: "disenador", precio: 545000, anio: 2016,
+    perfumista: "Louise Turner",
     familia: "Floral oriental · Eau de Parfum",
     desc: [
       "El stiletto azul que se convirtió en icono. Good Girl juega con la dualidad: la luz de la almendra, el café y el azahar frente a la oscuridad del haba tonka y el cacao.",
@@ -273,7 +278,8 @@ const PERFUMES = [
   },
   {
     id: "olympea", nombre: "Olympéa", marca: "Paco Rabanne",
-    genero: "f", tipo: "disenador", precio: 495000,
+    genero: "f", tipo: "disenador", precio: 495000, anio: 2015,
+    perfumista: "Anne Flipo, Loc Dong y Dominique Ropion",
     familia: "Oriental floral salado · Eau de Parfum",
     desc: [
       "La diosa moderna de Paco Rabanne. Olympéa rompió esquemas con su acorde de vainilla salada: un contraste dulce-salado que la hace inmediatamente reconocible.",
@@ -286,7 +292,7 @@ const PERFUMES = [
   },
   {
     id: "goodgirlblush", nombre: "Good Girl Blush", marca: "Carolina Herrera",
-    genero: "f", tipo: "disenador", precio: 530000,
+    genero: "f", tipo: "disenador", precio: 530000, anio: 2023,
     familia: "Floral avainillado · Eau de Parfum",
     desc: [
       "El tacón se viste de rosa. Blush es la versión más luminosa y romántica de Good Girl: peonía y mandarina abren un ramo fresco y empolvado que enamora al instante.",
@@ -299,7 +305,8 @@ const PERFUMES = [
   },
   {
     id: "coco", nombre: "Coco Mademoiselle", marca: "Chanel",
-    genero: "f", tipo: "disenador", precio: 685000,
+    genero: "f", tipo: "disenador", precio: 685000, anio: 2001,
+    perfumista: "Jacques Polge",
     familia: "Chipre floral · Eau de Parfum",
     desc: [
       "El espíritu libre de Gabrielle Chanel en un perfume. La chispa cítrica de naranja y bergamota da paso a un corazón de rosa, jazmín y lichi de elegancia inconfundible.",
@@ -455,7 +462,7 @@ const PERFUMES = [
   },
   {
     id: "afnan-9pm", nombre: "9PM", marca: "Afnan",
-    genero: "m", tipo: "arabe", precio: 185000, destacado: true,
+    genero: "m", tipo: "arabe", precio: 185000, destacado: true, anio: 2020,
     familia: "Ámbar dulce · Eau de Parfum",
     desc: [
       "El perfume que conquistó las noches con una relación calidad-precio insuperable. Abre con manzana y lavanda, dulce y muy invitador.",
@@ -494,7 +501,7 @@ const PERFUMES = [
   },
   {
     id: "hawas", nombre: "Hawas for Him", marca: "Rasasi",
-    genero: "m", tipo: "arabe", precio: 225000, destacado: true,
+    genero: "m", tipo: "arabe", precio: 225000, destacado: true, anio: 2015,
     familia: "Fresco acuático afrutado · Eau de Parfum",
     desc: [
       "El fresco árabe más elogiado, comparado sin descanso con Aventus. Abre con manzana, canela y bergamota vibrantes.",
@@ -546,7 +553,8 @@ const PERFUMES = [
   },
   {
     id: "eros", nombre: "Eros", marca: "Versace",
-    genero: "m", tipo: "disenador", precio: 355000, destacado: true,
+    genero: "m", tipo: "disenador", precio: 355000, destacado: true, anio: 2012,
+    perfumista: "Aurélien Guichard",
     familia: "Aromático fougère · Eau de Toilette",
     desc: [
       "El dios del amor en frasco azul y oro. Eros abre con una explosión de menta, manzana verde y limón que resulta adictiva desde el primer segundo.",
@@ -559,7 +567,8 @@ const PERFUMES = [
   },
   {
     id: "eros-flame", nombre: "Eros Flame", marca: "Versace",
-    genero: "m", tipo: "disenador", precio: 395000,
+    genero: "m", tipo: "disenador", precio: 395000, anio: 2018,
+    perfumista: "Olivier Pescheux",
     familia: "Amaderado especiado · Eau de Parfum",
     desc: [
       "La versión cálida y madura de Eros. Limón italiano y mandarina abren luminosos sobre un corazón de pimienta negra y romero.",
@@ -572,7 +581,8 @@ const PERFUMES = [
   },
   {
     id: "bleu-chanel", nombre: "Bleu de Chanel", marca: "Chanel",
-    genero: "m", tipo: "disenador", precio: 655000, destacado: true,
+    genero: "m", tipo: "disenador", precio: 655000, destacado: true, anio: 2010,
+    perfumista: "Jacques Polge",
     familia: "Amaderado aromático · Eau de Parfum",
     desc: [
       "La definición moderna de elegancia masculina. Cítricos brillantes y menta abren con una limpieza impecable.",
@@ -585,7 +595,8 @@ const PERFUMES = [
   },
   {
     id: "sauvage-elixir", nombre: "Sauvage Elixir", marca: "Dior",
-    genero: "m", tipo: "disenador", precio: 720000, destacado: true,
+    genero: "m", tipo: "disenador", precio: 720000, destacado: true, anio: 2021,
+    perfumista: "François Demachy",
     familia: "Amaderado especiado · Elixir",
     desc: [
       "La concentración más densa y opulenta de la casa Dior. Canela, nuez moscada y cardamomo abren con una intensidad casi licorosa.",
@@ -598,7 +609,8 @@ const PERFUMES = [
   },
   {
     id: "dior-homme-intense", nombre: "Dior Homme Intense", marca: "Dior",
-    genero: "m", tipo: "disenador", precio: 615000,
+    genero: "m", tipo: "disenador", precio: 615000, anio: 2011,
+    perfumista: "Olivier Polge",
     familia: "Iris amaderado · Eau de Parfum",
     desc: [
       "Uno de los perfumes masculinos más elegantes jamás creados. El iris empolvado, cremoso y noble domina la composición de principio a fin.",
@@ -611,7 +623,8 @@ const PERFUMES = [
   },
   {
     id: "le-male-le-parfum", nombre: "Le Male Le Parfum", marca: "Jean Paul Gaultier",
-    genero: "m", tipo: "disenador", precio: 470000,
+    genero: "m", tipo: "disenador", precio: 470000, anio: 2020,
+    perfumista: "Quentin Bisch y Natalie Gracia-Cetto",
     familia: "Oriental avainillado · Eau de Parfum Intense",
     desc: [
       "El marinero más icónico, en su versión más rica y adictiva. Cardamomo fresco abre paso a una lavanda cremosa y aterciopelada.",
@@ -624,7 +637,7 @@ const PERFUMES = [
   },
   {
     id: "phantom", nombre: "Phantom", marca: "Rabanne",
-    genero: "m", tipo: "disenador", precio: 415000,
+    genero: "m", tipo: "disenador", precio: 415000, anio: 2021,
     familia: "Aromático fresco · Eau de Toilette",
     desc: [
       "El robot más famoso de la perfumería moderna. Abre con un limón chispeante y lavanda que resultan inmediatamente limpios y frescos.",
@@ -637,7 +650,8 @@ const PERFUMES = [
   },
   {
     id: "invictus", nombre: "Invictus", marca: "Rabanne",
-    genero: "m", tipo: "disenador", precio: 355000,
+    genero: "m", tipo: "disenador", precio: 355000, anio: 2013,
+    perfumista: "Véronique Nyberg, Anne Flipo, Olivier Polge y Dominique Ropion",
     familia: "Acuático amaderado · Eau de Toilette",
     desc: [
       "El trofeo del vencedor. Pomelo y mandarina abren con una frescura marina que se volvió firma de toda una generación.",
@@ -650,7 +664,8 @@ const PERFUMES = [
   },
   {
     id: "acqua-profumo", nombre: "Acqua di Giò Profumo", marca: "Giorgio Armani",
-    genero: "m", tipo: "disenador", precio: 560000,
+    genero: "m", tipo: "disenador", precio: 560000, anio: 2015,
+    perfumista: "Alberto Morillas",
     familia: "Acuático amaderado · Parfum",
     desc: [
       "La versión oscura y elegante del clásico mediterráneo. Bergamota y notas marinas abren frescas, pero con más cuerpo que el original.",
@@ -663,7 +678,8 @@ const PERFUMES = [
   },
   {
     id: "ysl-y-edp", nombre: "Y Eau de Parfum", marca: "Yves Saint Laurent",
-    genero: "m", tipo: "disenador", precio: 495000,
+    genero: "m", tipo: "disenador", precio: 495000, anio: 2018,
+    perfumista: "Dominique Ropion",
     familia: "Aromático amaderado · Eau de Parfum",
     desc: [
       "El blanco y negro más moderno del armario masculino. Manzana y jengibre abren nítidos y contemporáneos.",
@@ -676,7 +692,8 @@ const PERFUMES = [
   },
   {
     id: "la-nuit-homme", nombre: "La Nuit de L'Homme", marca: "Yves Saint Laurent",
-    genero: "m", tipo: "disenador", precio: 455000,
+    genero: "m", tipo: "disenador", precio: 455000, anio: 2009,
+    perfumista: "Anne Flipo, Pierre Wargnye y Dominique Ropion",
     familia: "Amaderado especiado · Eau de Toilette",
     desc: [
       "Uno de los grandes seductores de la perfumería. El cardamomo abre especiado y suave, sin ninguna aspereza.",
@@ -689,7 +706,7 @@ const PERFUMES = [
   },
   {
     id: "most-wanted", nombre: "The Most Wanted Parfum", marca: "Azzaro",
-    genero: "m", tipo: "disenador", precio: 420000,
+    genero: "m", tipo: "disenador", precio: 420000, anio: 2022,
     familia: "Ámbar especiado · Parfum",
     desc: [
       "Un perfume construido alrededor del jengibre y el ámbar líquido: cálido, dulce y con una proyección inmediata.",
@@ -702,7 +719,8 @@ const PERFUMES = [
   },
   {
     id: "luna-rossa-carbon", nombre: "Luna Rossa Carbon", marca: "Prada",
-    genero: "m", tipo: "disenador", precio: 445000,
+    genero: "m", tipo: "disenador", precio: 445000, anio: 2017,
+    perfumista: "Daniela Andrier",
     familia: "Aromático metálico · Eau de Toilette",
     desc: [
       "Elegancia técnica de regata. Un acorde metálico único y bergamota abren con una limpieza inconfundible.",
@@ -715,7 +733,8 @@ const PERFUMES = [
   },
   {
     id: "bad-boy", nombre: "Bad Boy", marca: "Carolina Herrera",
-    genero: "m", tipo: "disenador", precio: 465000,
+    genero: "m", tipo: "disenador", precio: 465000, anio: 2019,
+    perfumista: "Quentin Bisch y Louise Turner",
     familia: "Amaderado especiado · Eau de Toilette",
     desc: [
       "El rayo negro que responde al tacón de Good Girl. Pimienta blanca y bergamota abren afiladas y modernas.",
@@ -728,7 +747,8 @@ const PERFUMES = [
   },
   {
     id: "idole", nombre: "Idôle", marca: "Lancôme",
-    genero: "f", tipo: "disenador", precio: 510000, destacado: true,
+    genero: "f", tipo: "disenador", precio: 510000, destacado: true, anio: 2019,
+    perfumista: "Shyamala Maisondieu, Adriana Medina y Nadège Le Garlantezec",
     familia: "Chipre floral rosado · Eau de Parfum",
     desc: [
       "El frasco más delgado de la perfumería moderna guarda una rosa limpia y luminosa, pensada para una generación nueva.",
@@ -741,7 +761,8 @@ const PERFUMES = [
   },
   {
     id: "libre", nombre: "Libre", marca: "Yves Saint Laurent",
-    genero: "f", tipo: "disenador", precio: 585000,
+    genero: "f", tipo: "disenador", precio: 585000, anio: 2019,
+    perfumista: "Anne Flipo y Carlos Benaïm",
     familia: "Floral lavanda · Eau de Parfum",
     desc: [
       "La libertad hecha perfume: el choque entre la lavanda francesa y el azahar marroquí es su firma inconfundible.",
@@ -754,7 +775,8 @@ const PERFUMES = [
   },
   {
     id: "black-opium", nombre: "Black Opium", marca: "Yves Saint Laurent",
-    genero: "f", tipo: "disenador", precio: 560000, destacado: true,
+    genero: "f", tipo: "disenador", precio: 560000, destacado: true, anio: 2014,
+    perfumista: "Nathalie Lorson, Marie Salamagne, Olivier Cresp y Honorine Blanc",
     familia: "Gourmand café · Eau de Parfum",
     desc: [
       "El café más adictivo de la perfumería. Abre con pera y pimienta rosa antes de revelar su acorde estrella de café negro.",
@@ -767,7 +789,8 @@ const PERFUMES = [
   },
   {
     id: "jadore", nombre: "J'adore", marca: "Dior",
-    genero: "f", tipo: "disenador", precio: 640000,
+    genero: "f", tipo: "disenador", precio: 640000, anio: 1999,
+    perfumista: "Calice Becker",
     familia: "Floral frutal · Eau de Parfum",
     desc: [
       "El ánfora dorada más famosa del mundo. Un ramo de ylang-ylang, rosa de Damasco y jazmín sambac de una feminidad absoluta.",
@@ -780,7 +803,8 @@ const PERFUMES = [
   },
   {
     id: "chance-tendre", nombre: "Chance Eau Tendre", marca: "Chanel",
-    genero: "f", tipo: "disenador", precio: 640000,
+    genero: "f", tipo: "disenador", precio: 640000, anio: 2010,
+    perfumista: "Jacques Polge",
     familia: "Floral frutal · Eau de Parfum",
     desc: [
       "El frasco redondo de Chanel en su versión más tierna. Membrillo y pomelo abren jugosos y translúcidos.",
@@ -793,7 +817,8 @@ const PERFUMES = [
   },
   {
     id: "flowerbomb", nombre: "Flowerbomb", marca: "Viktor&Rolf",
-    genero: "f", tipo: "disenador", precio: 595000,
+    genero: "f", tipo: "disenador", precio: 595000, anio: 2005,
+    perfumista: "Olivier Polge, Carlos Benaïm, Domitille Michalon-Bertier y Dominique Ropion",
     familia: "Floral oriental · Eau de Parfum",
     desc: [
       "Una explosión floral en granada de cristal. Té y bergamota abren antes de un corazón denso de jazmín sambac, rosa y orquídea.",
@@ -806,7 +831,8 @@ const PERFUMES = [
   },
   {
     id: "daisy", nombre: "Daisy", marca: "Marc Jacobs",
-    genero: "f", tipo: "disenador", precio: 385000,
+    genero: "f", tipo: "disenador", precio: 385000, anio: 2007,
+    perfumista: "Alberto Morillas",
     familia: "Floral fresco · Eau de Toilette",
     desc: [
       "Las margaritas del tapón anticipan un perfume alegre y juvenil. Fresa silvestre y pomelo abren con una frescura despreocupada.",
@@ -819,7 +845,8 @@ const PERFUMES = [
   },
   {
     id: "my-way", nombre: "My Way", marca: "Giorgio Armani",
-    genero: "f", tipo: "disenador", precio: 495000,
+    genero: "f", tipo: "disenador", precio: 495000, anio: 2020,
+    perfumista: "Carlos Benaïm y Bruno Jovanovic",
     familia: "Floral almizclado · Eau de Parfum",
     desc: [
       "Un viaje floral moderno: bergamota y azahar abren luminosos y limpios, con una naturalidad muy actual.",
@@ -832,7 +859,7 @@ const PERFUMES = [
   },
   {
     id: "212-vip-rose", nombre: "212 VIP Rosé", marca: "Carolina Herrera",
-    genero: "f", tipo: "disenador", precio: 375000,
+    genero: "f", tipo: "disenador", precio: 375000, anio: 2011,
     familia: "Floral frutal espumoso · Eau de Parfum",
     desc: [
       "Champán rosado en frasco metálico. El acorde de champagne rosé abre burbujeante y festivo, imposible de confundir.",
@@ -845,7 +872,7 @@ const PERFUMES = [
   },
   {
     id: "fame", nombre: "Fame", marca: "Rabanne",
-    genero: "f", tipo: "disenador", precio: 445000,
+    genero: "f", tipo: "disenador", precio: 445000, anio: 2022,
     familia: "Floral amaderado · Eau de Parfum",
     desc: [
       "La diosa dorada de Rabanne. Mango y pimienta rosa abren exóticos y jugosos, con una modernidad descarada.",
@@ -858,7 +885,7 @@ const PERFUMES = [
   },
   {
     id: "good-girl-supreme", nombre: "Good Girl Suprême", marca: "Carolina Herrera",
-    genero: "f", tipo: "disenador", precio: 575000,
+    genero: "f", tipo: "disenador", precio: 575000, anio: 2021,
     familia: "Floral gourmand · Eau de Parfum",
     desc: [
       "La evolución más golosa del tacón azul. Almendra y café siguen presentes, pero la fresa y el ron aportan un giro festivo.",
@@ -871,7 +898,8 @@ const PERFUMES = [
   },
   {
     id: "aventus", nombre: "Aventus", marca: "Creed",
-    genero: "m", tipo: "nicho", precio: 2150000, destacado: true,
+    genero: "m", tipo: "nicho", precio: 2150000, destacado: true, anio: 2010,
+    perfumista: "Olivier Creed y Erwin Creed",
     familia: "Chipre frutal · Eau de Parfum",
     desc: [
       "El perfume masculino más imitado de la historia moderna. La piña ahumada de la salida es una firma que nadie ha logrado replicar del todo.",
@@ -884,7 +912,8 @@ const PERFUMES = [
   },
   {
     id: "br540", nombre: "Baccarat Rouge 540", marca: "Maison Francis Kurkdjian",
-    genero: "u", tipo: "nicho", precio: 1780000, destacado: true,
+    genero: "u", tipo: "nicho", precio: 1780000, destacado: true, anio: 2015,
+    perfumista: "Francis Kurkdjian",
     familia: "Ámbar floral · Extrait de Parfum",
     desc: [
       "La fragancia más viral de la última década. Un acorde de azafrán y jazmín sobre ámbar gris y madera de cedro, luminoso y casi mineral.",
@@ -897,7 +926,7 @@ const PERFUMES = [
   },
   {
     id: "oud-greatness", nombre: "Oud for Greatness", marca: "Initio",
-    genero: "u", tipo: "nicho", precio: 1390000,
+    genero: "u", tipo: "nicho", precio: 1390000, anio: 2018,
     familia: "Oud especiado · Extrait de Parfum",
     desc: [
       "Un oud moderno y sofisticado, muy alejado de los orientales pesados. Azafrán y nuez moscada abren afilados y limpios.",
@@ -910,7 +939,7 @@ const PERFUMES = [
   },
   {
     id: "naxos", nombre: "Naxos", marca: "Xerjoff",
-    genero: "m", tipo: "nicho", precio: 1450000,
+    genero: "m", tipo: "nicho", precio: 1450000, anio: 2015,
     familia: "Tabaco miel · Eau de Parfum",
     desc: [
       "Un homenaje a Sicilia: lavanda y bergamota abren mediterráneas antes de revelar su corazón de miel y tabaco.",
@@ -923,7 +952,8 @@ const PERFUMES = [
   },
   {
     id: "layton", nombre: "Layton", marca: "Parfums de Marly",
-    genero: "m", tipo: "nicho", precio: 1240000, destacado: true,
+    genero: "m", tipo: "nicho", precio: 1240000, destacado: true, anio: 2016,
+    perfumista: "Hamid Merati-Kashani",
     familia: "Amaderado avainillado · Eau de Parfum",
     desc: [
       "El caballo de batalla de Parfums de Marly. Manzana y lavanda abren frescas y elegantes sobre un corazón especiado de pimienta y geranio.",
@@ -936,7 +966,8 @@ const PERFUMES = [
   },
   {
     id: "delina", nombre: "Delina", marca: "Parfums de Marly",
-    genero: "f", tipo: "nicho", precio: 1310000,
+    genero: "f", tipo: "nicho", precio: 1310000, anio: 2017,
+    perfumista: "Quentin Bisch",
     familia: "Floral frutal · Eau de Parfum",
     desc: [
       "La rosa turca más luminosa del nicho contemporáneo. Lichi y ruibarbo abren jugosos y chispeantes.",
@@ -949,7 +980,8 @@ const PERFUMES = [
   },
   {
     id: "santal-33", nombre: "Santal 33", marca: "Le Labo",
-    genero: "u", tipo: "nicho", precio: 1180000,
+    genero: "u", tipo: "nicho", precio: 1180000, anio: 2011,
+    perfumista: "Frank Voelkl",
     familia: "Amaderado especiado · Eau de Parfum",
     desc: [
       "El perfume de culto del downtown neoyorquino. Sándalo cremoso, cedro y cardamomo con un cuero suave y ahumado.",
@@ -962,7 +994,8 @@ const PERFUMES = [
   },
   {
     id: "acqua-parfum", nombre: "Acqua di Giò Parfum", marca: "Giorgio Armani",
-    genero: "m", tipo: "disenador", precio: 545000, destacado: true,
+    genero: "m", tipo: "disenador", precio: 545000, destacado: true, anio: 2023,
+    perfumista: "Alberto Morillas",
     familia: "Acuático amaderado · Parfum",
     desc: [
       "La relectura más profunda del mediterráneo de Armani. La salvia y el pachulí sostienen un acorde marino que ya no es ligero, sino denso y mineral.",
@@ -975,7 +1008,8 @@ const PERFUMES = [
   },
   {
     id: "allure-sport", nombre: "Allure Homme Sport", marca: "Chanel",
-    genero: "m", tipo: "disenador", precio: 615000,
+    genero: "m", tipo: "disenador", precio: 615000, anio: 2004,
+    perfumista: "Jacques Polge",
     familia: "Cítrico amaderado · Eau de Toilette",
     desc: [
       "El fresco elegante de Chanel: mandarina y naranja abren con una limpieza inmediata, sin ningún exceso.",
@@ -988,7 +1022,8 @@ const PERFUMES = [
   },
   {
     id: "the-one-men", nombre: "The One for Men", marca: "Dolce&Gabbana",
-    genero: "m", tipo: "disenador", precio: 425000,
+    genero: "m", tipo: "disenador", precio: 425000, anio: 2008,
+    perfumista: "Olivier Polge",
     familia: "Ámbar especiado · Eau de Parfum",
     desc: [
       "Un oriental especiado de manual: pomelo y albahaca abren luminosos antes de un corazón de cardamomo y jengibre.",
@@ -1001,7 +1036,7 @@ const PERFUMES = [
   },
   {
     id: "gentleman-society", nombre: "Gentleman Society", marca: "Givenchy",
-    genero: "m", tipo: "disenador", precio: 470000,
+    genero: "m", tipo: "disenador", precio: 470000, anio: 2023,
     familia: "Aromático amaderado · Eau de Parfum",
     desc: [
       "Un floral masculino bien resuelto: el narciso azul y la salvia abren verdes y sofisticados, muy poco convencionales.",
@@ -1014,7 +1049,7 @@ const PERFUMES = [
   },
   {
     id: "burberry-hero", nombre: "Hero Eau de Parfum", marca: "Burberry",
-    genero: "m", tipo: "disenador", precio: 435000,
+    genero: "m", tipo: "disenador", precio: 435000, anio: 2022,
     familia: "Amaderado especiado · Eau de Parfum",
     desc: [
       "Tres cedros —Virginia, Atlas y Himalaya— construyen la columna vertebral de esta fragancia seca y contemporánea.",
@@ -1027,7 +1062,8 @@ const PERFUMES = [
   },
   {
     id: "boss-bottled", nombre: "Boss Bottled", marca: "Hugo Boss",
-    genero: "m", tipo: "disenador", precio: 340000,
+    genero: "m", tipo: "disenador", precio: 340000, anio: 1998,
+    perfumista: "Annick Ménardo",
     familia: "Amaderado especiado · Eau de Toilette",
     desc: [
       "El perfume de oficina por antonomasia desde 1998. Manzana y ciruela abren frescas sobre un corazón de canela y clavo.",
@@ -1040,7 +1076,8 @@ const PERFUMES = [
   },
   {
     id: "montblanc-explorer", nombre: "Explorer", marca: "Montblanc",
-    genero: "m", tipo: "disenador", precio: 355000,
+    genero: "m", tipo: "disenador", precio: 355000, anio: 2019,
+    perfumista: "Jordi Fernández, Antoine Maisondieu y Olivier Pescheux",
     familia: "Chipre amaderado · Eau de Parfum",
     desc: [
       "La respuesta accesible a los grandes frutales de nicho. Bergamota italiana y pimienta rosa abren brillantes.",
@@ -1053,7 +1090,8 @@ const PERFUMES = [
   },
   {
     id: "ombre-leather", nombre: "Ombré Leather", marca: "Tom Ford",
-    genero: "u", tipo: "disenador", precio: 780000, destacado: true,
+    genero: "u", tipo: "disenador", precio: 780000, destacado: true, anio: 2018,
+    perfumista: "Sonia Constant",
     familia: "Cuero floral · Eau de Parfum",
     desc: [
       "Cuero suave y cardamomo sobre un fondo de ámbar y musgo: la interpretación más vestible del cuero en perfumería moderna.",
@@ -1066,7 +1104,8 @@ const PERFUMES = [
   },
   {
     id: "tobacco-vanille", nombre: "Tobacco Vanille", marca: "Tom Ford",
-    genero: "u", tipo: "disenador", precio: 1180000,
+    genero: "u", tipo: "disenador", precio: 1180000, anio: 2007,
+    perfumista: "Olivier Gillotin",
     familia: "Tabaco gourmand · Eau de Parfum",
     desc: [
       "Un club de caballeros en frasco: hoja de tabaco y especias sobre vainilla, cacao y frutos secos.",
@@ -1079,7 +1118,7 @@ const PERFUMES = [
   },
   {
     id: "born-roma-donna", nombre: "Born in Roma Donna", marca: "Valentino",
-    genero: "f", tipo: "disenador", precio: 495000,
+    genero: "f", tipo: "disenador", precio: 495000, anio: 2019,
     familia: "Floral amaderado · Eau de Parfum",
     desc: [
       "El contrapunto femenino del frasco con tachuelas. Grosella negra y bergamota abren jugosas y modernas.",
@@ -1092,7 +1131,8 @@ const PERFUMES = [
   },
   {
     id: "nuit-tresor", nombre: "La Nuit Trésor", marca: "Lancôme",
-    genero: "f", tipo: "disenador", precio: 545000,
+    genero: "f", tipo: "disenador", precio: 545000, anio: 2015,
+    perfumista: "Christophe Raynaud y Amandine Clerc-Marie",
     familia: "Gourmand floral · Eau de Parfum",
     desc: [
       "Un diamante negro de rosa y vainilla. La frambuesa y el lichi abren jugosos antes de una rosa profunda y aterciopelada.",
@@ -1118,7 +1158,8 @@ const PERFUMES = [
   },
   {
     id: "coco-noir", nombre: "Coco Noir", marca: "Chanel",
-    genero: "f", tipo: "disenador", precio: 690000,
+    genero: "f", tipo: "disenador", precio: 690000, anio: 2012,
+    perfumista: "Jacques Polge",
     familia: "Ambarado floral · Eau de Parfum",
     desc: [
       "La cara oscura de Coco: pomelo y bergamota abren brillantes sobre un corazón de rosa y jazmín.",
@@ -1131,7 +1172,8 @@ const PERFUMES = [
   },
   {
     id: "gucci-bloom", nombre: "Bloom", marca: "Gucci",
-    genero: "f", tipo: "disenador", precio: 520000,
+    genero: "f", tipo: "disenador", precio: 520000, anio: 2017,
+    perfumista: "Alberto Morillas",
     familia: "Floral blanco · Eau de Parfum",
     desc: [
       "Un jardín de flores blancas sin filtros: nardo, jazmín sambac y enredadera de Rangún, casi sin notas de salida.",
@@ -1144,7 +1186,8 @@ const PERFUMES = [
   },
   {
     id: "paradoxe", nombre: "Paradoxe", marca: "Prada",
-    genero: "f", tipo: "disenador", precio: 560000,
+    genero: "f", tipo: "disenador", precio: 560000, anio: 2022,
+    perfumista: "Nadège Le Garlantezec, Shyamala Maisondieu y Antoine Maisondieu",
     familia: "Floral almizclado · Eau de Parfum",
     desc: [
       "Un jazmín tratado con precisión de laboratorio: limpio, luminoso y envuelto en almizcles blancos.",
@@ -1313,7 +1356,8 @@ const PERFUMES = [
   },
   {
     id: "herod", nombre: "Herod", marca: "Parfums de Marly",
-    genero: "m", tipo: "nicho", precio: 1290000,
+    genero: "m", tipo: "nicho", precio: 1290000, anio: 2012,
+    perfumista: "Olivier Pescheux",
     familia: "Tabaco vainilla · Eau de Parfum",
     desc: [
       "Un tabaco dulce de manual: pimienta y canela abren especiadas sobre un corazón de hoja de tabaco.",
@@ -1326,7 +1370,8 @@ const PERFUMES = [
   },
   {
     id: "percival", nombre: "Percival", marca: "Parfums de Marly",
-    genero: "m", tipo: "nicho", precio: 1250000,
+    genero: "m", tipo: "nicho", precio: 1250000, anio: 2015,
+    perfumista: "Hamid Merati-Kashani",
     familia: "Aromático fougère · Eau de Parfum",
     desc: [
       "Un fougère luminoso y contemporáneo: bergamota y lavanda abren con una limpieza impecable.",
@@ -1339,7 +1384,8 @@ const PERFUMES = [
   },
   {
     id: "erba-pura", nombre: "Erba Pura", marca: "Xerjoff",
-    genero: "u", tipo: "nicho", precio: 1420000, destacado: true,
+    genero: "u", tipo: "nicho", precio: 1420000, destacado: true, anio: 2019,
+    perfumista: "Christian Carbonnel",
     familia: "Frutal ambarado · Eau de Parfum",
     desc: [
       "Una explosión de frutas maduras sobre almizcle blanco: naranja siciliana, frutas tropicales y un dulzor luminoso.",
@@ -1352,7 +1398,7 @@ const PERFUMES = [
   },
   {
     id: "side-effect", nombre: "Side Effect", marca: "Initio",
-    genero: "u", tipo: "nicho", precio: 1380000,
+    genero: "u", tipo: "nicho", precio: 1380000, anio: 2016,
     familia: "Tabaco gourmand · Extrait de Parfum",
     desc: [
       "Ron, canela y tabaco sobre vainilla: un gourmand alcohólico y sensual, pensado para la noche.",
@@ -1365,7 +1411,8 @@ const PERFUMES = [
   },
   {
     id: "grand-soir", nombre: "Grand Soir", marca: "Maison Francis Kurkdjian",
-    genero: "u", tipo: "nicho", precio: 1520000,
+    genero: "u", tipo: "nicho", precio: 1520000, anio: 2016,
+    perfumista: "Francis Kurkdjian",
     familia: "Ambarado vainillado · Eau de Parfum",
     desc: [
       "París de noche en un ámbar dorado. Benjuí, labdanum y vainilla construyen una calidez envolvente y sin aristas.",
@@ -1378,7 +1425,8 @@ const PERFUMES = [
   },
   {
     id: "hacivat", nombre: "Hacivat", marca: "Nishane",
-    genero: "u", tipo: "nicho", precio: 1340000,
+    genero: "u", tipo: "nicho", precio: 1340000, anio: 2017,
+    perfumista: "Jorge Lee",
     familia: "Chipre frutal · Extrait de Parfum",
     desc: [
       "Piña fresca y pomelo sobre un corazón de pachulí y jazmín: el frutal turco que se ganó un culto propio.",
@@ -1391,7 +1439,8 @@ const PERFUMES = [
   },
   {
     id: "interlude-man", nombre: "Interlude Man", marca: "Amouage",
-    genero: "m", tipo: "nicho", precio: 2280000,
+    genero: "m", tipo: "nicho", precio: 2280000, anio: 2012,
+    perfumista: "Pierre Negrin",
     familia: "Ambarado ahumado · Eau de Parfum",
     desc: [
       "El incienso más desafiante de la perfumería moderna: humo, orégano y bergamota abren con una intensidad casi litúrgica.",
@@ -1404,7 +1453,8 @@ const PERFUMES = [
   },
   {
     id: "gypsy-water", nombre: "Gypsy Water", marca: "Byredo",
-    genero: "u", tipo: "nicho", precio: 1120000,
+    genero: "u", tipo: "nicho", precio: 1120000, anio: 2008,
+    perfumista: "Jérôme Epinette",
     familia: "Amaderado aromático · Eau de Parfum",
     desc: [
       "Una hoguera en el bosque: bergamota y enebro abren frescos sobre incienso y pino.",
@@ -1417,7 +1467,7 @@ const PERFUMES = [
   },
   {
     id: "nautica-voyage", nombre: "Voyage", marca: "Nautica",
-    genero: "m", tipo: "disenador", precio: 165000, destacado: true,
+    genero: "m", tipo: "disenador", precio: 165000, destacado: true, anio: 2006,
     familia: "Acuático frutal · Eau de Toilette",
     desc: [
       "El fresco más rentable del mercado: manzana verde y notas marinas abren con una limpieza que evoca la brisa del mar.",
@@ -1430,7 +1480,8 @@ const PERFUMES = [
   },
   {
     id: "ck-eternity", nombre: "Eternity for Men", marca: "Calvin Klein",
-    genero: "m", tipo: "disenador", precio: 285000,
+    genero: "m", tipo: "disenador", precio: 285000, anio: 1989,
+    perfumista: "Carlos Benaïm",
     familia: "Aromático fougère · Eau de Toilette",
     desc: [
       "Un fougère limpio de 1989 que sigue oliendo actual. Lavanda y mandarina abren frescas sobre un corazón de salvia y jazmín.",
@@ -1443,7 +1494,8 @@ const PERFUMES = [
   },
   {
     id: "ck-one", nombre: "CK One", marca: "Calvin Klein",
-    genero: "u", tipo: "disenador", precio: 265000,
+    genero: "u", tipo: "disenador", precio: 265000, anio: 1994,
+    perfumista: "Alberto Morillas y Harry Frémont",
     familia: "Cítrico aromático · Eau de Toilette",
     desc: [
       "El unisex que definió los noventa. Bergamota, piña y papaya abren con una frescura andrógina y transparente.",
@@ -1456,7 +1508,7 @@ const PERFUMES = [
   },
   {
     id: "polo-blue", nombre: "Polo Blue", marca: "Ralph Lauren",
-    genero: "m", tipo: "disenador", precio: 320000,
+    genero: "m", tipo: "disenador", precio: 320000, anio: 2002,
     familia: "Acuático amaderado · Eau de Toilette",
     desc: [
       "Melón, pepino y albahaca abren con una frescura verde y jugosa muy reconocible.",
@@ -1469,7 +1521,8 @@ const PERFUMES = [
   },
   {
     id: "cool-water", nombre: "Cool Water", marca: "Davidoff",
-    genero: "m", tipo: "disenador", precio: 215000,
+    genero: "m", tipo: "disenador", precio: 215000, anio: 1988,
+    perfumista: "Pierre Bourdon",
     familia: "Acuático aromático · Eau de Toilette",
     desc: [
       "El acuático que inventó la categoría en 1988. Menta, lavanda y notas marinas abren con una frescura helada.",
@@ -1482,7 +1535,8 @@ const PERFUMES = [
   },
   {
     id: "leau-issey-homme", nombre: "L'Eau d'Issey Pour Homme", marca: "Issey Miyake",
-    genero: "m", tipo: "disenador", precio: 295000,
+    genero: "m", tipo: "disenador", precio: 295000, anio: 1994,
+    perfumista: "Jacques Cavallier",
     familia: "Acuático amaderado · Eau de Toilette",
     desc: [
       "Yuzu y bergamota abren cítricos y minerales, con esa transparencia japonesa tan característica.",
@@ -1495,7 +1549,8 @@ const PERFUMES = [
   },
   {
     id: "bvlgari-man-black", nombre: "Man in Black", marca: "Bvlgari",
-    genero: "m", tipo: "disenador", precio: 395000,
+    genero: "m", tipo: "disenador", precio: 395000, anio: 2014,
+    perfumista: "Alberto Morillas",
     familia: "Ámbar especiado · Eau de Parfum",
     desc: [
       "Ron y especias abren cálidos sobre un corazón de cuero y tuberosa, una combinación poco común y muy lograda.",
@@ -1508,7 +1563,7 @@ const PERFUMES = [
   },
   {
     id: "azzaro-chrome", nombre: "Chrome", marca: "Azzaro",
-    genero: "m", tipo: "disenador", precio: 275000,
+    genero: "m", tipo: "disenador", precio: 275000, anio: 1996,
     familia: "Cítrico aromático · Eau de Toilette",
     desc: [
       "Limón, bergamota y neroli abren con una limpieza casi jabonosa, fresca y luminosa.",
@@ -1521,7 +1576,7 @@ const PERFUMES = [
   },
   {
     id: "banderas-king", nombre: "King of Seduction", marca: "Antonio Banderas",
-    genero: "m", tipo: "disenador", precio: 145000,
+    genero: "m", tipo: "disenador", precio: 145000, anio: 2019,
     familia: "Aromático amaderado · Eau de Toilette",
     desc: [
       "Bergamota y menta abren frescas sobre un corazón de lavanda y cardamomo.",
@@ -1534,7 +1589,7 @@ const PERFUMES = [
   },
   {
     id: "banderas-secret", nombre: "The Secret", marca: "Antonio Banderas",
-    genero: "m", tipo: "disenador", precio: 150000,
+    genero: "m", tipo: "disenador", precio: 150000, anio: 2010,
     familia: "Amaderado especiado · Eau de Toilette",
     desc: [
       "Manzana y menta abren frescas antes de un corazón de canela y violeta.",
@@ -1547,7 +1602,8 @@ const PERFUMES = [
   },
   {
     id: "light-blue-homme", nombre: "Light Blue Pour Homme", marca: "Dolce&Gabbana",
-    genero: "m", tipo: "disenador", precio: 340000,
+    genero: "m", tipo: "disenador", precio: 340000, anio: 2007,
+    perfumista: "Alberto Morillas",
     familia: "Cítrico amaderado · Eau de Toilette",
     desc: [
       "Pomelo siciliano y mandarina abren con una frescura mediterránea inmediata.",
@@ -1560,7 +1616,8 @@ const PERFUMES = [
   },
   {
     id: "boss-the-scent", nombre: "The Scent", marca: "Hugo Boss",
-    genero: "m", tipo: "disenador", precio: 335000,
+    genero: "m", tipo: "disenador", precio: 335000, anio: 2015,
+    perfumista: "Bruno Jovanovic",
     familia: "Cuero especiado · Eau de Toilette",
     desc: [
       "Jengibre y mandarina abren especiados sobre un corazón de maninka, una fruta africana de aroma adictivo.",
@@ -1573,7 +1630,7 @@ const PERFUMES = [
   },
   {
     id: "ferragamo-uomo", nombre: "Uomo", marca: "Salvatore Ferragamo",
-    genero: "m", tipo: "disenador", precio: 265000,
+    genero: "m", tipo: "disenador", precio: 265000, anio: 2016,
     familia: "Gourmand amaderado · Eau de Toilette",
     desc: [
       "Cardamomo y pimienta negra abren especiados sobre un corazón de flor de naranjo y crema de avellana.",
@@ -1664,7 +1721,7 @@ const PERFUMES = [
   },
   {
     id: "tommy-hilfiger", nombre: "Tommy", marca: "Tommy Hilfiger",
-    genero: "m", tipo: "disenador", precio: 185000,
+    genero: "m", tipo: "disenador", precio: 185000, anio: 1995,
     familia: "Aromático fresco · Eau de Toilette",
     desc: [
       "Un fresco americano de los noventa: manzana, lavanda y menta abren con una alegría despreocupada.",
@@ -1677,7 +1734,7 @@ const PERFUMES = [
   },
   {
     id: "212-vip-women", nombre: "212 VIP", marca: "Carolina Herrera",
-    genero: "f", tipo: "disenador", precio: 385000, destacado: true,
+    genero: "f", tipo: "disenador", precio: 385000, destacado: true, anio: 2010,
     familia: "Gourmand floral · Eau de Parfum",
     desc: [
       "La fiesta neoyorquina en clave femenina: ron y maracuyá abren con una energía burbujeante.",
@@ -1690,7 +1747,7 @@ const PERFUMES = [
   },
   {
     id: "ch-chic", nombre: "Chic for Women", marca: "Carolina Herrera",
-    genero: "f", tipo: "disenador", precio: 355000,
+    genero: "f", tipo: "disenador", precio: 355000, anio: 2001,
     familia: "Floral frutal · Eau de Parfum",
     desc: [
       "Frambuesa y bergamota abren jugosas sobre un corazón de rosa, peonía y magnolia.",
@@ -1703,7 +1760,8 @@ const PERFUMES = [
   },
   {
     id: "lady-million", nombre: "Lady Million", marca: "Rabanne",
-    genero: "f", tipo: "disenador", precio: 445000,
+    genero: "f", tipo: "disenador", precio: 445000, anio: 2010,
+    perfumista: "Anne Flipo, Béatrice Piquet y Dominique Ropion",
     familia: "Floral frutal ambarado · Eau de Parfum",
     desc: [
       "El lingote dorado femenino. Frambuesa, nerolí y limón abren chispeantes sobre un corazón de jazmín y azahar.",
@@ -1716,7 +1774,8 @@ const PERFUMES = [
   },
   {
     id: "bright-crystal", nombre: "Bright Crystal", marca: "Versace",
-    genero: "f", tipo: "disenador", precio: 320000,
+    genero: "f", tipo: "disenador", precio: 320000, anio: 2006,
+    perfumista: "Alberto Morillas",
     familia: "Floral frutal · Eau de Toilette",
     desc: [
       "Granada y yuzu abren luminosos sobre un corazón de peonía, magnolia y loto.",
@@ -1729,7 +1788,7 @@ const PERFUMES = [
   },
   {
     id: "dylan-blue-femme", nombre: "Dylan Blue Femme", marca: "Versace",
-    genero: "f", tipo: "disenador", precio: 340000,
+    genero: "f", tipo: "disenador", precio: 340000, anio: 2017,
     familia: "Floral frutal · Eau de Parfum",
     desc: [
       "Grosella negra y manzana Granny Smith abren ácidas y modernas sobre un corazón de rosa y jazmín.",
@@ -1742,7 +1801,8 @@ const PERFUMES = [
   },
   {
     id: "light-blue-femme", nombre: "Light Blue", marca: "Dolce&Gabbana",
-    genero: "f", tipo: "disenador", precio: 350000,
+    genero: "f", tipo: "disenador", precio: 350000, anio: 2001,
+    perfumista: "Olivier Cresp",
     familia: "Cítrico floral · Eau de Toilette",
     desc: [
       "Manzana Granny Smith y limón siciliano abren con la frescura de una mañana en Capri.",
@@ -1755,7 +1815,8 @@ const PERFUMES = [
   },
   {
     id: "ck-euphoria", nombre: "Euphoria", marca: "Calvin Klein",
-    genero: "f", tipo: "disenador", precio: 315000,
+    genero: "f", tipo: "disenador", precio: 315000, anio: 2005,
+    perfumista: "Dominique Ropion, Carlos Benaïm y Loc Dong",
     familia: "Floral amaderado · Eau de Parfum",
     desc: [
       "Granada y caqui abren exóticos sobre un corazón de orquídea negra y loto.",
@@ -1768,7 +1829,8 @@ const PERFUMES = [
   },
   {
     id: "lancome-tresor", nombre: "Trésor", marca: "Lancôme",
-    genero: "f", tipo: "disenador", precio: 425000,
+    genero: "f", tipo: "disenador", precio: 425000, anio: 1990,
+    perfumista: "Sophia Grojsman",
     familia: "Floral empolvado · Eau de Parfum",
     desc: [
       "Un clásico de 1990: melocotón y lila abren sobre un corazón de rosa e iris muy empolvado.",
@@ -1781,7 +1843,8 @@ const PERFUMES = [
   },
   {
     id: "amor-amor", nombre: "Amor Amor", marca: "Cacharel",
-    genero: "f", tipo: "disenador", precio: 265000,
+    genero: "f", tipo: "disenador", precio: 265000, anio: 2003,
+    perfumista: "Laurent Bruyère y Dominique Ropion",
     familia: "Floral frutal · Eau de Toilette",
     desc: [
       "Grosella negra, mandarina y naranja abren vibrantes sobre un corazón de jazmín y lirio.",
@@ -1794,7 +1857,8 @@ const PERFUMES = [
   },
   {
     id: "flower-kenzo", nombre: "Flower by Kenzo", marca: "Kenzo",
-    genero: "f", tipo: "disenador", precio: 335000,
+    genero: "f", tipo: "disenador", precio: 335000, anio: 2000,
+    perfumista: "Alberto Morillas",
     familia: "Floral empolvado · Eau de Parfum",
     desc: [
       "La amapola roja del frasco anuncia un floral empolvado y sereno: violeta, rosa búlgara y hedione.",
@@ -1807,7 +1871,8 @@ const PERFUMES = [
   },
   {
     id: "leau-issey-femme", nombre: "L'Eau d'Issey", marca: "Issey Miyake",
-    genero: "f", tipo: "disenador", precio: 300000,
+    genero: "f", tipo: "disenador", precio: 300000, anio: 1992,
+    perfumista: "Jacques Cavallier",
     familia: "Floral acuático · Eau de Toilette",
     desc: [
       "Loto, rosa de agua y melón abren con una transparencia acuática única en su categoría.",
@@ -1820,7 +1885,8 @@ const PERFUMES = [
   },
   {
     id: "green-tea", nombre: "Green Tea", marca: "Elizabeth Arden",
-    genero: "f", tipo: "disenador", precio: 145000,
+    genero: "f", tipo: "disenador", precio: 145000, anio: 1999,
+    perfumista: "Francis Kurkdjian",
     familia: "Cítrico verde · Eau de Toilette",
     desc: [
       "Té verde, limón y menta abren con una frescura limpia y herbal muy relajante.",
@@ -1833,7 +1899,8 @@ const PERFUMES = [
   },
   {
     id: "clinique-happy", nombre: "Happy", marca: "Clinique",
-    genero: "f", tipo: "disenador", precio: 265000,
+    genero: "f", tipo: "disenador", precio: 265000, anio: 1997,
+    perfumista: "Jean-Claude Delville",
     familia: "Cítrico floral · Eau de Parfum",
     desc: [
       "Pomelo rosa y naranja abren radiantes sobre un corazón de magnolia y orquídea.",
@@ -1846,7 +1913,8 @@ const PERFUMES = [
   },
   {
     id: "omnia-crystalline", nombre: "Omnia Crystalline", marca: "Bvlgari",
-    genero: "f", tipo: "disenador", precio: 355000,
+    genero: "f", tipo: "disenador", precio: 355000, anio: 2005,
+    perfumista: "Alberto Morillas",
     familia: "Floral acuático · Eau de Toilette",
     desc: [
       "Bambú y pera nashi abren con una transparencia cristalina muy elegante.",
@@ -1859,7 +1927,8 @@ const PERFUMES = [
   },
   {
     id: "nina-ricci", nombre: "Nina", marca: "Nina Ricci",
-    genero: "f", tipo: "disenador", precio: 285000,
+    genero: "f", tipo: "disenador", precio: 285000, anio: 2006,
+    perfumista: "Olivier Cresp",
     familia: "Floral frutal · Eau de Toilette",
     desc: [
       "La manzana roja de cristal esconde un floral goloso: limón, lima y toffee abren dulces.",
@@ -1872,7 +1941,7 @@ const PERFUMES = [
   },
   {
     id: "britney-fantasy", nombre: "Fantasy", marca: "Britney Spears",
-    genero: "f", tipo: "disenador", precio: 175000,
+    genero: "f", tipo: "disenador", precio: 175000, anio: 2005,
     familia: "Gourmand frutal · Eau de Parfum",
     desc: [
       "Kiwi, lichi y cupcake rojo abren descaradamente dulces, en uno de los gourmand más vendidos de la historia.",
@@ -1911,7 +1980,7 @@ const PERFUMES = [
   },
   {
     id: "guess-girl", nombre: "Guess Girl", marca: "Guess",
-    genero: "f", tipo: "disenador", precio: 155000,
+    genero: "f", tipo: "disenador", precio: 155000, anio: 2016,
     familia: "Floral frutal · Eau de Toilette",
     desc: [
       "Pera y grosella negra abren jugosas sobre un corazón de peonía y jazmín.",
